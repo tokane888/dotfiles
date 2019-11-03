@@ -1,5 +1,6 @@
 # personal setting
 alias ll='ls -l'
+alias lal='ls -al'
 alias crontab='crontab -i'
 function mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
