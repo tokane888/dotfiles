@@ -5,6 +5,7 @@ APT_PACKAGES=(
   sudo
   tree
   vim
+  wget
 )
 
 set -eux
