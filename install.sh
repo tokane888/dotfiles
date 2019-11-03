@@ -2,7 +2,6 @@
 
 APT_PACKAGES=(
   curl
-  sudo
   tree
   vim
   wget
