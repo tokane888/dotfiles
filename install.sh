@@ -1,10 +1,15 @@
 #!/bin/bash
 
+DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   curl
   tree
   vim
   wget
+)
+
+DOT_FILES=(
+  .vimrc
 )
 
 set -eux
@@ -37,7 +42,10 @@ main() {
   fi
   # TODO: yum対応
 
-  # TODO: .bashrc, .vimrc設定
+  # TODO: .bashrc設定
+  for file in $DOT_FILES; do
+    [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
+  done
 }
 
 main
