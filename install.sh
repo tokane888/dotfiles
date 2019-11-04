@@ -3,6 +3,9 @@
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   curl
+  gcc
+  golang
+  make
   tree
   vim
   wget
