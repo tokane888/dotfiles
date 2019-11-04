@@ -47,10 +47,12 @@ main() {
   fi
   # TODO: yum対応
 
-  # TODO: .bashrc設定
-  for file in $DOT_FILES; do
+  for file in ${DOT_FILES[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
+
+  cd
+  source .bashrc
 }
 
 main
