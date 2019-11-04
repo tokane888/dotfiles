@@ -1,9 +1,4 @@
 # personal setting
-alias ll='ls -l'
-alias lal='ls -al'
-alias crontab='crontab -i'
-function mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
-
 cat /etc/os-release | grep -Po 'PRETTY_NAME="\K.*(?=")'
 cd
 

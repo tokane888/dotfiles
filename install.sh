@@ -10,6 +10,8 @@ APT_PACKAGES=(
 
 DOT_FILES=(
   .vimrc
+  .bash_aliases
+  .bashrc
 )
 
 set -eux
