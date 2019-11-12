@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_FILES_DIR=".local/dotfiles/"
+DOT_FILES_DIR=".config/dotfiles/"
 APT_PACKAGES=(
   curl
   gcc
