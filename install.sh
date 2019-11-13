@@ -6,6 +6,8 @@ APT_PACKAGES=(
   gcc
   golang
   make
+  nodejs
+  npm
   tree
   vim
   wget
