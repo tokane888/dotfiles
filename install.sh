@@ -60,8 +60,7 @@ main() {
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
 
-  cd
-  source .bashrc
+  source ~/.bashrc
 }
 
 main
