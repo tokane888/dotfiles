@@ -4,7 +4,7 @@ DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   curl
   gcc
-  golang
+  golang-go
   make
   nodejs
   npm
@@ -31,6 +31,12 @@ can_use_command() {
   [ -x "$(command -v $command)" ]
 }
 
+add_apt_repository() {
+  add-apt-repository -y ppa:longsleep/golang-backports
+  apt-get update -y
+  apt-get install -y golang-go
+}
+
 install_apt_packages() {
   apt update -y
   for package in ${APT_PACKAGES[@]}; do
@@ -45,6 +51,7 @@ main() {
   fi
 
   if $(can_use_command "apt"); then
+    add_apt_repository
     install_apt_packages
   fi
   # TODO: yum対応
