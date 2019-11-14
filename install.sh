@@ -38,9 +38,9 @@ add_apt_repository() {
 }
 
 install_apt_packages() {
-  apt update -y
+  apt-get update -y
   for package in ${APT_PACKAGES[@]}; do
-    apt install -y $package
+    apt-get install -y $package
   done
 }
 
