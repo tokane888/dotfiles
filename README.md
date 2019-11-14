@@ -14,10 +14,10 @@ yum install -y git sudo
 # Install
 
 ```
-mkdir -p ~/.config
-cd ~/.config
+mkdir -p ~/.local
+cd ~/.local
 git clone https://github.com/tokane888/dotfiles.git
-cd ~/.config/dotfiles
+cd ~/.local/dotfiles
 chmod 777 install.sh
 sudo ./install.sh
 ```
