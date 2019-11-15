@@ -1,4 +1,5 @@
 # personal setting
+
 cat /etc/os-release | grep -Po 'PRETTY_NAME="\K.*(?=")'
 cd
 
@@ -7,3 +8,6 @@ if [[ -t 0 ]]; then
   stty stop undef
   stty start undef
 fi
+
+GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
