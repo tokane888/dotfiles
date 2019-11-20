@@ -8,6 +8,7 @@ APT_PACKAGES=(
   make
   nodejs
   npm
+  openssh-server
   tree
   vim
   wget
