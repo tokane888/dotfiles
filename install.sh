@@ -17,7 +17,10 @@ APT_PACKAGES=(
 DOT_FILES=(
   .vimrc
   .bash_aliases
-  .bashrc
+)
+
+GO_GETS=(
+  github.com/golang/dep/cmd/dep
 )
 
 set -eux
@@ -33,15 +36,30 @@ can_use_command() {
 }
 
 add_apt_repository() {
-  add-apt-repository -y ppa:longsleep/golang-backports
-  apt-get update -y
-  apt-get install -y golang-go
+  local go_repo="longsleep-ubuntu-golang-backports-xenial.list"
+  local go_repo_path=/etc/apt/sources.list.d/$go_repo
+  local code_name=$(lsb_release -cs)
+  touch $go_repo_path
+  "deb http://ppa.launchpad.net/longsleep/golang-backports/ubuntu $code_name main" >$go_repo_path
+  "# deb-src http://ppa.launchpad.net/longsleep/golang-backports/ubuntu $code_name main" >>$go_repo_path
+  apt-get update -y -o Dir::Etc::sourcelist="sources.list.d/$go_repo"
+  # TODO: ラズパイ上では上記のrepo使えないので消す
+  # 　　　　ラズパイだとgolang1.11が標準のrepoから落とせるのでそもそも別repoは不要
 }
 
 install_apt_packages() {
   apt-get update -y
   for package in ${APT_PACKAGES[@]}; do
     apt-get install -y $package
+  done
+}
+
+go_get() {
+  # TODO: ここでのPATH設定は暫定対応。.bashrcなどへ整理する
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+  for target in ${GO_GETS[@]}; do
+    go get -u $target
   done
 }
 
@@ -56,10 +74,13 @@ main() {
     install_apt_packages
   fi
   # TODO: yum対応
+  go_get
 
   for file in ${DOT_FILES[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
+  # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
+  cat .bashrc >>~/$.bashrc
 
   source ~/.bashrc
 }
