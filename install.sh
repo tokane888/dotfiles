@@ -20,6 +20,10 @@ DOT_FILES=(
   .bashrc
 )
 
+GO_GETS=(
+  github.com/golang/dep/cmd/dep
+)
+
 set -eux
 
 is_root() {
@@ -51,6 +55,16 @@ install_apt_packages() {
   done
 }
 
+go_get() {
+  mkdir $HOME/.go
+  # TODO: ここでのPATH設定は暫定対応。.bashrcなどへ整理する
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+  for target in ${GO_GETS[@]}; do
+    go get -u $target
+  done
+}
+
 main() {
   if ! $(is_root); then
     echo "Please run with sudo."
@@ -62,6 +76,7 @@ main() {
     install_apt_packages
   fi
   # TODO: yum対応
+  go_get
 
   for file in ${DOT_FILES[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
