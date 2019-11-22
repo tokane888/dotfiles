@@ -17,7 +17,6 @@ APT_PACKAGES=(
 DOT_FILES=(
   .vimrc
   .bash_aliases
-  .bashrc
 )
 
 GO_GETS=(
@@ -83,6 +82,8 @@ main() {
   for file in ${DOT_FILES[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
+  # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
+  cat .bashrc >>~/$.bashrc
 
   end_time=$(date +%s)
   run_time=$((end_time - start_time))
