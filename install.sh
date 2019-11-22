@@ -66,6 +66,8 @@ go_get() {
 }
 
 main() {
+  start_time=$(date +%s)
+
   if ! $(is_root); then
     echo "Please run with sudo."
     exit 1
@@ -81,6 +83,10 @@ main() {
   for file in ${DOT_FILES[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
+
+  end_time=$(date +%s)
+  run_time=$((end_time - start_time))
+  echo "$run_time 秒で初期化"
 }
 
 main
