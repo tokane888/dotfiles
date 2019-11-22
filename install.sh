@@ -81,8 +81,6 @@ main() {
   for file in ${DOT_FILES[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
-
-  source ~/.bashrc
 }
 
 main
