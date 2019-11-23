@@ -1,19 +1,8 @@
-# Preparation(install git)
+# Ubuntuへインストール
 
 ```
 apt update -y
 apt install -y git sudo
-```
-又は
-```
-yum update -y
-yum install -y git sudo
-```
-
-
-# Install
-
-```
 mkdir -p ~/.local
 cd ~/.local
 git clone https://github.com/tokane888/dotfiles.git
