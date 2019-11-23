@@ -49,7 +49,8 @@ add_apt_repository() {
 
 install_apt_packages() {
   apt-get update -y
-  apt-get install -y ${APT_PACKAGES[*]}
+  # golang-goインストール時にエラーになるので認証なし許容
+  apt-get install -y --allow-unauthenticated ${APT_PACKAGES[*]}
 }
 
 go_get() {
