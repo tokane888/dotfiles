@@ -1,0 +1,25 @@
+[core]
+autocrlf = false
+[user]
+name = tokane888
+email = tokane888@gmail.com
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+[alias]
+cg = config --global
+clg = config -l --global
+cm = commit -m
+b = branch
+ch = checkout
+cp = !"git checkout master && git pull"
+cpm = !"git checkout master && git pull && git checkout - && git merge master"
+dc = diff --cached
+st = status
+ss = stash save
+sp = stash pop
+sl = stash list
+lo = log --oneline
+dw = diff -w
