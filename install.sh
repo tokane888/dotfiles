@@ -36,15 +36,9 @@ can_use_command() {
 }
 
 add_apt_repository() {
-  local go_repo="longsleep-ubuntu-golang-backports-xenial.list"
-  local go_repo_path=/etc/apt/sources.list.d/$go_repo
-  local code_name=$(lsb_release -cs)
-  touch $go_repo_path
-  echo "deb http://ppa.launchpad.net/longsleep/golang-backports/ubuntu $code_name main" >$go_repo_path
-  echo "# deb-src http://ppa.launchpad.net/longsleep/golang-backports/ubuntu $code_name main" >>$go_repo_path
-  apt-get update -y -o Dir::Etc::sourcelist="sources.list.d/$go_repo"
-  # TODO: ラズパイ上では上記のrepo使えないので消す
-  # 　　　　ラズパイだとgolang1.11が標準のrepoから落とせるのでそもそも別repoは不要
+  add-apt-repository -y ppa:longsleep/golang-backports
+  apt-get update -y
+  apt-get install -y golang-go
 }
 
 install_apt_packages() {
