@@ -58,7 +58,7 @@ go_get() {
 }
 
 main() {
-  start_time=$(date +%s)
+  local start_time=$(date +%s)
 
   if ! $(is_root); then
     echo "Please run with sudo."
@@ -81,8 +81,8 @@ main() {
   # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
   # 実行終了する記載がある場合があるので手動で読み込む
 
-  end_time=$(date +%s)
-  run_time=$((end_time - start_time))
+  local end_time=$(date +%s)
+  local run_time=$((end_time - start_time))
   echo "$run_time 秒で初期化"
   echo ". ~/.bashrc を実行して下さい"
 }
