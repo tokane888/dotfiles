@@ -41,9 +41,6 @@ add_apt_repository() {
   #       かつデフォルトのリポジトリから比較的新しいバージョンがインストール可能。
   #       なのでラズパイの場合は当該リポジトリの追加を行わない
   add-apt-repository -y ppa:longsleep/golang-backports
-  local code_name=$(lsb_release -cs)
-  local go_repo="longsleep-ubuntu-golang-backports-$code_name.list"
-  apt-get update -y -o Dir::Etc::sourcelist="sources.list.d/$go_repo"
 }
 
 install_apt_packages() {
@@ -69,8 +66,8 @@ main() {
   fi
 
   if $(can_use_command "apt"); then
-    apt-get update -y
     add_apt_repository
+    apt-get update -y
     install_apt_packages
   fi
   # TODO: yum対応
