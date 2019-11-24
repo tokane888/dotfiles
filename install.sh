@@ -37,12 +37,10 @@ can_use_command() {
 
 add_apt_repository() {
   add-apt-repository -y ppa:longsleep/golang-backports
-  apt-get update -y
   apt-get install -y golang-go
 }
 
 install_apt_packages() {
-  apt-get update -y
   apt-get install -y ${APT_PACKAGES[*]}
 }
 
@@ -65,6 +63,7 @@ main() {
   fi
 
   if $(can_use_command "apt"); then
+    apt-get update -y
     add_apt_repository
     install_apt_packages
   fi
