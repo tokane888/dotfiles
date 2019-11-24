@@ -18,7 +18,7 @@ sudo ./install.sh
 command -v git || (sudo apt update -y; sudo apt install git)
 mkdir -p ~/.local
 cd ~/.local
-yes yes | git clone git@github.com:tokane888/dotfiles.git
+git clone git@github.com:tokane888/dotfiles.git
 cd ~/.local/dotfiles
 sudo ./install.sh
 ```
