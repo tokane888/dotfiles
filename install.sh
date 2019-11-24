@@ -36,6 +36,8 @@ can_use_command() {
 }
 
 add_apt_repository() {
+  apt-get install -y software-properties-common
+  # add-apt-repository実行で当該repositoryに対するapt updateも行われる
   add-apt-repository -y ppa:longsleep/golang-backports
 }
 
