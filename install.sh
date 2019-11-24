@@ -37,7 +37,6 @@ can_use_command() {
 
 add_apt_repository() {
   add-apt-repository -y ppa:longsleep/golang-backports
-  apt-get install -y golang-go
 }
 
 install_apt_packages() {
