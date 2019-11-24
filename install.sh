@@ -51,7 +51,7 @@ install_apt_packages() {
 }
 
 go_get() {
-  mkdir $HOME/.go
+  mkdir -p $HOME/.go
   # TODO: ここでのPATH設定は暫定対応。.bashrcなどへ整理する
   export GOPATH=$HOME/.go
   export PATH=$PATH:$GOPATH/bin
