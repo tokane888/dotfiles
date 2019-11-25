@@ -14,3 +14,4 @@ PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\
 
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
+export LESSCHARSET=utf-8
