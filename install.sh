@@ -81,6 +81,7 @@ main() {
   local run_time=$((end_time - start_time))
   echo "$run_time 秒で初期化"
   echo ". ~/.bashrc を実行して下さい"
+  echo ".gitconfigのuser, passは必要に応じて修正して下さい"
 }
 
 main
