@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_FILES_DIR=".local/dotfiles/"
+dot_files_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   curl
   gcc
@@ -12,11 +12,6 @@ APT_PACKAGES=(
   tree
   vim
   wget
-)
-
-DOT_FILES=(
-  .vimrc
-  .bash_aliases
 )
 
 GO_GETS=(
@@ -73,8 +68,9 @@ main() {
   # TODO: yum対応
   go_get
 
-  for file in ${DOT_FILES[@]}; do
-    [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
+  dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$)')
+  for file in ${dot_files[@]}; do
+    [ ! -e ~/$file ] && ln -s ${dot_files_DIR}$file ~/$file
   done
   # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
   cat .bashrc >>~/.bashrc
