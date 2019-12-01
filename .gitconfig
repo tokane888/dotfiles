@@ -1,6 +1,7 @@
 [core]
 autocrlf = false
 editor = vim
+ignorecase = true
 [user]
 name = tokane888
 email = tokane888@gmail.com
