@@ -68,7 +68,7 @@ main() {
   # TODO: yum対応
   go_get
 
-  dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$)')
+  local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$)')
   for file in ${dot_files[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
