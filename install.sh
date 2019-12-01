@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dot_files_DIR=".local/dotfiles/"
+DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   curl
   gcc
@@ -70,7 +70,7 @@ main() {
 
   dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$)')
   for file in ${dot_files[@]}; do
-    [ ! -e ~/$file ] && ln -s ${dot_files_DIR}$file ~/$file
+    [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
   # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
   cat .bashrc >>~/.bashrc
