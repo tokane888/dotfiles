@@ -9,7 +9,12 @@ if [[ -t 0 ]]; then
   stty start undef
 fi
 
-# プロンプトの末尾に改行追加
+# プロンプトの末尾にgit情報及び改行追加
+export GIT_PS1_SHOWUPSTREAM=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+source /usr/share/bash-completion/completions/git
+source /usr/lib/git-core/git-sh-prompt
 PS1='\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[0;35m\]$(__git_ps1)\n\[\e[00m\]\$ '
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
