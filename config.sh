@@ -21,4 +21,5 @@ APT_REPOS=(
 
 GO_GETS=(
   github.com/golang/dep/cmd/dep
+  github.com/go-delve/delve/cmd/dlv
 )
