@@ -18,7 +18,11 @@ add_apt_repository() {
   # TODO: ラズパイの場合には当該リポジトリからダウンロード不可。
   #       かつデフォルトのリポジトリから比較的新しいバージョンがインストール可能。
   #       なのでラズパイの場合は当該リポジトリの追加を行わない
-  add-apt-repository -y ppa:longsleep/golang-backports
+
+  # 複数リポジトリを1コマンドで追加するとエラーになるので1つずつ行う
+  for repo in ${APT_REPOS[@]}; do
+    add-apt-repository -y $repo
+  done
 }
 
 install_apt_packages() {

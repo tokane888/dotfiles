@@ -14,6 +14,11 @@ APT_PACKAGES=(
   wget
 )
 
+APT_REPOS=(
+  ppa:longsleep/golang-backports
+  ppa:jonathonf/vim
+)
+
 GO_GETS=(
   github.com/golang/dep/cmd/dep
 )
