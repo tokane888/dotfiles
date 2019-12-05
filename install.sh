@@ -39,6 +39,12 @@ go_get() {
   done
 }
 
+install_vim_plugins() {
+  mkdir -p ~/.vim/bundle/
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
+}
+
 main() {
   local start_time=$(date +%s)
 
@@ -59,6 +65,9 @@ main() {
   for file in ${dot_files[@]}; do
     [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
   done
+
+  install_vim_plugins
+
   # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
   cat .bashrc >>~/.bashrc
   # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
