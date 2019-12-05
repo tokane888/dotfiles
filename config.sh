@@ -2,6 +2,8 @@
 
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
+  build-essential
+  cmake
   curl
   gcc
   golang-go
@@ -9,6 +11,7 @@ APT_PACKAGES=(
   nodejs
   npm
   openssh-server
+  python3-dev
   tree
   vim
   wget
