@@ -9,6 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'cohama/lexima.vim'
 
 Plugin 'fatih/vim-go'
 " All of your Plugins must be added before the following line
