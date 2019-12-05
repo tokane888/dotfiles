@@ -1,4 +1,4 @@
-# Ubuntu実機へインストール
+# Ubuntuへインストール
 
 ```
 command -v sudo || (apt update -y; apt install -y git sudo)
@@ -10,7 +10,7 @@ cd ~/.local/dotfiles
 sudo ./install.sh
 ```
 
-# Ubuntu実機へインストール（pushも行う場合）
+# Ubuntuへインストール（pushも行う場合）
 
 * localのid_rsaを新環境の~/.ssh/id_rsaへコピー
 * `chmod 0600 id_rsa`
