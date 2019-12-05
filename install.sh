@@ -31,7 +31,8 @@ install_apt_packages() {
 
 go_get() {
   mkdir -p $HOME/.go
-  # TODO: ここでのPATH設定は暫定対応。.bashrcなどへ整理する
+  # GOPATH, PATH設定は.bashrcでも行っているが、PS1変数未定義などで弾かれる。
+  # そのため、go getをここで実行するためにGOPATH, PATHをexport
   export GOPATH=$HOME/.go
   export PATH=$PATH:$GOPATH/bin
   for target in ${GO_GETS[@]}; do
