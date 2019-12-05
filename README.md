@@ -1,7 +1,8 @@
 # Ubuntu実機へインストール
 
 ```
-command -v git || (sudo apt update -y; sudo apt install git)
+command -v sudo || (apt update -y; apt install -y git sudo)
+command -v git || (sudo apt update -y; sudo apt install -y git)
 mkdir -p ~/.local
 cd ~/.local
 git clone https://github.com/tokane888/dotfiles.git
