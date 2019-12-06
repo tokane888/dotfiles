@@ -34,11 +34,17 @@ filetype plugin indent on    " required
 
 set autoindent
 set encoding=utf-8
+set expandtab
 set hlsearch
 set number
 set shiftwidth=2
 set smartindent
 set tabstop=2
+
+let _curfile=expand("%:r")
+if _curfile == 'Makefile'
+  set noexpandtab
+endif
 
 " コピペ時のインデントずれ対策
 if &term =~ "xterm"
