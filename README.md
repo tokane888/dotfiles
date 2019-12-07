@@ -1,8 +1,8 @@
 # Ubuntuへインストール
 
 ```
-command -v sudo || (apt update -y; apt install -y git sudo)
-command -v git || (sudo apt update -y; sudo apt install -y git)
+apt update -y;
+apt install -y git sudo;
 mkdir -p ~/.local
 cd ~/.local
 git clone https://github.com/tokane888/dotfiles.git
