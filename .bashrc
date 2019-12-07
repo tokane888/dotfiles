@@ -18,6 +18,7 @@ source /usr/lib/git-core/git-sh-prompt
 PS1='\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[0;35m\]$(__git_ps1)\n\[\e[00m\]\$ '
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
+# gitのコミットログ文字化け対策
 export LESSCHARSET=utf-8
 # docker上で日本語入力できない対策
 export LC_ALL=ja_JP.UTF-8

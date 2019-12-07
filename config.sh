@@ -2,8 +2,8 @@
 
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
-  build-essential
-  cmake
+  build-essential # vim補完するYouCompleteMeが依存
+  cmake # vim補完するYouCompleteMeが依存
   curl
   gcc
   golang-go
@@ -12,7 +12,7 @@ APT_PACKAGES=(
   nodejs
   npm
   openssh-server
-  python3-dev
+  python3-dev # vim補完するYouCompleteMeが依存
   tree
   vim
   wget
