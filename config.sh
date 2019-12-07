@@ -7,6 +7,7 @@ APT_PACKAGES=(
   curl
   gcc
   golang-go
+  locales # docker上で日本語使うため
   make
   nodejs
   npm

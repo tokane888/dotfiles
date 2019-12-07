@@ -47,6 +47,11 @@ install_vim_plugins() {
   python3 ~/.vim/bundle/YouCompleteMe/install.py --go-completer
 }
 
+set_locale() {
+  sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
+  locale-gen ja_JP.utf8
+}
+
 main() {
   local start_time=$(date +%s)
 
@@ -69,6 +74,7 @@ main() {
   done
 
   install_vim_plugins
+  set_locale
 
   # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
   cat .bashrc >>~/.bashrc
