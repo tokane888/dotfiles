@@ -10,8 +10,8 @@ APT_PACKAGES=(
   libclang-dev # vim補完するYouCompleteMeが依存
   locales # docker上で日本語使うため
   make
-  nodejs
-  npm
+  # nodejs
+  # npm
   openssh-server
   python3-dev # vim補完するYouCompleteMeが依存
   tree
