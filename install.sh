@@ -63,14 +63,12 @@ set_locale() {
 
 set_timezone() {
   if [ $(date +%Z) = "UTC" ]; then
-    if [ $(command -v apt) ]; then
-      if is_valid_exit_code "timedatectl"; then
-        timedatectl set-timezone Asia/Tokyo
-      else
-        apt install -y tzdata
-      fi
-      # TODO: ラズパイでもこの対応で良いか確認
+    if is_valid_exit_code "timedatectl"; then
+      timedatectl set-timezone Asia/Tokyo
+    else
+      apt install -y tzdata
     fi
+    # TODO: ラズパイでもこの対応で良いか確認
   fi
 }
 
