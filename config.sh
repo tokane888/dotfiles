@@ -14,6 +14,7 @@ APT_PACKAGES=(
   openssh-server
   python3-dev # vim補完するYouCompleteMeが依存
   tree
+  tzdata
   vim
   wget
 )

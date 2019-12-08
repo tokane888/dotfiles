@@ -47,9 +47,27 @@ install_vim_plugins() {
   python3 ~/.vim/bundle/YouCompleteMe/install.py --go-completer
 }
 
+is_valid_exit_code() {
+  local cmd=$1
+  $cmd
+}
+
 set_locale() {
   sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
   locale-gen ja_JP.utf8
+}
+
+set_timezone() {
+  if [ $(date +%Z) = "UTC" ]; then
+    if [ $(command -v apt) ]; then
+      if is_valid_exit_code "timedatectl"; then
+        timedatectl set-timezone Asia/Tokyo
+      else
+        apt install -y tzdata
+      fi
+      # TODO: ラズパイでもこの対応で良いか確認
+    fi
+  fi
 }
 
 main() {
@@ -75,6 +93,7 @@ main() {
 
   install_vim_plugins
   set_locale
+  set_timezone
 
   # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
   cat .bashrc >>~/.bashrc

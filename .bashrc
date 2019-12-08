@@ -22,3 +22,4 @@ export PATH=$PATH:$GOPATH/bin
 export LESSCHARSET=utf-8
 # docker上で日本語入力できない対策
 export LC_ALL=ja_JP.UTF-8
+export TZ=Asia/Tokyo
