@@ -10,16 +10,13 @@ cd ~/.local/dotfiles
 sudo ./install.sh
 ```
 
-# Ubuntuへインストール（pushも行う場合）
-
-* localのid_rsaを新環境の~/.ssh/id_rsaへコピー
-* `chmod 0600 id_rsa`
+# CentOSへインストール
 
 ```
-command -v git || (sudo apt update -y; sudo apt install git)
+yum install -y git sudo;
 mkdir -p ~/.local
 cd ~/.local
-git clone git@github.com:tokane888/dotfiles.git
+git clone https://github.com/tokane888/dotfiles.git
 cd ~/.local/dotfiles
 sudo ./install.sh
 ```
