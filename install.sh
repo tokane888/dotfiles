@@ -25,8 +25,35 @@ add_apt_repository() {
   done
 }
 
+add_rpm_repository() {
+  for repo in ${RPM_REPOS[@]}; do
+    yum install -y $repo
+  done
+}
+
 install_apt_packages() {
   apt-get install -y ${APT_PACKAGES[*]}
+}
+
+install_rpm_packages() {
+  yum install -y ${RPM_PACKAGES[*]}
+}
+
+# 最新のvimがおいてあるリポジトリが見つからないのでソースからビルド
+install_latest_vim_on_cent() {
+  yum erase -y vim
+
+  pushd .
+  mkdir -p vim
+  cd vim
+  wget https://github.com/vim/vim/archive/master.zip
+  unzip master.zip
+  cd vim-master/src
+  ./configure --enable-gui=no --enable-python3interp
+  make
+  make install
+  [ ! -e /usr/bin/vim ] && ln -s /root/.local/dotfiles/vim/vim-master/src/vim /usr/bin/vim
+  popd
 }
 
 go_get() {
@@ -84,6 +111,10 @@ main() {
     add_apt_repository
     apt-get update -y
     install_apt_packages
+  elif $(can_use_command "yum"); then
+    add_rpm_repository
+    install_rpm_packages
+    install_latest_vim_on_cent
   fi
   # TODO: yum対応
   go_get

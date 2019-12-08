@@ -25,6 +25,24 @@ APT_REPOS=(
   ppa:jonathonf/vim
 )
 
+RPM_PACKAGES=(
+  bash-completion
+  cmake
+  gcc # vimビルド時に使用
+  gcc-c++ # YouCompleteMeが依存
+  golang
+  make
+  ncurses-devel # vimビルド時に使用
+  python3-devel # YouCompleteMeが依存
+  tree
+  unzip
+  wget
+)
+
+RPM_REPOS=(
+  epel-release
+)
+
 GO_GETS=(
   github.com/golang/dep/cmd/dep
   github.com/go-delve/delve/cmd/dlv
