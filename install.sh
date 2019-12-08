@@ -53,9 +53,12 @@ is_valid_exit_code() {
 }
 
 set_locale() {
-  # docker上で日本語入力を可能に
-  sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
-  locale-gen ja_JP.utf8
+  # centOSでは元から日本語入力可能なので対応不要。ラズパイは不明
+  if [ $(command -v apt) ]; then
+    # docker上で日本語入力を可能に
+    sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
+    locale-gen ja_JP.utf8
+  fi
 }
 
 set_timezone() {
