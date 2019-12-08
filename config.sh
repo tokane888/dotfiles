@@ -7,6 +7,7 @@ APT_PACKAGES=(
   curl
   gcc
   golang-go
+  libclang-dev # vim補完するYouCompleteMeが依存
   locales # docker上で日本語使うため
   make
   nodejs
