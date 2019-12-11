@@ -40,6 +40,7 @@ set number
 set shiftwidth=2
 set smartindent
 set tabstop=2
+set backspace=indent,eol,start
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
