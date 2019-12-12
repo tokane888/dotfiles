@@ -35,6 +35,7 @@ RPM_PACKAGES=(
   tree
   unzip
   wget
+  yum-utils
 )
 
 RPM_REPOS=(
