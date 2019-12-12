@@ -72,6 +72,8 @@ install_vim_plugins() {
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
   python3 ~/.vim/bundle/YouCompleteMe/install.py --go-completer
+  # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
+  vim +'silent :GoInstallBinaries' +qall
 }
 
 is_valid_exit_code() {
