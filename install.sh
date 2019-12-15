@@ -56,6 +56,13 @@ install_latest_vim_on_cent() {
   popd
 }
 
+setup_yum() {
+  if $(can_use_command "yum"); then
+    # dockerのyum設定から、manpageを取得しない設定削除
+    sed -i s/tsflags=nodocs//g /etc/yum.conf
+  fi
+}
+
 go_get() {
   mkdir -p $HOME/.go
   # GOPATH, PATH設定は.bashrcでも行っているが、PS1変数未定義などで弾かれる。
@@ -113,7 +120,9 @@ main() {
     add_apt_repository
     apt-get update -y
     install_apt_packages
+    # TODO: manページ対応
   elif $(can_use_command "yum"); then
+    setup_yum
     add_rpm_repository
     install_rpm_packages
     install_latest_vim_on_cent

@@ -30,6 +30,7 @@ RPM_PACKAGES=(
   gcc-c++ # YouCompleteMeが依存
   golang
   make
+  man-pages
   ncurses-devel # vimビルド時に使用
   python3-devel # YouCompleteMeが依存
   tree
