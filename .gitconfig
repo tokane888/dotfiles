@@ -10,6 +10,8 @@ clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
+[push]
+default = simple
 [alias]
 cg = config --global
 clg = config -l --global
