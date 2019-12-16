@@ -13,7 +13,9 @@ sudo ./install.sh
 # CentOSへインストール
 
 ```
-yum install -y git sudo;
+yum remove -y git
+yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+yum install -y git2u sudo;
 mkdir -p ~/.local
 cd ~/.local
 git clone https://github.com/tokane888/dotfiles.git
