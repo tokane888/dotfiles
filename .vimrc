@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'airblade/vim-gitgutter'
 Plugin 'cohama/lexima.vim'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
