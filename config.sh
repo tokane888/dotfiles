@@ -14,8 +14,10 @@ APT_PACKAGES=(
   python3-dev # vim補完するYouCompleteMeが依存
   tree
   tzdata
+  unzip
   vim
   wget
+  zip
 )
 
 APT_REPOS=(
@@ -37,6 +39,7 @@ RPM_PACKAGES=(
   unzip
   wget
   yum-utils
+  zip
 )
 
 RPM_REPOS=(
