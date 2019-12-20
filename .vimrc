@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'cohama/lexima.vim'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
