@@ -44,6 +44,8 @@ set smartindent
 set tabstop=2
 set backspace=indent,eol,start
 syntax on
+" gitの差分表示の更新がデフォルトだと4秒後なので100msに変更                                                                                                                       
+set updatetime=100                                                                                                                                        
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
