@@ -46,6 +46,8 @@ set backspace=indent,eol,start
 syntax on
 " gitの差分表示の更新がデフォルトだと4秒後なので100msに変更                                                                                                                       
 set updatetime=100                                                                                                                                        
+" 改行コードCRLFを^Mで表示
+set fileformats=unix
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
