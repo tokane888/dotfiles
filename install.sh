@@ -1,5 +1,6 @@
 #!/bin/bash
 . config.sh
+. generate_bashrc.sh
 
 set -eux
 
@@ -142,15 +143,13 @@ main() {
   install_vim_plugins
   set_locale
   set_timezone
-
-  # TODO: 将来的にはzshに移行し、.zshrcそのままコピー
-  cat .bashrc >>~/.bashrc
-  # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
-  # 実行終了する記載がある場合があるので手動で読み込む
+  generate_bashrc
 
   local end_time=$(date +%s)
   local run_time=$((end_time - start_time))
   echo "$run_time 秒で初期化"
+  # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
+  # 実行終了する記載がある場合があるので手動で読み込む
   echo ". ~/.bashrc を実行して下さい"
   echo ".gitconfigのuser, passは必要に応じて修正して下さい"
 }
