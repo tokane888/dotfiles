@@ -48,6 +48,8 @@ syntax on
 set updatetime=100                                                                                                                                        
 " 改行コードCRLFを^Mで表示
 set fileformats=unix
+" ビープ音無効化
+set visualbell t_vb=
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'

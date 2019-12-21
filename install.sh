@@ -114,6 +114,11 @@ set_timezone() {
   fi
 }
 
+# ビープ音無効化等細かい調整
+setup_trivial() {
+  sed -i -r -e 's/#\s?set bell-style none/set bell-style none/' /etc/inputrc
+}
+
 main() {
   local start_time=$(date +%s)
 
@@ -144,6 +149,7 @@ main() {
   set_locale
   set_timezone
   generate_bashrc
+  setup_trivial
 
   local end_time=$(date +%s)
   local run_time=$((end_time - start_time))
