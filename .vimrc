@@ -42,10 +42,11 @@ set number
 set shiftwidth=2
 set smartindent
 set tabstop=2
+" プラグイン導入後もbackspaceを使用可能に
 set backspace=indent,eol,start
 syntax on
-" gitの差分表示の更新がデフォルトだと4秒後なので100msに変更                                                                                                                       
-set updatetime=100                                                                                                                                        
+" gitの差分表示の更新がデフォルトだと4秒後なので100msに変更
+set updatetime=100
 " 改行コードCRLFを^Mで表示
 set fileformats=unix
 " ビープ音無効化
