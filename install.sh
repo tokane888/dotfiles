@@ -23,6 +23,11 @@ add_apt_repository() {
   for repo in ${APT_REPOS[@]}; do
     add-apt-repository -y $repo
   done
+
+  # リポジトリの追加にcurlが必要なため、先にインストール
+  apt-get install -y curl
+  # node, npmの最新版取得可能なリポジトリ追加
+  curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 }
 
 add_rpm_repository() {

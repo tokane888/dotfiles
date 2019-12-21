@@ -4,12 +4,12 @@ DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   build-essential # vim補完するYouCompleteMeが依存
   cmake # vim補完するYouCompleteMeが依存
-  curl
   gcc
   golang-go
   libclang-dev # vim補完するYouCompleteMeが依存
   locales # docker上で日本語使うため
   make
+  nodejs
   openssh-server
   python3-dev # vim補完するYouCompleteMeが依存
   tree
