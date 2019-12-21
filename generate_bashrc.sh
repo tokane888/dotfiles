@@ -5,6 +5,7 @@ set -eux
 generate_bashrc() {
   cat .bashrc >>~/.bashrc
 
+  echo "# git入力補完" >>~/.bashrc
   if [ -f /usr/share/bash-completion/completions/git ]; then
     echo "source /usr/share/bash-completion/completions/git" >>~/.bashrc
   elif [ -f /etc/bash_completion.d/git ]; then
@@ -17,12 +18,13 @@ generate_bashrc() {
     # CentOS対応
     echo "source /usr/share/git-core/contrib/completion/git-prompt.sh" >>~/.bashrc
   fi
+
   # TODO: lsb_release -is だとCentOSで当該コマンドが無いので対応検討
   # cat /etc/os-release | grep -Po '^ID="?\K(.*)(?=")'
   # 上記だとUbuntuのIDが""で囲われていないので取得できない
   # if [ -f /.dockerenv ] && $(lsb_release -is) = "Ubuntu"; then
   if locale -a | grep ja_JP.utf8; then
-    # docker上のubuntuで日本語入力できない対策
+    echo "# docker上のubuntuで日本語入力できない対策" >>~/.bashrc
     echo "export LC_ALL=ja_JP.UTF-8" >>~/.bashrc
   fi
 }
