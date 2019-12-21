@@ -127,7 +127,6 @@ main() {
     install_rpm_packages
     install_latest_vim_on_cent
   fi
-  # TODO: yum対応
   go_get
 
   local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
