@@ -100,6 +100,8 @@ set_locale() {
     # docker上で日本語入力を可能に
     sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
     locale-gen ja_JP.utf8
+  elif [ $(command -v yum) ]; then
+    localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
   fi
 }
 

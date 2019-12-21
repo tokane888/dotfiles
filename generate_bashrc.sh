@@ -26,5 +26,10 @@ generate_bashrc() {
   if locale -a | grep ja_JP.utf8; then
     echo "# docker上のubuntuで日本語入力できない対策" >>~/.bashrc
     echo "export LC_ALL=ja_JP.UTF-8" >>~/.bashrc
+  elif [ -f /.dockerenv ] && [ $(command -v yum) ]; then
+    echo "# docker上のcentOS用日本語設定" >>~/.bashrc
+    echo "export LANG=ja_JP.UTF-8" >>~/.bashrc
+    echo "export LANGUAGE=ja_JP:ja" >>~/.bashrc
+    echo "export LC_ALL=ja_JP.UTF-8" >>~/.bashrc
   fi
 }
