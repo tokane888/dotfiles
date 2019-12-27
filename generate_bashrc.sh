@@ -5,17 +5,16 @@ set -eux
 generate_bashrc() {
   cat .bashrc >>~/.bashrc
 
+  # OS別設定
   echo "# git入力補完" >>~/.bashrc
   if [ -f /usr/share/bash-completion/completions/git ]; then
     echo "source /usr/share/bash-completion/completions/git" >>~/.bashrc
   elif [ -f /etc/bash_completion.d/git ]; then
-    # CentOS対応
     echo "source /etc/bash_completion.d/git" >>~/.bashrc
   fi
   if [ -f /usr/lib/git-core/git-sh-prompt ]; then
     echo "source /usr/lib/git-core/git-sh-prompt" >>~/.bashrc
   elif [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-    # CentOS対応
     echo "source /usr/share/git-core/contrib/completion/git-prompt.sh" >>~/.bashrc
   fi
 
