@@ -4,6 +4,7 @@ DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   build-essential # vim補完するYouCompleteMeが依存
   cmake # vim補完するYouCompleteMeが依存
+  apt-file # debパッケージに含まれるファイル一覧をリポジトリから取得
   gcc
   golang-go
   libclang-dev # vim補完するYouCompleteMeが依存
