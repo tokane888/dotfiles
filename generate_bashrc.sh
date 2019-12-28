@@ -18,6 +18,10 @@ generate_bashrc() {
     echo "source /usr/share/git-core/contrib/completion/git-prompt.sh" >>~/.bashrc
   fi
 
+  if [ -f /etc/bash_completion ]; then
+    echo "source /etc/bash_completion" >>~/.bashrc
+  fi
+
   # TODO: lsb_release -is だとCentOSで当該コマンドが無いので対応検討
   # cat /etc/os-release | grep -Po '^ID="?\K(.*)(?=")'
   # 上記だとUbuntuのIDが""で囲われていないので取得できない
