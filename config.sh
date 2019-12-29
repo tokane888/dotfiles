@@ -2,14 +2,14 @@
 
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
+  apt-file # debパッケージに含まれるファイル一覧をリポジトリから取得
   bash-completion
   build-essential # vim補完するYouCompleteMeが依存
-  cmake # vim補完するYouCompleteMeが依存
-  apt-file # debパッケージに含まれるファイル一覧をリポジトリから取得
+  cmake           # vim補完するYouCompleteMeが依存
   gcc
   golang-go
   libclang-dev # vim補完するYouCompleteMeが依存
-  locales # docker上で日本語使うため
+  locales      # docker上で日本語使うため
   make
   nodejs
   openssh-server
@@ -30,7 +30,7 @@ APT_REPOS=(
 RPM_PACKAGES=(
   bash-completion
   cmake
-  gcc # vimビルド時に使用
+  gcc     # vimビルド時に使用
   gcc-c++ # YouCompleteMeが依存
   golang
   make
