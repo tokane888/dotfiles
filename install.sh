@@ -121,6 +121,11 @@ deploy_dotfiles() {
 }
 
 install_vim_plugins() {
+  # TODO: ラズパイdocker上で、goが無いためにインストール失敗するので対応
+  if [ "$(get_os)" == "raspbian" ] && [ -f /.dockerenv ]; then
+    return
+  fi
+
   mkdir -p ~/.vim/bundle/
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
