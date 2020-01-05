@@ -15,14 +15,14 @@ can_use_command() {
 }
 
 get_os() {
-  $(
+  echo $(
     . /etc/os-release
     echo $ID
   )
 }
 
 add_apt_repository() {
-  if [ $get_os != "raspbian" ]; then
+  if [ "$(get_os)" == "ubuntu" ]; then
     apt-get install -y software-properties-common
     # TODO: ラズパイの場合には当該リポジトリからダウンロード不可。
     #       かつデフォルトのリポジトリから比較的新しいバージョンがインストール可能。
@@ -48,6 +48,9 @@ add_rpm_repository() {
 
 install_apt_packages() {
   apt-get install -y ${APT_PACKAGES[*]}
+  if [ "$(get_os)" == "ubuntu" ]; then
+    apt-get install -y ${UBUNTU_PACKAGES[*]}
+  fi
 }
 
 install_rpm_packages() {
@@ -79,6 +82,11 @@ setup_yum() {
 }
 
 go_get() {
+  # TODO: ラズパイdocker環境へgolangインストール
+  if [ $(get_os) == "raspbian" ] && [ -f /.dockerenv ]; then
+    return
+  fi
+
   mkdir -p $HOME/.go
   # GOPATH, PATH設定は.bashrcでも行っているが、PS1変数未定義などで弾かれる。
   # そのため、go getをここで実行するためにGOPATH, PATHをexport

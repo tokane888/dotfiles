@@ -7,7 +7,6 @@ APT_PACKAGES=(
   build-essential # vim補完するYouCompleteMeが依存
   cmake           # vim補完するYouCompleteMeが依存
   gcc
-  golang-go
   libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
   make
@@ -20,6 +19,10 @@ APT_PACKAGES=(
   vim
   wget
   zip
+)
+
+UBUNTU_PACKAGES=(
+  golang-go
 )
 
 APT_REPOS=(
