@@ -95,7 +95,7 @@ is_valid_exit_code() {
 }
 
 set_locale() {
-  # centOSでは元から日本語入力可能なので対応不要。ラズパイは不明
+  # TODO: ラズパイ実機で日本語入力する際に必要なら設定。dockerでは標準の状態で問題無し
   if [ $(command -v apt) ]; then
     # docker上で日本語入力を可能に
     sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
