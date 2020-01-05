@@ -150,7 +150,6 @@ main() {
     add_apt_repository
     apt-get update -y
     install_apt_packages
-    # TODO: manページ対応
   elif $(can_use_command "yum"); then
     setup_yum
     add_rpm_repository
