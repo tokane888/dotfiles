@@ -111,6 +111,11 @@ go_get() {
   for target in ${GO_GETS[@]}; do
     go get -u $target
   done
+  if [ $(get_os) == "ubuntu" ]; then
+    for target in ${GO_GETS_UBUNTU[@]}; do
+      go get -u $target
+    done
+  fi
 }
 
 deploy_dotfiles() {

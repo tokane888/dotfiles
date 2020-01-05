@@ -53,5 +53,8 @@ RPM_REPOS=(
 
 GO_GETS=(
   github.com/golang/dep/cmd/dep
-  github.com/go-delve/delve/cmd/dlv
+)
+
+GO_GETS_UBUNTU=(
+  github.com/go-delve/delve/cmd/dlv # 32bitのarmはサポート外なのでラズパイでは使用不可
 )
