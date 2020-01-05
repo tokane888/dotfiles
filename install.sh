@@ -14,16 +14,25 @@ can_use_command() {
   [ -x "$(command -v $command)" ]
 }
 
-add_apt_repository() {
-  apt-get install -y software-properties-common
-  # TODO: ラズパイの場合には当該リポジトリからダウンロード不可。
-  #       かつデフォルトのリポジトリから比較的新しいバージョンがインストール可能。
-  #       なのでラズパイの場合は当該リポジトリの追加を行わない
+get_os() {
+  $(
+    . /etc/os-release
+    echo $ID
+  )
+}
 
-  # 複数リポジトリを1コマンドで追加するとエラーになるので1つずつ行う
-  for repo in ${APT_REPOS[@]}; do
-    add-apt-repository -y $repo
-  done
+add_apt_repository() {
+  if [ $get_os != "raspbian" ]; then
+    apt-get install -y software-properties-common
+    # TODO: ラズパイの場合には当該リポジトリからダウンロード不可。
+    #       かつデフォルトのリポジトリから比較的新しいバージョンがインストール可能。
+    #       なのでラズパイの場合は当該リポジトリの追加を行わない
+
+    # 複数リポジトリを1コマンドで追加するとエラーになるので1つずつ行う
+    for repo in ${APT_REPOS[@]}; do
+      add-apt-repository -y $repo
+    done
+  fi
 
   # リポジトリの追加にcurlが必要なため、先にインストール
   apt-get install -y curl
