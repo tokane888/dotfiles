@@ -158,7 +158,6 @@ set_timezone() {
       export DEBIAN_FRONTEND=noninteractive
       apt install -y tzdata
     fi
-    # TODO: ラズパイでもこの対応で良いか確認
   fi
 }
 
