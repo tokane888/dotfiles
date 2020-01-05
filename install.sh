@@ -157,6 +157,21 @@ set_timezone() {
   fi
 }
 
+setup_real_machine() {
+  if [ "$(get_os)" == "raspbian" ] && [ ! -f /.dockerenv ]; then
+    # ctrl - CapsLock入れ替え
+    echo 'XKBOPTIONS="ctrl:swapcaps"' >>/etc/default/keyboard
+    # LEDをoffに
+    echo "none" >/sys/class/leds/led0/trigger
+    echo "none" >/sys/class/leds/led1/trigger
+    # 起動時にHDMIを挿入していなくてもHDMIで出力可能に
+    sed -i -e "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
+    # ssh有効化
+    systemctl start ssh
+    systemctl enable ssh
+  fi
+}
+
 # ビープ音無効化等細かい調整
 setup_trivial() {
   sed -i -r -e 's/#\s?set bell-style none/set bell-style none/' /etc/inputrc
@@ -188,6 +203,7 @@ main() {
   set_locale
   set_timezone
   generate_bashrc
+  setup_real_machine
   setup_trivial
 
   local end_time=$(date +%s)
