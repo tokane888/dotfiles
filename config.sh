@@ -56,5 +56,7 @@ GO_GETS=(
 )
 
 GO_GETS_UBUNTU=(
-  github.com/go-delve/delve/cmd/dlv # 32bitのarmはサポート外なのでラズパイでは使用不可
+  # 32bitのarmはサポート外なのでラズパイでは使用不可
+  # https://github.com/go-delve/delve/issues/20
+  github.com/go-delve/delve/cmd/dlv
 )
