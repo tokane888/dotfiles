@@ -89,6 +89,13 @@ go_get() {
   done
 }
 
+deploy_dotfiles() {
+  local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
+  for file in ${dot_files[@]}; do
+    [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
+  done
+}
+
 install_vim_plugins() {
   mkdir -p ~/.vim/bundle/
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -152,11 +159,7 @@ main() {
   fi
   go_get
 
-  local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
-  for file in ${dot_files[@]}; do
-    [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
-  done
-
+  deploy_dotfiles
   install_vim_plugins
   set_locale
   set_timezone
