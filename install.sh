@@ -193,6 +193,7 @@ main() {
     echo "Please run with sudo."
     exit 1
   fi
+  HOME=/home/$SUDO_USER
 
   if $(can_use_command "apt"); then
     add_apt_repository
