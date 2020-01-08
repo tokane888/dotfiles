@@ -21,6 +21,15 @@ get_os() {
   )
 }
 
+get_home() {
+  # ラズパイ、Cent上では、sudo時に$HOME=/root になってしまうので対応
+  if [[ -v SUDO_USER ]]; then
+    echo $(eval echo ~${SUDO_USER})
+  else
+    echo $HOME
+  fi
+}
+
 add_apt_repository() {
   if [ "$(get_os)" == "ubuntu" ]; then
     apt-get install -y software-properties-common
@@ -193,7 +202,7 @@ main() {
     echo "Please run with sudo."
     exit 1
   fi
-  HOME=/home/$SUDO_USER
+  HOME=$(get_home)
 
   if $(can_use_command "apt"); then
     add_apt_repository
