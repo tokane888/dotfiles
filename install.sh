@@ -196,7 +196,7 @@ setup_trivial() {
 }
 
 main() {
-  local start_time=$(date +%s)
+  SECONDS=0
 
   if ! $(is_root); then
     echo "Please run with sudo."
@@ -225,9 +225,7 @@ main() {
   setup_real_machine
   setup_trivial
 
-  local end_time=$(date +%s)
-  local run_time=$((end_time - start_time))
-  echo "$run_time 秒で初期化"
+  echo "$SECONDS 秒で初期化"
   # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
   # 実行終了する記載がある場合があるので手動で読み込む
   echo ". ~/.bashrc を実行して下さい"
