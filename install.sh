@@ -169,8 +169,12 @@ set_timezone() {
     if is_valid_exit_code "timedatectl"; then
       timedatectl set-timezone Asia/Tokyo
     else
-      export DEBIAN_FRONTEND=noninteractive
-      apt install -y tzdata
+      if [ $(command -v apt) ]; then
+        export DEBIAN_FRONTEND=noninteractive
+        apt install -y tzdata
+      elif [ $(command -v yum) ]; then
+        yum install -y tzdata
+      fi
     fi
   fi
 }
