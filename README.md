@@ -1,6 +1,7 @@
 # Ubuntuへインストール
 
 ```
+sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
 apt update -y;
 apt install -y git sudo;
 mkdir -p ~/.local
