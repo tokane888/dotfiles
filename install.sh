@@ -180,9 +180,19 @@ set_timezone() {
 }
 
 setup_real_machine() {
-  if [ "$(get_os)" == "raspbian" ] && [ ! -f /.dockerenv ]; then
+  if [ -f /.dockerenv ]; then
+    return
+  fi
+
+  if [ $(command -v apt) ]; then
     # ctrl - CapsLock入れ替え
     echo 'XKBOPTIONS="ctrl:swapcaps"' >>/etc/default/keyboard
+  fi
+
+  if [ "$(get_os)" == "ubuntu" ]; then
+    # 実機では余計なパッケージが大量に突っ込まれるので削除
+    apt-get purge ${UBUNTU_PURGE_PACKAGES[*]}
+  elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
     echo "none" >/sys/class/leds/led0/trigger
     echo "none" >/sys/class/leds/led1/trigger

@@ -29,6 +29,34 @@ APT_REPOS=(
   ppa:jonathonf/vim
 )
 
+UBUNTU_PURGE_PACKAGES=(
+  apt-get
+  bluez*
+  brasero*
+  cheese*
+  empathy*
+  espeak-ng-data:amd64
+  evolution-data-server*
+  gnome-bluetooth
+  gnome-orca
+  ibus-pinyin
+  libreoffice-*
+  mobile-broadband-provider-inf*
+  mythes-en-us
+  printer-driver-*
+  printer-driver-foo2zjs*
+  purge
+  rhythmbox*
+  shotwell*
+  simple-scan
+  speech-dispatcher*
+  thunderbird*
+  transmission-*
+  ubuntu-web-launchers
+  unity-lens-*
+  xul-ext-ubufox
+)
+
 RPM_PACKAGES=(
   bash-completion
   cmake
