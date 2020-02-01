@@ -192,6 +192,12 @@ setup_real_machine() {
   if [ "$(get_os)" == "ubuntu" ]; then
     # 実機では余計なパッケージが大量に突っ込まれるので削除
     apt-get purge ${UBUNTU_PURGE_PACKAGES[*]}
+
+    apt-get install -y openssh-sever
+    curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+    sudo apt-get update -y
+    sudo apt-get install -y google-chrome-stable
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
     echo "none" >/sys/class/leds/led0/trigger
