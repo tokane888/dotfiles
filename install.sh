@@ -43,7 +43,7 @@ add_apt_repository() {
 
     # 実機でminimal installした場合に、universeリポジトリが入らず、
     # apt install時に失敗する場合があるので当該リポジトリ追加
-    if ! [ grep -q "universe" "/etc/apt/sources.list" ]; then
+    if ! grep -q universe /etc/apt/sources.list; then
       cat <<EOS >>/etc/apt/sources.list
 deb http://jp.archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
 deb-src http://jp.archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
