@@ -250,7 +250,7 @@ setup_trivial() {
 }
 
 cleanup() {
-  apt autoremove
+  apt autoremove -y
 }
 
 main() {
