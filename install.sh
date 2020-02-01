@@ -204,11 +204,6 @@ setup_real_machine() {
     return
   fi
 
-  if [ $(command -v apt) ]; then
-    # ctrl - CapsLock入れ替え
-    echo 'XKBOPTIONS="ctrl:swapcaps"' >>/etc/default/keyboard
-  fi
-
   if [ "$(get_os)" == "ubuntu" ]; then
     # 実機では余計なパッケージが大量に突っ込まれるので削除
     apt-get purge ${UBUNTU_PURGE_PACKAGES[*]}
