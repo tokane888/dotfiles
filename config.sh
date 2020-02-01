@@ -2,7 +2,6 @@
 
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
-  apt-file # debパッケージに含まれるファイル一覧をリポジトリから取得
   bash-completion
   build-essential # vim補完するYouCompleteMeが依存
   cmake           # vim補完するYouCompleteMeが依存

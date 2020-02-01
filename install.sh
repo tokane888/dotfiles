@@ -32,6 +32,7 @@ get_home() {
 
 add_apt_repository() {
   if [ "$(get_os)" == "ubuntu" ]; then
+    # TODO: ubuntu実機でたまにリポジトリ追加がタイムアウトするケースに対応
     apt-get install -y software-properties-common
     # TODO: ラズパイの場合には当該リポジトリからダウンロード不可。
     #       かつデフォルトのリポジトリから比較的新しいバージョンがインストール可能。
@@ -230,6 +231,10 @@ setup_trivial() {
   sed -i -r -e 's/#\s?set bell-style none/set bell-style none/' /etc/inputrc
 }
 
+cleanup() {
+  apt autoremove
+}
+
 main() {
   SECONDS=0
 
@@ -260,6 +265,7 @@ main() {
   generate_bashrc
   setup_real_machine
   setup_trivial
+  cleanup
 
   echo "$SECONDS 秒で初期化"
   # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
