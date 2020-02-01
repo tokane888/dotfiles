@@ -134,6 +134,26 @@ deploy_dotfiles() {
   done
 }
 
+deploy_setting_files() {
+  # TODO: remove_str複数ケース対応
+  local remove_str
+  if [ $(command -v apt) ]; then
+    if [ ! -f /.dockerenv ]; then
+      remove_str="./deploy/debian/real"
+    fi
+  fi
+  if [[ ! -v remove_str ]]; then
+    return
+  fi
+
+  remove_str=$(echo $remove_str | sed -e 's/[\/&]/\\&/g')
+  deploy_files=$(find ./deploy/debian -type f)
+  for file in $deploy_files; do
+    local dest=$(echo $file | sed -e "s/$remove_str//")
+    cp $file $dest
+  done
+}
+
 install_vim_plugins() {
   # TODO: ラズパイdocker上で、goが無いためにインストール失敗するので対応
   if [ "$(get_os)" == "raspbian" ] && [ -f /.dockerenv ]; then
@@ -238,6 +258,7 @@ main() {
   go_get
 
   deploy_dotfiles
+  deploy_setting_files
   install_vim_plugins
   set_locale
   set_timezone
