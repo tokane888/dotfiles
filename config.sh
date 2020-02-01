@@ -41,6 +41,7 @@ UBUNTU_PURGE_PACKAGES=(
   libreoffice-*
   mobile-broadband-provider-inf*
   mythes-en-us
+  openssh-client
   printer-driver-*
   printer-driver-foo2zjs*
   rhythmbox*
