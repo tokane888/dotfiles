@@ -21,6 +21,13 @@ get_os() {
   )
 }
 
+get_ubuntu_code() {
+  echo $(
+    . /etc/os-release
+    echo $UBUNTU_CODENAME
+  )
+}
+
 get_home() {
   # ラズパイ、Cent上では、sudo時に$HOME=/root になってしまうので対応
   if [[ -v SUDO_USER ]]; then
@@ -33,6 +40,17 @@ get_home() {
 add_apt_repository() {
   if [ "$(get_os)" == "ubuntu" ]; then
     # TODO: ubuntu実機でたまにリポジトリ追加がタイムアウトするケースに対応
+
+    # 実機でminimal installした場合に、universeリポジトリが入らず、
+    # apt install時に失敗する場合があるので当該リポジトリ追加
+    if ! [ grep -q "universe" "/etc/apt/sources.list" ]; then
+      cat <<EOS >>/etc/apt/sources.list
+deb http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
+deb-src http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
+deb http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code)-updates universe
+deb-src http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code)-updates universe
+EOS
+    fi
     apt-get install -y software-properties-common
     # TODO: ラズパイの場合には当該リポジトリからダウンロード不可。
     #       かつデフォルトのリポジトリから比較的新しいバージョンがインストール可能。
