@@ -45,10 +45,10 @@ add_apt_repository() {
     # apt install時に失敗する場合があるので当該リポジトリ追加
     if ! [ grep -q "universe" "/etc/apt/sources.list" ]; then
       cat <<EOS >>/etc/apt/sources.list
-deb http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
-deb-src http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
-deb http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code)-updates universe
-deb-src http://archive.ubuntu.com/ubuntu/ $(get_ubuntu_code)-updates universe
+deb http://jp.archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
+deb-src http://jp.archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
+deb http://jp.archive.ubuntu.com/ubuntu/ $(get_ubuntu_code)-updates universe
+deb-src http://jp.archive.ubuntu.com/ubuntu/ $(get_ubuntu_code)-updates universe
 EOS
     fi
     apt-get install -y software-properties-common
