@@ -30,7 +30,6 @@ APT_REPOS=(
 )
 
 UBUNTU_PURGE_PACKAGES=(
-  apt-get
   bluez*
   brasero*
   cheese*
@@ -45,7 +44,6 @@ UBUNTU_PURGE_PACKAGES=(
   mythes-en-us
   printer-driver-*
   printer-driver-foo2zjs*
-  purge
   rhythmbox*
   shotwell*
   simple-scan

@@ -206,7 +206,7 @@ setup_real_machine() {
 
   if [ "$(get_os)" == "ubuntu" ]; then
     # 実機では余計なパッケージが大量に突っ込まれるので削除
-    apt-get purge ${UBUNTU_PURGE_PACKAGES[*]}
+    apt-get purge -y ${UBUNTU_PURGE_PACKAGES[*]}
 
     apt-get install -y openssh-sever
     curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
