@@ -153,24 +153,19 @@ deploy_dotfiles() {
   done
 }
 
+# debian系実機向け設定ファイルデプロイ
+deploy_to_real_debian() {
+  cp ./deploy/real/debian/keyboard /etc/default/keyboard
+}
+
 deploy_setting_files() {
-  # TODO: remove_str複数ケース対応
-  local remove_str
   if [ $(command -v apt) ]; then
     if [ ! -f /.dockerenv ]; then
-      remove_str="./deploy/debian/real"
+      deploy_to_real_debian
     fi
   fi
-  if [[ ! -v remove_str ]]; then
-    return
-  fi
 
-  remove_str=$(echo $remove_str | sed -e 's/[\/&]/\\&/g')
-  deploy_files=$(find ./deploy/debian -type f)
-  for file in $deploy_files; do
-    local dest=$(echo $file | sed -e "s/$remove_str//")
-    cp $file $dest
-  done
+  cp ./deploy/custom_profile.sh /etc/profile.d/custom_profile.sh
 }
 
 install_vim_plugins() {
