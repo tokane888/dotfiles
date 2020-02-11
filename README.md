@@ -9,7 +9,9 @@ apt install -y curl;
 ```
 ## インストールコマンド
 
+```
 curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sh -
+```
 
 # CentOSへインストール
 
