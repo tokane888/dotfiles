@@ -164,8 +164,6 @@ deploy_setting_files() {
       deploy_to_real_debian
     fi
   fi
-
-  cp ./deploy/custom_profile.sh /etc/profile.d/custom_profile.sh
 }
 
 install_vim_plugins() {
