@@ -225,6 +225,7 @@ setup_real_machine() {
     echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
     sudo apt-get update -y
     sudo apt-get install -y google-chrome-stable
+    sudo update-alternatives --set editor /usr/bin/vim.basic
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
     echo "none" >/sys/class/leds/led0/trigger
