@@ -73,3 +73,8 @@ if &term =~ "xterm"
 endif
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" vim起動時にファイル未指定又はディレクトリを開いた際にNERDTreeを開く
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
