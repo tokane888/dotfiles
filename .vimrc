@@ -46,6 +46,8 @@ set tabstop=2
 " プラグイン導入後もbackspaceを使用可能に
 set backspace=indent,eol,start
 syntax on
+colorscheme molokai
+set t_Co=256
 " gitの差分表示の更新がデフォルトだと4秒後なので100msに変更
 set updatetime=100
 " 改行コードCRLFを^Mで表示

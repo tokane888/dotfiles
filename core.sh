@@ -180,6 +180,12 @@ install_vim_plugins() {
   vim +'silent :GoInstallBinaries' +qall
 }
 
+install_vim_color_scheme() {
+  mkdir -p ~/.vim/colors/
+  cd ~/.vim/colors/
+  wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+}
+
 is_valid_exit_code() {
   local cmd=$1
   $cmd
@@ -272,6 +278,7 @@ main() {
   deploy_dotfiles
   deploy_setting_files
   install_vim_plugins
+  install_vim_color_scheme
   set_locale
   set_timezone
   generate_bashrc
