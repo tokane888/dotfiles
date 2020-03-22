@@ -284,4 +284,4 @@ main() {
   echo ".gitconfigのuser, passは必要に応じて修正して下さい"
 }
 
-main
+main $1
