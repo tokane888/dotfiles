@@ -5,6 +5,15 @@
 
 set -eux
 
+get_home() {
+  # ラズパイ、Cent上では、sudo時に$HOME=/root になってしまうので対応
+  if [[ -v SUDO_USER ]]; then
+    echo $(eval echo ~${SUDO_USER})
+  else
+    echo $HOME
+  fi
+}
+
 main() {
   if [ $(command -v apt) ]; then
     sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
@@ -19,7 +28,7 @@ main() {
   cd ~/.local
   git clone https://github.com/tokane888/dotfiles.git
   cd ~/.local/dotfiles
-  sudo ./core.sh 2>&1 > dotfiles.log
+  sudo ./core.sh $(get_home) 2>&1 > dotfiles.log
 }
 
 main

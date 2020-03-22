@@ -28,15 +28,6 @@ get_ubuntu_code() {
   )
 }
 
-get_home() {
-  # ラズパイ、Cent上では、sudo時に$HOME=/root になってしまうので対応
-  if [[ -v SUDO_USER ]]; then
-    echo $(eval echo ~${SUDO_USER})
-  else
-    echo $HOME
-  fi
-}
-
 add_apt_repository() {
   if [ "$(get_os)" == "ubuntu" ]; then
     # TODO: ubuntu実機でたまにリポジトリ追加がタイムアウトするケースに対応
@@ -260,7 +251,7 @@ main() {
     echo "Please run with sudo."
     exit 1
   fi
-  HOME=$(get_home)
+  HOME=$1
 
   if $(can_use_command "apt"); then
     add_apt_repository
