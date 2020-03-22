@@ -268,8 +268,8 @@ main() {
 
   deploy_dotfiles
   deploy_setting_files
-  install_vim_plugins
   install_vim_color_scheme
+  install_vim_plugins
   set_locale
   set_timezone
   generate_bashrc
