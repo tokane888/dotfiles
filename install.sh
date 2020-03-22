@@ -19,7 +19,7 @@ main() {
   cd ~/.local
   git clone https://github.com/tokane888/dotfiles.git
   cd ~/.local/dotfiles
-  sudo ./core.sh
+  sudo ./core.sh 2>&1 > dotfiles.log
 }
 
 main
