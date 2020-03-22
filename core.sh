@@ -149,7 +149,7 @@ go_get() {
 deploy_dotfiles() {
   local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
   for file in ${dot_files[@]}; do
-    [ ! -e ~/$file ] && ln -s ${DOT_FILES_DIR}$file ~/$file
+    [ ! -e $HOME/$file ] && ln -s ${DOT_FILES_DIR}$file $HOME/$file
   done
 }
 
@@ -172,17 +172,17 @@ install_vim_plugins() {
     return
   fi
 
-  mkdir -p ~/.vim/bundle/
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  mkdir -p $HOME/.vim/bundle/
+  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
-  python3 ~/.vim/bundle/YouCompleteMe/install.py --go-completer
+  python3 $HOME/.vim/bundle/YouCompleteMe/install.py --go-completer
   # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
   vim +'silent :GoInstallBinaries' +qall
 }
 
 install_vim_color_scheme() {
-  mkdir -p ~/.vim/colors/
-  cd ~/.vim/colors/
+  mkdir -p $HOME/.vim/colors/
+  cd $HOME/.vim/colors/
   wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 }
 
