@@ -14,7 +14,7 @@ main() {
     cd ~/.local
     git clone https://github.com/tokane888/dotfiles.git
     cd ~/.local/dotfiles
-    sudo ./install.sh
+    sudo ./core.sh
   elif [ $(command -v yum) ]; then
     yum remove -y git
     yum install -y https://centos7.iuscommunity.org/ius-release.rpm
@@ -23,7 +23,7 @@ main() {
     cd ~/.local
     git clone https://github.com/tokane888/dotfiles.git
     cd ~/.local/dotfiles
-    sudo ./install.sh
+    sudo ./core.sh
   fi
 }
 
