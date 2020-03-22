@@ -272,7 +272,7 @@ main() {
   install_vim_plugins
   set_locale
   set_timezone
-  generate_bashrc
+  generate_bashrc $HOME
   setup_real_machine
   setup_trivial
   cleanup
