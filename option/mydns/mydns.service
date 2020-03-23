@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify IP to MyDNS
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/curl -s http://(MyDNSのID):(MyDNSのPass)@www.mydns.jp/login.html

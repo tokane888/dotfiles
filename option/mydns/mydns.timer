@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify IP to MyDNS periodically
+
+[Timer]
+Unit=mydns.service
+OnCalendar=*-*-* *:01:00
+
+[Install]
+WantedBy=timers.target
