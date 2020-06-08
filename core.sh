@@ -195,15 +195,15 @@ set_locale() {
 
 set_timezone() {
   if [ $(date +%Z) = "UTC" ]; then
+    if [ $(command -v apt) ]; then
+      export DEBIAN_FRONTEND=noninteractive
+      apt install -y tzdata
+    elif [ $(command -v yum) ]; then
+      yum install -y tzdata
+    fi
+
     if is_valid_exit_code "timedatectl"; then
       timedatectl set-timezone Asia/Tokyo
-    else
-      if [ $(command -v apt) ]; then
-        export DEBIAN_FRONTEND=noninteractive
-        apt install -y tzdata
-      elif [ $(command -v yum) ]; then
-        yum install -y tzdata
-      fi
     fi
   fi
 }
