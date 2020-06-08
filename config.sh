@@ -32,6 +32,7 @@ UBUNTU_PURGE_PACKAGES=(
   bluez*
   brasero*
   cheese*
+  dnsutils
   empathy*
   espeak-ng-data:amd64
   evolution-data-server*
