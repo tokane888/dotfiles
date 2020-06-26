@@ -48,6 +48,8 @@ set backspace=indent,eol,start
 syntax on
 colorscheme molokai
 set t_Co=256
+" molokai有効時にctrl+d押下で一部の行の背景色が緑になる問題の対応
+set t_ut=""
 " gitの差分表示の更新がデフォルトだと4秒後なので100msに変更
 set updatetime=100
 " 改行コードCRLFを^Mで表示
