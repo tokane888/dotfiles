@@ -52,11 +52,6 @@ EOS
       add-apt-repository -y $repo
     done
   fi
-
-  # リポジトリの追加にcurlが必要なため、先にインストール
-  apt-get install -y curl
-  # node, npmの最新版取得可能なリポジトリ追加
-  curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 }
 
 add_rpm_repository() {
@@ -70,6 +65,11 @@ install_apt_packages() {
   if [ "$(get_os)" == "ubuntu" ]; then
     apt-get install -y ${UBUNTU_PACKAGES[*]}
   fi
+
+  # npmでnodejsを管理
+  npm install n -g
+  n stable
+  # TODO: nでnpm, nodejsをinstallしたので、aptでinstallしたnpm, nodejsは削除検討
 }
 
 install_rpm_packages() {
