@@ -1,4 +1,4 @@
-# Ubuntuへインストール
+# Ubuntu事前設定
 
 ## (curlがない場合最初に実行)
 
@@ -7,13 +7,8 @@ sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive
 apt update -y;
 apt install -y curl;
 ```
-## インストールコマンド
 
-```
-sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo sh -
-```
-
-# CentOSへインストール
+# CentOS事前設定
 
 ## (curlがない場合最初に実行)
 
@@ -21,8 +16,8 @@ sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/insta
 yum install -y curl
 ```
 
-## インストールコマンド
+# 共通インストールコマンド
 
 ```
-curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sh -
+sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo sh -
 ```
