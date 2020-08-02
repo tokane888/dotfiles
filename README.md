@@ -16,6 +16,13 @@ apt install -y curl;
 yum install -y curl
 ```
 
+# ラズパイ事前設定
+
+* /etc/apt/sources.list に下記追記
+  * busterの場合(他のディストリビューションの場合、都度調査)
+    * deb http://ftp.jaist.ac.jp/raspbian/ buster main contrib non-free rpi
+* /etc/apt/sources.list に上記以外のリポジトリが記載されていれば削除
+
 # 共通インストールコマンド
 
 ```
