@@ -232,6 +232,11 @@ setup_real_machine() {
     # ssh有効化
     systemctl start ssh
     systemctl enable ssh
+
+    # ラズパイzero の場合は下記の2行を/boot/config.txt の末尾に記載し、LED無効化
+    # TODO: zeroの判別方法調査
+    # dtparam=act_led_trigger=none
+    # dtparam=act_led_activelow=on
   fi
 }
 
