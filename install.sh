@@ -26,7 +26,9 @@ main() {
   fi
   mkdir -p ~/.local
   cd ~/.local
-  git clone https://github.com/tokane888/dotfiles.git
+  if [ ! -d /root/.local/dotfiles ]; then
+    git clone https://github.com/tokane888/dotfiles.git
+  fi
   cd ~/.local/dotfiles
   sudo ./core.sh $(get_home) 2>&1 > dotfiles.log
 }
