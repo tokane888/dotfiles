@@ -262,7 +262,7 @@ main() {
     add_apt_repository
     apt-get update -y
     install_apt_packages
-    # install_go_from_src
+    install_go_from_src
   elif $(can_use_command "yum"); then
     setup_yum
     add_rpm_repository
