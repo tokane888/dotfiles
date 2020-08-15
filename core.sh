@@ -76,7 +76,7 @@ install_rpm_packages() {
   yum install -y ${RPM_PACKAGES[*]}
 }
 
-install_from_src() {
+install_go_from_src() {
   # TODO: dockerの場合、"go version"でSegmentation faultになり、実行失敗する問題に対応
   # qemu: uncaught target signal 11 (Segmentation fault) - core dumped
   if [ "$(get_os)" == "raspbian" ] && [ ! -f /.dockerenv ]; then
@@ -262,7 +262,7 @@ main() {
     add_apt_repository
     apt-get update -y
     install_apt_packages
-    install_from_src
+    install_go_from_src
   elif $(can_use_command "yum"); then
     setup_yum
     add_rpm_repository
