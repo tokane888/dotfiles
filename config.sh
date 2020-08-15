@@ -3,15 +3,15 @@
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   bash-completion
-  build-essential # vim補完するYouCompleteMeが依存
-  cmake           # vim補完するYouCompleteMeが依存
+  # build-essential # vim補完するYouCompleteMeが依存
+  # cmake           # vim補完するYouCompleteMeが依存
   gcc
-  libclang-dev # vim補完するYouCompleteMeが依存
-  locales      # docker上で日本語使うため
+  # libclang-dev # vim補完するYouCompleteMeが依存
+  # locales      # docker上で日本語使うため
   make
   npm
   openssh-server
-  python3-dev # vim補完するYouCompleteMeが依存
+  # python3-dev # vim補完するYouCompleteMeが依存
   tree
   unzip
   vim
