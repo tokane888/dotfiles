@@ -172,9 +172,11 @@ install_vim_plugins() {
 }
 
 install_vim_color_scheme() {
-  mkdir -p $HOME/.vim/colors/
-  cd $HOME/.vim/colors/
-  wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+  if [ ! -d $HOME/.vim/colors/ ]; then
+    mkdir -p $HOME/.vim/colors/
+    cd $HOME/.vim/colors/
+    wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+  fi
 }
 
 is_valid_exit_code() {
