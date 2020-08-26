@@ -198,7 +198,6 @@ set_locale() {
 set_timezone() {
   if [ $(date +%Z) = "UTC" ]; then
     if [ $(command -v apt) ]; then
-      export DEBIAN_FRONTEND=noninteractive
       apt install -y tzdata
     elif [ $(command -v yum) ]; then
       yum install -y tzdata
@@ -261,6 +260,7 @@ main() {
   HOME=$1
 
   if $(can_use_command "apt"); then
+    export DEBIAN_FRONTEND=noninteractive
     add_apt_repository
     apt-get update -y
     install_apt_packages
