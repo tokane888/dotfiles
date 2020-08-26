@@ -5,7 +5,7 @@
 ```
 sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
 apt update -y;
-apt install -y curl;
+apt install -y curl sudo;
 ```
 
 # CentOS事前設定
