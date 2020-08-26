@@ -26,5 +26,5 @@ yum install -y curl
 # 共通インストールコマンド
 
 ```
-sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo sh -
+sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo bash -
 ```
