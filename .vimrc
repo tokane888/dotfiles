@@ -1,3 +1,4 @@
+set t_u7=                     " Vim起動時にReplaceモードになる場合がある問題の対策
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
