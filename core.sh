@@ -218,7 +218,7 @@ setup_real_machine() {
     # 実機では余計なパッケージが大量に突っ込まれるので削除
     apt-get purge -y ${UBUNTU_PURGE_PACKAGES[*]}
 
-    apt-get install -y openssh-sever
+    apt-get install -y openssh-server
     curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
     sudo apt-get update -y
