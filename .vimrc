@@ -60,6 +60,10 @@ set visualbell t_vb=
 " /tmp/vim.logに詳細なログ出力
 set verbosefile=/tmp/vim.log
 
+" vim-go設定
+" ファイル保存時にimport追加
+let g:go_fmt_command = "goimports"
+
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
   set noexpandtab
