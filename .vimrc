@@ -59,10 +59,19 @@ set fileformats=unix
 set visualbell t_vb=
 " /tmp/vim.logに詳細なログ出力
 set verbosefile=/tmp/vim.log
+" <leader>キー設定
+let mapleader=';'
 
 " vim-go設定
 " ファイル保存時にimport追加
 let g:go_fmt_command = "goimports"
+
+" YouCompleteMe設定
+" 補完ウィンドウ表示のためにユーザーが入力する必要のある文字数
+" let g:ycm_min_num_of_chars_for_completion=3
+" 関数説明などのpopup自動表示無効化
+let g:ycm_auto_hover=""
+nmap <leader>d <plug>(YCMHover)
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
