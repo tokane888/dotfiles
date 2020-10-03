@@ -57,6 +57,8 @@ set updatetime=100
 set fileformats=unix
 " ビープ音無効化
 set visualbell t_vb=
+" /tmp/vim.logに詳細なログ出力
+set verbosefile=/tmp/vim.log
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
