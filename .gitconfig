@@ -26,4 +26,5 @@ ss = stash save
 sp = stash pop
 sl = stash list
 lo = log --oneline
+lod = log --pretty=format:'%C(auto)%h%d [%ad] %s <%cn>' --date=format:'%Y/%m/%d %H:%M:%S'
 dw = diff -w
