@@ -73,6 +73,8 @@ let g:go_fmt_command = "goimports"
 let g:ycm_auto_hover=""
 nmap <leader>d <plug>(YCMHover)
 
+let g:ycm_filetype_blacklist = { 'sh': 1 }
+
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
   set noexpandtab
