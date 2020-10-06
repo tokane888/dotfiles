@@ -92,7 +92,6 @@ set verbosefile=/tmp/vim.log
 " <leader>キー設定
 let mapleader=';'
 
-
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
   set noexpandtab
