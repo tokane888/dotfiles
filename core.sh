@@ -137,6 +137,10 @@ go_get() {
   fi
 }
 
+pip3_install() {
+  pip3 install msgpack pynvim
+}
+
 deploy_dotfiles() {
   local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
   for file in ${dot_files[@]}; do
@@ -272,6 +276,7 @@ main() {
     install_latest_vim_on_cent
   fi
   go_get
+  pip3_install
 
   deploy_dotfiles
   deploy_setting_files
