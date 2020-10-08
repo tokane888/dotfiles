@@ -21,7 +21,7 @@ Plugin 'plasticboy/vim-markdown'            " .mdプレビュー
 Plugin 'rking/ag.vim'                       " ctrlp.vimの検索高速化
 Plugin 'roxma/nvim-yarp'                    " denite.vimが依存
 Plugin 'roxma/vim-hug-neovim-rpc'           " denite.vimが依存
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'                " ファイル一覧。移動: (ctrl+w,w), 上下左右ウィンドウ移動: (ctrl+[hjkl])
 Plugin 'scrooloose/syntastic'               " :Errors でエラー表示。今はjsのみ
 Plugin 'Shougo/denite.nvim'
 Plugin 'suy/vim-ctrlp-commandline'          " ctrl+p => f => f コマンド履歴検索
