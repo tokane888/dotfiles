@@ -16,7 +16,6 @@ Plugin 'cohama/lexima.vim'
 Plugin 'ctrlpvim/ctrlp.vim'                 " ctrl+p でファイル検索。:help ctrlp-mappings
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'                  " .mdプレビュー
-Plugin 'itchyny/lightline.vim'
 Plugin 'plasticboy/vim-markdown'            " .mdプレビュー
 Plugin 'rking/ag.vim'                       " ctrlp.vimの検索高速化
 Plugin 'roxma/nvim-yarp'                    " denite.vimが依存
@@ -26,7 +25,10 @@ Plugin 'scrooloose/syntastic'               " :Errors でエラー表示。今�
 Plugin 'Shougo/denite.nvim'
 Plugin 'suy/vim-ctrlp-commandline'          " ctrl+p => f => f コマンド履歴検索
 Plugin 'tacahiroy/ctrlp-funky'              " ctrl+p => f      関数検索
-Plugin 'tpope/vim-fugitive'                 " :Git status 等でファイル内からgit使用
+Plugin 'tpope/vim-fugitive'                 " :Git status      ファイル内からgit status
+Plugin 'tpope/vim-surround'                 " cs'"             'hoge' => "hoge"に括弧を変更
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ycm-core/YouCompleteMe'
 
@@ -207,3 +209,6 @@ let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_mode_map = { 'mode': 'passive',
                            \ 'active_filetypes': ['javascript'],
                            \ 'passive_filetypes': [] }
+
+" vim-airline
+let g:airline_theme = 'molokai'
