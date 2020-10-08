@@ -91,6 +91,8 @@ set visualbell t_vb=
 set verbosefile=/tmp/vim.log
 " <leader>キー設定
 let mapleader=';'
+" 日本語入力時にEscで、normal遷移時に英語入力に変更
+autocmd InsertLeave * set iminsert=0 imsearch=0
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
