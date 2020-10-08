@@ -26,7 +26,7 @@ Plugin 'scrooloose/syntastic'               " :Errors でエラー表示。今�
 Plugin 'Shougo/denite.nvim'
 Plugin 'suy/vim-ctrlp-commandline'          " ctrl+p => f => f コマンド履歴検索
 Plugin 'tacahiroy/ctrlp-funky'              " ctrl+p => f      関数検索
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'                 " :Git status 等でファイル内からgit使用
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ycm-core/YouCompleteMe'
 
