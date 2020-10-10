@@ -16,6 +16,8 @@ Plugin 'cohama/lexima.vim'
 Plugin 'ctrlpvim/ctrlp.vim'                 " ctrl+p でファイル検索。:help ctrlp-mappings
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'                  " .mdプレビュー
+Plugin 'junegunn/fzf'                       " インクリメンタルサーチ
+Plugin 'junegunn/fzf.vim'
 Plugin 'plasticboy/vim-markdown'            " .mdプレビュー
 Plugin 'rking/ag.vim'                       " ctrlp.vimの検索高速化
 Plugin 'roxma/nvim-yarp'                    " denite.vimが依存
