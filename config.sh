@@ -5,6 +5,7 @@ APT_PACKAGES=(
   bash-completion
   build-essential # vim補完するYouCompleteMeが依存
   cmake           # vim補完するYouCompleteMeが依存
+  exuberant-ctags # tags自動生成
   gcc
   libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
@@ -16,6 +17,7 @@ APT_PACKAGES=(
   python3-pip
   silversearcher-ag
   tree
+  universal-ctags # tags自動生成
   unzip
   vim
   wget
