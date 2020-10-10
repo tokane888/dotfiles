@@ -2,6 +2,7 @@
 autocrlf = false
 editor = vim
 ignorecase = true
+excludesfile = /root/.gitignore_global
 [user]
 name = tokane888
 email = tokane888@gmail.com
