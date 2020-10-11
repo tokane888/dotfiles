@@ -11,32 +11,34 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bronson/vim-trailing-whitespace'    " :FixWhitespace で全角半角の空白全削除
+Plugin 'bronson/vim-trailing-whitespace' " :FixWhitespace で全角半角の空白全削除
 Plugin 'cohama/lexima.vim'
-Plugin 'ctrlpvim/ctrlp.vim'                 " ctrl+p でファイル検索。:help ctrlp-mappings
-Plugin 'dense-analysis/ale'                 " linter
+Plugin 'ctrlpvim/ctrlp.vim'              " ctrl+p でファイル検索。:help ctrlp-mappings
+Plugin 'dense-analysis/ale'              " linter
 Plugin 'fatih/vim-go'
-Plugin 'godlygeek/tabular'                  " .mdプレビュー
-Plugin 'honza/vim-snippets'                 " SirVer/ultisnipsが依存
-Plugin 'junegunn/fzf'                       " インクリメンタルサーチ
+Plugin 'godlygeek/tabular'               " .mdプレビュー
+Plugin 'honza/vim-snippets'              " SirVer/ultisnipsが依存
+Plugin 'junegunn/fzf'                    " インクリメンタルサーチ
 Plugin 'junegunn/fzf.vim'
-Plugin 'ludovicchabant/vim-gutentags'       " tags自動生成
-Plugin 'plasticboy/vim-markdown'            " .mdプレビュー
-Plugin 'preservim/tagbar'                   " ctagを元に関数一覧表示
-Plugin 'rking/ag.vim'                       " ctrlp.vimの検索高速化
-Plugin 'roxma/nvim-yarp'                    " denite.vimが依存
-Plugin 'roxma/vim-hug-neovim-rpc'           " denite.vimが依存
-Plugin 'scrooloose/nerdtree'                " ファイル一覧。移動: (ctrl+w,w), 上下左右ウィンドウ移動: (ctrl+[hjkl])
+Plugin 'junegunn/vim-easy-align'         " gaip= => =でindent揃え。 gaip*X" => "(regex)でindent揃え
+Plugin 'ludovicchabant/vim-gutentags'    " tags自動生p成
+Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
+Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
+Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
+Plugin 'roxma/nvim-yarp'                 " denite.vimが依存
+Plugin 'roxma/vim-hug-neovim-rpc'        " denite.vimが依存
+Plugin 'scrooloose/nerdtree'             " ファイル一覧。移動: (ctrl+w,w), 上下左右ウィンドウ移動: (ctrl+[hjkl])
 Plugin 'Shougo/denite.nvim'
-Plugin 'SirVer/ultisnips'                   " ctrl+l => snippet一覧。 ctrl+j => snippet決定
-Plugin 'suy/vim-ctrlp-commandline'          " ctrl+p => f => f コマンド履歴検索
-Plugin 'tacahiroy/ctrlp-funky'              " ctrl+p => f      関数検索
-Plugin 'tpope/vim-commentary'               " gcap             1節をコメントアウト
-Plugin 'tpope/vim-fugitive'                 " :Git status      ファイル内からgit status
+Plugin 'SirVer/ultisnips'                " ctrl+l => snippet一覧。 ctrl+j => snippet決定
+Plugin 'suy/vim-ctrlp-commandline'       " ctrl+p => f => f コマンド履歴検索
+Plugin 'tacahiroy/ctrlp-funky'           " ctrl+p => f      関数検索
+Plugin 'tpope/vim-commentary'            " gcap             1節をコメントアウト
+Plugin 'tpope/vim-fugitive'              " :Git status      ファイル内からgit status
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'                 " cs'"             'hoge' => "hoge"に括弧を変更
+Plugin 'tpope/vim-surround'              " cs' " 'hoge' => " hoge " に括弧を変更
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-ctrlspace/vim-ctrlspace'     " ctrl+spaceでPJ一覧表示
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ycm-core/YouCompleteMe'
 
@@ -75,11 +77,17 @@ set shiftwidth=2               " smartindentで増減するインデントの幅
 set expandtab
 set tabstop=2
 
-set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭へ移動
+set whichwrap=b,s,h,l,<,>,[,],~       " カーソルの左右移動で行末から次の行の行頭へ移動
 set cursorline
 source $VIMRUNTIME/macros/matchit.vim " %で.shのif => fi, html開始タグから閉じタグ等への移動を可能に
-set wildmenu                    " tabキーでコマンドの補完
-set history=1000                " 保存するコマンド履歴の数
+set wildmenu                          " tabキーでコマンドの補完
+set history=1000                      " 保存するコマンド履歴の数
+
+" vim-ctrlspace/vim-ctrlspace 関連設定(set)
+" required
+set hidden                            " 保存していないファイルがある場合でも別のファイルopen可能
+" option
+set showtabline=0                     " defaultのtabを非表示にし、vim-ctrlspaceのものに置き換え
 
 " ファイルを再度開いた際に同じポジションから開始
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -124,18 +132,6 @@ if &term =~ "xterm"
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
-" マウス有効化
-if has('mouse')
-    set mouse=a
-    if has('mouse_sgr')
-        set ttymouse=sgr
-    elseif v:version > 703 || v:version is 703 && has('patch632')
-        set ttymouse=sgr
-    else
-        set ttymouse=xterm2
-    endif
-endif
-
 " ===========================プラグイン設定===========================
 
 " ctrlpvim/ctrlp.vim
@@ -163,6 +159,12 @@ let g:go_fmt_command = "goimports"
 " 自動生成されるパース結果ファイル名をtags => .tagに変更
 let g:gutentags_ctags_extra_args=["-f", ".tag"]
 
+" junegunn/vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " scrooloose/nerdtree'
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " vim起動時にファイル未指定又はディレクトリを開いた際にNERDTreeを開く
@@ -171,6 +173,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " NERDTreeウィンドウだけ開いている場合に閉じる
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" <leader>+r: NerdTree上で開いているファイルを表示
+" 　ファイルを開いた際に自動的にNerdTree上に当該ファイル表示したいが困難
+map <leader>r :NERDTreeFind<cr>
 
 " preservim/tagbar
 " F8: 関数一覧表示
@@ -210,14 +215,19 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " :UltiSnipsEdit で登録する独自snippet保存先
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.local/dotfiles/vim/UltiSnips']
 
-" vim-airline/vim-airline'
+" vim-airline/vim-airline
 let g:airline_theme = 'molokai'
+
+" vim-ctrlspace/vim-ctrlspace
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
 " ycm-core/YouCompleteMe
 " 補完ウィンドウ表示のためにユーザーが入力する必要のある文字数
 let g:ycm_min_num_of_chars_for_completion=3
 " 関数説明などのpopup自動表示無効化
 let g:ycm_auto_hover=""
-" \ => d で関数document表示
+" <leader> => d で関数document表示
 nmap <leader>d <plug>(YCMHover)
 let g:ycm_filetype_blacklist = { 'sh': 1 }
