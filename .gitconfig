@@ -1,32 +1,32 @@
 [core]
-autocrlf = false
-editor = vim
-ignorecase = true
-excludesfile = /root/.gitignore_global
-quotepath = false                       # 日本語文字化け対策
+  autocrlf = false
+  editor = vim
+  ignorecase = true
+  excludesfile = /root/.gitignore_global
+  quotepath = false                       # 日本語文字化け対策
 [user]
-name = tokane888
-email = tokane888@gmail.com
+  name = tokane888
+  email = tokane888@gmail.com
 [filter "lfs"]
-clean = git-lfs clean -- %f
-smudge = git-lfs smudge -- %f
-process = git-lfs filter-process
-required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [push]
-default = simple
+  default = simple
 [alias]
-cg = config --global
-clg = config -l --global
-cm = commit -m
-b = branch
-ch = checkout
-cp = !"git checkout master && git pull"
-cpr = !"git checkout master && git pull && git checkout - && git rebase master"
-dc = diff --cached
-st = status
-ss = stash save
-sp = stash pop
-sl = stash list
-lo = log --oneline
-lod = log --pretty=format:'%C(auto)%h%d [%ad] %s <%cn>' --date=format:'%Y/%m/%d %H:%M:%S'
-dw = diff -w
+  cg = config --global
+  clg = config -l --global
+  cm = commit -m
+  b = branch
+  ch = checkout
+  cp = !"git checkout master && git pull"
+  cpr = !"git checkout master && git pull && git checkout - && git rebase master"
+  dc = diff --cached
+  st = status
+  ss = stash save
+  sp = stash pop
+  sl = stash list
+  lo = log --oneline
+  lod = log --pretty=format:'%C(auto)%h%d [%ad] %s <%cn>' --date=format:'%Y/%m/%d %H:%M:%S'
+  dw = diff -w
