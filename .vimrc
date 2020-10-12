@@ -65,7 +65,6 @@ set fileformats=unix           " 改行コードCRLFを^Mで表示
 set ambiwidth=double           " 文字幅が曖昧な文字の文字幅指定
 
 set incsearch                  " インクリメンタルサーチ。1文字入力毎に検索
-set ignorecase                 " 検索パターンに大文字小文字を区別しない
 set smartcase                  " 検索パターンに大文字を含んでいたら大文字小文字を区別
 set hlsearch
 " Esc 2回 => ハイライトon/off切り替え
