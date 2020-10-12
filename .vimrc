@@ -245,7 +245,7 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
 " ycm-core/YouCompleteMe
 " 補完ウィンドウ表示のためにユーザーが入力する必要のある文字数
-let g:ycm_min_num_of_chars_for_completion=3
+let g:ycm_min_num_of_chars_for_completion=2
 " 関数説明などのpopup自動表示無効化
 let g:ycm_auto_hover=""
 " <leader> => d で関数document表示
