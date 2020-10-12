@@ -209,8 +209,8 @@ endfunction
 " SirVer/ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 " :UltiSnipsEdit で登録する独自snippet保存先
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.local/dotfiles/vim/UltiSnips']
 
