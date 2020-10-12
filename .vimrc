@@ -138,6 +138,10 @@ let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索�
 let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
 let g:ctrlp_extensions = ['funky', 'commandline'] " CtrlPの拡張として「funky」と「commandline」を使用
 let g:ctrlp_follow_symlinks = 2 " シンボリックリンクを検索対象に含める
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|vendor)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 " CtrlPCommandLine有効化
 command! CtrlPCommandLine call ctrlp#init(ctrlp#commandline#id())
 " CtrlPFunky有効化
