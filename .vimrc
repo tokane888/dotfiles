@@ -151,8 +151,29 @@ let g:ale_fixers={
 let g:ale_fix_on_save=1
 
 " fatih/vim-go
-" ファイル保存時にimport追加
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"                        " ファイル保存時にimport追加
+let g:go_term_enabled = 1                                 " :GoRun結果を別windowで表示
+let g:go_term_mode = "silent keepalt rightbelow 15 split" " :GoRun結果を下部windowで表示
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" :GoRun実行の度に新規ウィンドウを開かず、使いまわす
+" TODO: nvim関数を使用せずに実現する方法検討
+"function! ReuseVimGoTerm(cmd) abort
+"    for w in nvim_list_wins()
+"        if "goterm" == nvim_buf_get_option(nvim_win_get_buf(w), 'filetype')
+"            call nvim_win_close(w, v:true)
+"            break
+"        endif
+"    endfor
+"    execute a:cmd
+"endfunction
+let g:go_def_reuse_buffer = 1
+" TODO: :GoRun実行時に実行結果windowの行番号消す方法調査。:set nonuは元ウィンドウに影響
+autocmd FileType go nmap <leader>r :GoRun<Return>         " <leader>+r => :GoRun実行
+"autocmd FileType go nmap <leader>r :call ReuseVimGoTerm('GoRun')<Return>
 
 " gutentags_ctags_extra_args
 " 自動生成されるパース結果ファイル名をtags => .tagに変更
