@@ -4,6 +4,8 @@
   ignorecase = true
   excludesfile = /root/.gitignore_global
   quotepath = false                       # 日本語文字化け対策
+[credential]
+  helper = windred                        # 入力した認証情報をキャッシュ
 [user]
   name = tokane888
   email = tokane888@gmail.com
