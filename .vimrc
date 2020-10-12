@@ -32,7 +32,7 @@ Plugin 'Shougo/denite.nvim'
 Plugin 'SirVer/ultisnips'                " ctrl+l => snippet一覧。 ctrl+j => snippet決定
 Plugin 'suy/vim-ctrlp-commandline'       " ctrl+p => f => f コマンド履歴検索
 Plugin 'tacahiroy/ctrlp-funky'           " ctrl+p => f      関数検索
-Plugin 'tpope/vim-commentary'            " gcap             1節をコメントアウト
+Plugin 'tpope/vim-commentary'            " gcap             comment out paragraph
 Plugin 'tpope/vim-fugitive'              " :Git status      ファイル内からgit status
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'              " cs' " 'hoge' => " hoge " に括弧を変更
