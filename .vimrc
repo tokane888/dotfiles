@@ -134,18 +134,18 @@ endif
 " ===========================プラグイン設定===========================
 
 " ctrlpvim/ctrlp.vim
-let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
 let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
 let g:ctrlp_extensions = ['funky', 'commandline'] " CtrlPの拡張として「funky」と「commandline」を使用
-let g:ctrlp_follow_symlinks = 2 " シンボリックリンクを検索対象に含める
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|vendor)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
 " CtrlPCommandLine有効化
 command! CtrlPCommandLine call ctrlp#init(ctrlp#commandline#id())
 " CtrlPFunky有効化
 let g:ctrlp_funky_matchtype = 'path'
+" rking/ag.vimとの連携設定
+if executable('ag') " agが使える環境の場合
+  let g:ctrlp_use_caching=0 " CtrlPのキャッシュを使わない
+  " TODO: シンボリックリンクが検索でヒットしないので対応
+  let g:ctrlp_user_command='ag %s -i --hidden -g ""' " 「ag」の検索設定
+endif
 
 " dense-analysis/ale
 let g:ale_fixers={
@@ -204,13 +204,6 @@ map <leader>r :NERDTreeFind<cr>
 " preservim/tagbar
 " F8: 関数一覧表示
 nmap <F8> :TagbarToggle<CR>
-
-" rking/ag.vim
-if executable('ag') " agが使える環境の場合
-  let g:ctrlp_use_caching=0 " CtrlPのキャッシュを使わない
-  " TODO: シンボリックリンクが検索でヒットしないので対応
-  let g:ctrlp_user_command='ag %s -i --hidden -g ""' " 「ag」の検索設定
-endif
 
 " Shougo/denite.nvim
 " denite.nvim key mapping
