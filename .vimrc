@@ -230,3 +230,5 @@ let g:ycm_auto_hover=""
 " <leader> => d で関数document表示
 nmap <leader>d <plug>(YCMHover)
 let g:ycm_filetype_blacklist = { 'sh': 1 }
+" insert modeを抜けた際に自動でpreview windowsを閉じる
+let g:ycm_autoclose_preview_window_after_insertion = 1
