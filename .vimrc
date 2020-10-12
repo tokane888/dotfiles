@@ -245,8 +245,8 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:ycm_min_num_of_chars_for_completion=2
 " 関数説明などのpopup自動表示無効化
 let g:ycm_auto_hover=""
-" <leader> => d で関数document表示
-nmap <leader>d <plug>(YCMHover)
+" <leader> => s で関数document表示
+nmap <leader>s <plug>(YCMHover)
 let g:ycm_filetype_blacklist = { 'sh': 1 }
 " insert modeを抜けた際に自動でpreview windowsを閉じる
 let g:ycm_autoclose_preview_window_after_insertion = 1
