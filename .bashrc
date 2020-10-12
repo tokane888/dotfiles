@@ -28,3 +28,10 @@ PS1='\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[0;35m\]$(__git_ps1)\n\[\e[
 
 export LC_ALL=ja_JP.UTF-8
 export EDITOR=/usr/bin/vim
+
+alias crontab='crontab -i'
+alias lal='ls -Al'
+alias ll='ls -l'
+alias rm='rm' # 別の場所でのalias設定で、ファイル削除時毎回確認されることを抑止
+
+mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
