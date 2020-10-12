@@ -3,6 +3,7 @@ autocrlf = false
 editor = vim
 ignorecase = true
 excludesfile = /root/.gitignore_global
+quotepath = false                       # 日本語文字化け対策
 [user]
 name = tokane888
 email = tokane888@gmail.com
