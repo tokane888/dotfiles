@@ -35,3 +35,9 @@ alias ll='ls -l'
 alias rm='rm' # 別の場所でのalias設定で、ファイル削除時毎回確認されることを抑止
 
 mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# tmux newで生成されたsession内で再度tmux newが呼びされれるのを抑止
+tmux has-session -t 0
+if [ $? != 0 ]; then
+  tmux new
+fi
