@@ -144,6 +144,7 @@ let g:ctrlp_funky_matchtype = 'path'
 if executable('ag') " agが使える環境の場合
   let g:ctrlp_use_caching=0 " CtrlPのキャッシュを使わない
   " TODO: シンボリックリンクが検索でヒットしないので対応
+  " .git repository配下の場合、repository全体が検索される
   let g:ctrlp_user_command='ag %s -i --hidden -g ""' " 「ag」の検索設定
 endif
 
