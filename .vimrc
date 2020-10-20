@@ -105,8 +105,6 @@ set updatetime=100
 set visualbell t_vb=
 " /tmp/vim.logに詳細なログ出力
 set verbosefile=/tmp/vim.log
-" <leader>キー設定
-let mapleader=';'
 " 日本語入力時にEscで、normal遷移時に英語入力に変更
 autocmd InsertLeave * set iminsert=0 imsearch=0
 
