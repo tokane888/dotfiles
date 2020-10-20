@@ -207,6 +207,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " 　ファイルを開いた際に自動的にNerdTree上に当該ファイル表示したいが困難
 map <leader>r :NERDTreeFind<cr>
 
+" plasticboy/vim-markdown
+let g:vim_markdown_folding_disabled = 1
+
 " preservim/tagbar
 " F8: 関数一覧表示
 nmap <F8> :TagbarToggle<CR>
