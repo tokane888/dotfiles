@@ -79,6 +79,7 @@ set cursorline
 source $VIMRUNTIME/macros/matchit.vim " %で.shのif => fi, html開始タグから閉じタグ等への移動を可能に
 set wildmenu                          " tabキーでコマンドの補完
 set history=1000                      " 保存するコマンド履歴の数
+set splitright                        " 左右分割時に右側にウィンドウを開く
 
 " vim-ctrlspace/vim-ctrlspace 関連設定(set)
 " required
