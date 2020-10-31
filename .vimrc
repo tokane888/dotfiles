@@ -16,7 +16,7 @@ Plugin 'cohama/lexima.vim'
 Plugin 'ctrlpvim/ctrlp.vim'              " ctrl+p でファイル検索。:help ctrlp-mappings
 Plugin 'dense-analysis/ale'              " linter
 Plugin 'fatih/vim-go'
-Plugin 'godlygeek/tabular'               " .mdプレビュー
+Plugin 'godlygeek/tabular'               " plasticboy/vim-markdownが依存
 Plugin 'honza/vim-snippets'              " SirVer/ultisnipsが依存
 Plugin 'junegunn/fzf'                    " インクリメンタルサーチ
 Plugin 'junegunn/fzf.vim'
