@@ -21,7 +21,7 @@ Plugin 'honza/vim-snippets'              " SirVer/ultisnipsが依存
 Plugin 'junegunn/fzf'                    " インクリメンタルサーチ
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'         " gaip= => =でindent揃え。 gaip*X" => "(regex)でindent揃え
-Plugin 'ludovicchabant/vim-gutentags'    " tags自動生p成
+Plugin 'ludovicchabant/vim-gutentags'    " tags自動生成
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
 Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
