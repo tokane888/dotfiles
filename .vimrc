@@ -21,6 +21,7 @@ Plugin 'honza/vim-snippets'              " SirVer/ultisnipsが依存
 Plugin 'junegunn/fzf'                    " インクリメンタルサーチ
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'         " gaip= => =でindent揃え。 gaip*X" => "(regex)でindent揃え
+Plugin 'previm/previm'
 Plugin 'ludovicchabant/vim-gutentags'    " tags自動生成
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
@@ -194,6 +195,17 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" previm/previm
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_enable_realtime = 1
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+noremap <silent> <C-m> :PrevimOpen<CR>  " ctrl+m => .mdプレビュー
+
+" plasticboy/vim-markdown
+let g:vim_markdown_folding_disabled = 1     " 初期状態で畳み込み無効
+let g:vim_markdown_new_list_item_indent = 0 "インデント無効化。.vimrcでもきかなくなった。。
+"let g:vim_markdown_auto_insert_bullets = 0  " *等の自動挿入無効化
+
 " scrooloose/nerdtree'
 nnoremap <silent><C-s> :NERDTreeToggle<CR>
 " vim起動時にファイル未指定又はディレクトリを開いた際にNERDTreeを開く
@@ -205,9 +217,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " <leader>+r: NerdTree上で開いているファイルを表示
 " 　ファイルを開いた際に自動的にNerdTree上に当該ファイル表示したいが困難
 map <leader>r :NERDTreeFind<cr>
-
-" plasticboy/vim-markdown
-let g:vim_markdown_folding_disabled = 1
 
 " preservim/tagbar
 " F8: 関数一覧表示
