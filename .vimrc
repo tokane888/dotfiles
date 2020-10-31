@@ -258,3 +258,7 @@ nmap <leader>s <plug>(YCMHover)
 let g:ycm_filetype_blacklist = { 'sh': 1 }
 " insert modeを抜けた際に自動でpreview windowsを閉じる
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" memo
+" * " gxでurlをブラウザで開けるが、:redraw!しないとvimが真っ黒になるバグがある。修正中とのこと
+" https://stackoverflow.com/questions/9458294/open-url-under-cursor-in-vim-with-browser
