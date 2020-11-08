@@ -215,7 +215,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " NERDTreeウィンドウだけ開いている場合に閉じる
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " <leader>+r: NerdTree上で開いているファイルを表示
-" 　ファイルを開いた際に自動的にNerdTree上に当該ファイル表示したいが困難
+" ファイルを開いた際に自動的にNerdTree上に当該ファイル表示したいが困難
 map <leader>r :NERDTreeFind<cr>
 
 " preservim/tagbar
