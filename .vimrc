@@ -21,7 +21,6 @@ Plugin 'honza/vim-snippets'              " SirVer/ultisnipsが依存
 Plugin 'junegunn/fzf'                    " インクリメンタルサーチ
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'         " gaip= => =でindent揃え。 gaip*X" => "(regex)でindent揃え
-Plugin 'previm/previm'
 Plugin 'ludovicchabant/vim-gutentags'    " tags自動生成
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
@@ -194,12 +193,6 @@ let g:gutentags_ctags_extra_args=["-f", ".tag"]
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-" previm/previm
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-let g:previm_enable_realtime = 1
-let g:previm_open_cmd = 'open -a Google\ Chrome'
-noremap <silent> <C-m> :PrevimOpen<CR>  " ctrl+m => .mdプレビュー
 
 " plasticboy/vim-markdown
 let g:vim_markdown_folding_disabled = 1     " 初期状態で畳み込み無効
