@@ -122,10 +122,10 @@ go_get() {
     return
   fi
 
-  mkdir -p $HOME/.go
+  mkdir -p ${HOME%/}/.go
   # GOPATH, PATH設定は.bashrcでも行っているが、PS1変数未定義などで弾かれる。
   # そのため、go getをここで実行するためにGOPATH, PATHをexport
-  export GOPATH=$HOME/.go
+  export GOPATH=${HOME%/}/.go
   export PATH=$PATH:$GOPATH/bin
   for target in ${GO_GETS[@]}; do
     go get -u $target
@@ -144,7 +144,7 @@ pip3_install() {
 deploy_dotfiles() {
   local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
   for file in ${dot_files[@]}; do
-    [ ! -e $HOME/$file ] && ln -s ${DOT_FILES_DIR}$file $HOME/$file
+    [ ! -e ${HOME%/}/$file ] && ln -s ${DOT_FILES_DIR}$file ${HOME%/}/$file
   done
 }
 
@@ -167,18 +167,18 @@ install_vim_plugins() {
     return
   fi
 
-  mkdir -p $HOME/.vim/bundle/
-  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+  mkdir -p ${HOME%/}/.vim/bundle/
+  git clone https://github.com/VundleVim/Vundle.vim.git ${HOME%/}/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
-  #python3 $HOME/.vim/bundle/YouCompleteMe/install.py --go-completer
+  #python3 ${HOME%/}/.vim/bundle/YouCompleteMe/install.py --go-completer
   # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
   vim +'silent :GoInstallBinaries' +qall
 }
 
 install_vim_color_scheme() {
-  if [ ! -d $HOME/.vim/colors/ ]; then
-    mkdir -p $HOME/.vim/colors/
-    cd $HOME/.vim/colors/
+  if [ ! -d ${HOME%/}/.vim/colors/ ]; then
+    mkdir -p ${HOME%/}/.vim/colors/
+    cd ${HOME%/}/.vim/colors/
     wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
   fi
 }
