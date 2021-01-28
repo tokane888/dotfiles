@@ -167,8 +167,11 @@ install_vim_plugins() {
     return
   fi
 
-  mkdir -p ${HOME%/}/.vim/bundle/
-  git clone https://github.com/VundleVim/Vundle.vim.git ${HOME%/}/.vim/bundle/Vundle.vim
+  if [ ! -d ${HOME%/}/.vim/bundle/ ]; then
+    mkdir -p ${HOME%/}/.vim/bundle/
+    git clone https://github.com/VundleVim/Vundle.vim.git ${HOME%/}/.vim/bundle/Vundle.vim
+  fi
+  
   vim +PluginInstall +qall
   #python3 ${HOME%/}/.vim/bundle/YouCompleteMe/install.py --go-completer
   # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
