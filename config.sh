@@ -17,7 +17,7 @@ APT_PACKAGES=(
   python3-pip
   silversearcher-ag
   tree
-  universal-ctags # tags自動生成
+  # universal-ctags # tags自動生成。見つからないため一旦削除
   unzip
   vim
   wget
