@@ -136,6 +136,8 @@ nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up> gk
 
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left> " virual modeでctrl+r => enterで、1つ1つ確認しながらreplace実行
+
 " ===========================プラグイン設定===========================
 
 " ctrlpvim/ctrlp.vim
