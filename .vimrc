@@ -109,6 +109,8 @@ set visualbell t_vb=
 set verbosefile=/tmp/vim.log
 " 日本語入力時にEscで、normal遷移時に英語入力に変更
 autocmd InsertLeave * set iminsert=0 imsearch=0
+" 折返し無効化
+set nowrap
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
