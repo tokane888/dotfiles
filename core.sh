@@ -143,7 +143,9 @@ pip3_install() {
 
 deploy_dotfiles() {
   local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
-  ln -fs ${DOT_FILES_DIR}$file ${HOME%/}/$file
+  for file in ${dot_files[@]}; do
+    ln -fs ${DOT_FILES_DIR}$file ${HOME%/}/$file
+  done
 }
 
 # debian系実機向け設定ファイルデプロイ
