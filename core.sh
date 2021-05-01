@@ -85,7 +85,7 @@ install_go_from_src() {
     cd /usr/local
     wget https://dl.google.com/go/go1.13.5.linux-armv6l.tar.gz
     tar -vxzf go1.13.5.linux-armv6l.tar.gz
-    rm -f /usr/local/go/bin/go /usr/local/go/bin/gofmt
+    rm -f /usr/bin/go /usr/bin/gofmt
     ln -s /usr/local/go/bin/go /usr/bin/go
     ln -s /usr/local/go/bin/gofmt /usr/bin/gofmt
 
