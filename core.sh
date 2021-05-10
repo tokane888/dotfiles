@@ -233,6 +233,7 @@ setup_real_machine() {
     sudo update-alternatives --set editor /usr/bin/vim.basic
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
+    # TODO: これを/etc/rc.localに書き込まないと再起動後はLED点灯するケース(raspberry PI 3B+)が有ったため対応検討
     echo "none" >/sys/class/leds/led0/trigger
     echo "none" >/sys/class/leds/led1/trigger
     # 起動時にHDMIを挿入していなくてもHDMIで出力可能に
