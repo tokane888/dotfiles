@@ -14,7 +14,7 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-[pull]
+[fetch]
   prune = true                              # pull時にremoteで削除済みのブランチはlocalでも削除
 [push]
   default = simple                          # 同じ名前のブランチへしかpushしない
