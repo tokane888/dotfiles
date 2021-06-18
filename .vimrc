@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'alvan/vim-closetag'              " html等の閉じタグ補完
 Plugin 'bronson/vim-trailing-whitespace' " :FixWhitespace で全角半角の空白全削除
 Plugin 'cohama/lexima.vim'
 Plugin 'ctrlpvim/ctrlp.vim'              " ctrl+p でファイル検索。:help ctrlp-mappings
