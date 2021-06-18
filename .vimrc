@@ -110,6 +110,8 @@ set visualbell t_vb=
 set verbosefile=/tmp/vim.log
 " 日本語入力時にEscで、normal遷移時に英語入力に変更
 autocmd InsertLeave * set iminsert=0 imsearch=0
+" 折返し無効化
+set nowrap
 
 let _curfile=expand("%:r")
 if _curfile == 'Makefile'
@@ -136,6 +138,16 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up> gk
+
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left> " virual modeでctrl+r => enterで、1つ1つ確認しながらreplace実行
+
+" Windows Subsystem for Linux で、ヤンクでクリップボードにコピー
+if system('uname -a | grep Microsoft') != ''
+augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+augroup END
+endif
 
 " ===========================プラグイン設定===========================
 

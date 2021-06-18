@@ -85,8 +85,8 @@ install_go_from_src() {
     cd /usr/local
     wget https://dl.google.com/go/go1.13.5.linux-armv6l.tar.gz
     tar -vxzf go1.13.5.linux-armv6l.tar.gz
-    ln -s /usr/local/go/bin/go /usr/bin/go
-    ln -s /usr/local/go/bin/gofmt /usr/bin/gofmt
+    ln -fs /usr/local/go/bin/go /usr/bin/go
+    ln -fs /usr/local/go/bin/gofmt /usr/bin/gofmt
 
     popd
   fi
@@ -105,7 +105,7 @@ install_latest_vim_on_cent() {
   ./configure --enable-gui=no --enable-python3interp
   make
   make install
-  [ ! -e /usr/bin/vim ] && ln -s /root/.local/dotfiles/vim/vim-master/src/vim /usr/bin/vim
+  [ ! -e /usr/bin/vim ] && ln -fs /root/.local/dotfiles/vim/vim-master/src/vim /usr/bin/vim
   popd
 }
 
@@ -144,7 +144,7 @@ pip3_install() {
 deploy_dotfiles() {
   local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$)')
   for file in ${dot_files[@]}; do
-    [ ! -e ${HOME%/}/$file ] && ln -s ${DOT_FILES_DIR}$file ${HOME%/}/$file
+    ln -fs ${DOT_FILES_DIR}$file ${HOME%/}/$file
   done
 }
 
@@ -171,8 +171,8 @@ install_vim_plugins() {
     mkdir -p ${HOME%/}/.vim/bundle/
     git clone https://github.com/VundleVim/Vundle.vim.git ${HOME%/}/.vim/bundle/Vundle.vim
   fi
-  
-  vim +PluginInstall +qall
+
+  vim +PluginInstall +qall < /dev/tty
   #python3 ${HOME%/}/.vim/bundle/YouCompleteMe/install.py --go-completer
   # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
   vim +'silent :GoInstallBinaries' +qall
@@ -233,6 +233,7 @@ setup_real_machine() {
     sudo update-alternatives --set editor /usr/bin/vim.basic
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
+    # TODO: これを/etc/rc.localに書き込まないと再起動後はLED点灯するケース(raspberry PI 3B+)が有ったため対応検討
     echo "none" >/sys/class/leds/led0/trigger
     echo "none" >/sys/class/leds/led1/trigger
     # 起動時にHDMIを挿入していなくてもHDMIで出力可能に

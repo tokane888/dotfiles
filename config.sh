@@ -7,6 +7,7 @@ APT_PACKAGES=(
   cmake           # vim補完するYouCompleteMeが依存
   exuberant-ctags # tags自動生成
   gcc
+  g++
   libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
   make
