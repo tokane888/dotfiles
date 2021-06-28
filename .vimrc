@@ -43,6 +43,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ctrlspace/vim-ctrlspace'     " ctrl+spaceでPJ一覧表示
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Yggdroot/indentLine'             " indent可視化
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,6 +76,7 @@ set smartindent                " 改行時に前の行の構文をチェック�
 set shiftwidth=2               " smartindentで増減するインデントの幅
 set expandtab
 set tabstop=2
+set list lcs=tab:\|\           " tab可視化
 
 set whichwrap=b,s,h,l,<,>,[,],~       " カーソルの左右移動で行末から次の行の行頭へ移動
 set cursorline
