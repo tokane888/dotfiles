@@ -176,6 +176,8 @@ let g:ale_fixers={
 \   'javascript': ['eslint'],
 \}
 let g:ale_fix_on_save=1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 " fatih/vim-go
 let g:go_fmt_command = "goimports"                        " ファイル保存時にimport追加
