@@ -111,8 +111,10 @@ set updatetime=100
 set visualbell t_vb=
 " /tmp/vim.logに詳細なログ出力
 set verbosefile=/tmp/vim.log
-" 日本語入力時にEscで、normal遷移時に英語入力に変更
+" normal mode遷移時に英語入力に変更
 autocmd InsertLeave * set iminsert=0 imsearch=0
+" normal mode遷移時にpaste解除
+autocmd InsertLeave * set nopaste
 " 折返し無効化
 set nowrap
 
