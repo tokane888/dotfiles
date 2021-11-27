@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'alvan/vim-closetag'              " html等の閉じタグ補完
 Plugin 'bronson/vim-trailing-whitespace' " :FixWhitespace で全角半角の空白全削除
 Plugin 'cohama/lexima.vim'
 Plugin 'ctrlpvim/ctrlp.vim'              " ctrl+p でファイル検索。:help ctrlp-mappings
@@ -22,6 +23,7 @@ Plugin 'junegunn/fzf'                    " インクリメンタルサーチ
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'         " gaip= => =でindent揃え。 gaip*X" => "(regex)でindent揃え
 Plugin 'ludovicchabant/vim-gutentags'    " tags自動生成
+Plugin 'mattn/emmet-vim'                 " ctrl+y => , でhtml補完
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
 Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
@@ -41,6 +43,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ctrlspace/vim-ctrlspace'     " ctrl+spaceでPJ一覧表示
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Yggdroot/indentLine'             " indent可視化
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -73,6 +76,7 @@ set smartindent                " 改行時に前の行の構文をチェック�
 set shiftwidth=2               " smartindentで増減するインデントの幅
 set expandtab
 set tabstop=2
+set list lcs=tab:\|\           " tab可視化
 
 set whichwrap=b,s,h,l,<,>,[,],~       " カーソルの左右移動で行末から次の行の行頭へ移動
 set cursorline
@@ -107,8 +111,10 @@ set updatetime=100
 set visualbell t_vb=
 " /tmp/vim.logに詳細なログ出力
 set verbosefile=/tmp/vim.log
-" 日本語入力時にEscで、normal遷移時に英語入力に変更
+" normal mode遷移時に英語入力に変更
 autocmd InsertLeave * set iminsert=0 imsearch=0
+" normal mode遷移時にpaste解除
+autocmd InsertLeave * set nopaste
 " 折返し無効化
 set nowrap
 
@@ -172,6 +178,8 @@ let g:ale_fixers={
 \   'javascript': ['eslint'],
 \}
 let g:ale_fix_on_save=1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 " fatih/vim-go
 let g:go_fmt_command = "goimports"                        " ファイル保存時にimport追加
