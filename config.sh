@@ -83,9 +83,9 @@ RPM_REPOS=(
   epel-release
 )
 
-GO_GETS=(
-  github.com/golang/dep/cmd/dep
-)
+# GO_GETS=(
+#   github.com/golang/dep/cmd/dep
+# )
 
 GO_GETS_UBUNTU=(
   # 32bitのarmはサポート外なのでラズパイでは使用不可

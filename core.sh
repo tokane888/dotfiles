@@ -279,7 +279,8 @@ main() {
     install_rpm_packages
     install_latest_vim_on_cent
   fi
-  go_get
+  # dep使わなくなり、現在導入対象がいためコメントアウト
+  # go_get
   pip3_install
 
   deploy_dotfiles
