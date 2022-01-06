@@ -7,7 +7,8 @@ fi
 cat /etc/os-release | grep -Po 'PRETTY_NAME="\K.*(?=")'
 cd
 
-export GOPATH=$HOME/.go
+# TODO: ubuntu以外の場合はパス修正
+export GOPATH=/root/.gvm/pkgsets/go1.17/global
 export PATH=$PATH:$GOPATH/bin
 
 # ctrl+s, ctrl+q無効化
