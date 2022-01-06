@@ -5,8 +5,6 @@ set -eux
 generate_bashrc() {
   local home=$1
 
-  cat $home/.local/dotfiles/.bashrc >>$home/.bashrc
-
   # OS別設定
   echo "# git入力補完" >>$home/.bashrc
   if [ -f /usr/share/bash-completion/completions/git ]; then
