@@ -5,7 +5,6 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 cat /etc/os-release | grep -Po 'PRETTY_NAME="\K.*(?=")'
-cd
 
 # TODO: ubuntu以外の場合はパス修正
 export GOPATH=/root/.gvm/pkgsets/go1.17/global
