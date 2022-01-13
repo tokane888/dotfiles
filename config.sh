@@ -25,9 +25,9 @@ APT_PACKAGES=(
   zip
 )
 
-UBUNTU_PACKAGES=(
-  golang-go
-)
+# UBUNTU_PACKAGES=(
+#   golang-go
+# )
 
 APT_REPOS=(
   ppa:longsleep/golang-backports

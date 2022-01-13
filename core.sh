@@ -63,7 +63,8 @@ add_rpm_repository() {
 install_apt_packages() {
   apt-get install -y ${APT_PACKAGES[*]}
   if [ "$(get_os)" == "ubuntu" ]; then
-    apt-get install -y ${UBUNTU_PACKAGES[*]}
+    # 現在UBUNTUのみのインストールパッケージがないためコメントアウト
+    # apt-get install -y ${UBUNTU_PACKAGES[*]}
   fi
 
   # npmでnodejsを管理
