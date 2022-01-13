@@ -30,7 +30,6 @@ APT_PACKAGES=(
 # )
 
 APT_REPOS=(
-  ppa:longsleep/golang-backports
   ppa:jonathonf/vim
 )
 
