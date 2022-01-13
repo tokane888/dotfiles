@@ -25,12 +25,13 @@ APT_PACKAGES=(
   zip
 )
 
-# UBUNTU_PACKAGES=(
-#   golang-go
-# )
+UBUNTU_PACKAGES=(
+  mercurial # gvmが依存
+  binutils  # gvmが依存
+  bison     # gvmが依存
+)
 
 APT_REPOS=(
-  ppa:jonathonf/vim
 )
 
 UBUNTU_PURGE_PACKAGES=(

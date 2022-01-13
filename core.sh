@@ -63,8 +63,7 @@ add_rpm_repository() {
 install_apt_packages() {
   apt-get install -y ${APT_PACKAGES[*]}
   if [ "$(get_os)" == "ubuntu" ]; then
-    # 現在UBUNTUのみのインストールパッケージがないためコメントアウト
-    # apt-get install -y ${UBUNTU_PACKAGES[*]}
+    apt-get install -y ${UBUNTU_PACKAGES[*]}
   fi
 
   # npmでnodejsを管理
@@ -90,6 +89,13 @@ install_go_from_src() {
     ln -fs /usr/local/go/bin/gofmt /usr/bin/gofmt
 
     popd
+  elif [ "$(get_os)" == "ubuntu" ]; then
+    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    source ~/.bashrc
+    gvm install go1.4 -B
+    gvm use go1.4
+    gvm install go1.17
+    gvm use go1.17 --default
   fi
 }
 
