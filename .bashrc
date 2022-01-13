@@ -33,6 +33,7 @@ alias crontab='crontab -i'
 alias lal='ls -Al'
 alias ll='ls -l'
 alias rm='rm' # 別の場所でのalias設定で、ファイル削除時毎回確認されることを抑止
+alias ffprobe='ffprobe -hide_banner'
 
 mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
