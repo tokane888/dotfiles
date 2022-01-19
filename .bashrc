@@ -4,9 +4,6 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-# TODO: ラズパイでこれがあると何故かscpが失敗するので、調査の上必要なら削除
-cat /etc/os-release | grep -Po 'PRETTY_NAME="\K.*(?=")'
-
 # TODO: ubuntu以外の場合はパス修正
 export GOPATH=/root/.gvm/pkgsets/go1.17/global
 export PATH=$PATH:$GOPATH/bin
