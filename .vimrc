@@ -43,7 +43,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ctrlspace/vim-ctrlspace'     " ctrl+spaceでPJ一覧表示
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'Yggdroot/indentLine'             " indent可視化
+"Plugin 'Yggdroot/indentLine'             " indent可視化。""が表示されないため当面無効化
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
