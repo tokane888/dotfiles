@@ -30,3 +30,8 @@ yum install -y curl
 ```
 sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo bash -
 ```
+
+# その他
+
+* tmuxを使用する場合、tmux-pane-borderを/usr/local/bin/に配置
+  * status barに接続先hostname表示するため
