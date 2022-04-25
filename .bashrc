@@ -34,9 +34,3 @@ alias rm='rm' # 別の場所でのalias設定で、ファイル削除時毎回�
 alias ffprobe='ffprobe -hide_banner'
 
 mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
-
-# tmux newで生成されたsession内で再度tmux newが呼びされれるのを抑止
-tmux has-session -t 0
-if [ $? != 0 ]; then
-  tmux new
-fi
