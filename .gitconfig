@@ -35,3 +35,4 @@
   lod = log --pretty=format:'%C(auto)%h%d [%ad] %s <%cn>' --date=format:'%Y/%m/%d %H:%M:%S'
   dw = diff -w
   tree = log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ar %Creset%x09by"%C(cyan ul)%an%Creset" %x09%C(auto)%s %d'
+  deldelb = git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done
