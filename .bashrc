@@ -32,5 +32,6 @@ alias lal='ls -Al'
 alias ll='ls -l'
 alias rm='rm' # 別の場所でのalias設定で、ファイル削除時毎回確認されることを抑止
 alias ffprobe='ffprobe -hide_banner'
+alias gipu='git add . && git commit -m "追記" && git push'
 
 mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
