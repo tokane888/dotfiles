@@ -39,3 +39,4 @@ if [[ $1 = "ssh" ]]; then
 fi
 
 echo $ssh_hostname
+
