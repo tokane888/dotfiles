@@ -91,7 +91,11 @@ install_go_from_src() {
     popd
   elif [ "$(get_os)" == "ubuntu" ]; then
     bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+    set +u
     source ~/.bashrc
+    set -u
+
     gvm install go1.4 -B
     gvm use go1.4
     gvm install go1.17
