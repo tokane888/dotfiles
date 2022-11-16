@@ -35,7 +35,6 @@ APT_REPOS=(
 )
 
 UBUNTU_PURGE_PACKAGES=(
-  bluez*
   brasero*
   cheese*
   dnsutils
@@ -57,7 +56,6 @@ UBUNTU_PURGE_PACKAGES=(
   speech-dispatcher*
   thunderbird*
   transmission-*
-  ubuntu-web-launchers
   unity-lens-*
   xul-ext-ubufox
 )
