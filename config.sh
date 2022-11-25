@@ -44,6 +44,7 @@ UBUNTU_PURGE_PACKAGES=(
   mythes-en-us
   openssh-client
   simple-scan
+  thunderbird
   xul-ext-ubufox
 )
 
