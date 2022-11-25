@@ -35,28 +35,14 @@ APT_REPOS=(
 )
 
 UBUNTU_PURGE_PACKAGES=(
-  brasero*
-  cheese*
   dnsutils
-  empathy*
   espeak-ng-data:amd64
-  evolution-data-server*
   gnome-bluetooth
   gnome-orca
   ibus-pinyin
-  libreoffice-*
-  mobile-broadband-provider-inf*
   mythes-en-us
   openssh-client
-  printer-driver-*
-  printer-driver-foo2zjs*
-  rhythmbox*
-  shotwell*
   simple-scan
-  speech-dispatcher*
-  thunderbird*
-  transmission-*
-  unity-lens-*
   xul-ext-ubufox
 )
 
