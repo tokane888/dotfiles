@@ -17,6 +17,7 @@ APT_PACKAGES=(
   python3-dev # vim補完するYouCompleteMeが依存
   python3-pip
   silversearcher-ag
+  tmux
   tree
   # universal-ctags # tags自動生成。見つからないため一旦削除
   unzip
