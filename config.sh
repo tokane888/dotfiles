@@ -41,8 +41,13 @@ UBUNTU_PURGE_PACKAGES=(
   gnome-bluetooth
   gnome-orca
   ibus-pinyin
+  libreoffice-calc
+  libreoffice-draw
+  libreoffice-math
+  libreoffice-writer
   mythes-en-us
   openssh-client
+  rhythmbox
   simple-scan
   thunderbird
   xul-ext-ubufox
