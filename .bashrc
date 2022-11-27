@@ -4,10 +4,6 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-# TODO: ubuntu以外の場合はパス修正
-export GOPATH=/root/.gvm/pkgsets/go1.17/global
-export PATH=$PATH:$GOPATH/bin
-
 # ctrl+s, ctrl+q無効化
 if [[ -t 0 ]]; then
   stty stop undef
