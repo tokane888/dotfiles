@@ -98,8 +98,8 @@ install_go_from_src() {
 
     gvm install go1.4 -B
     gvm use go1.4
-    gvm install go1.17
-    gvm use go1.17 --default
+    gvm install go1.19.3
+    gvm use go1.19.3 --default
 
     set -u
   fi
