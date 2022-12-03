@@ -163,6 +163,10 @@ deploy_dotfiles() {
   for file in ${dot_files[@]}; do
     ln -fs ${DOT_FILES_DIR}$file ${HOME%/}/$file
   done
+
+  if [ ! -f ~/.ssh/config ]; then
+    cp -r .ssh ~/.ssh
+  fi
 }
 
 # debian系実機向け設定ファイルデプロイ
