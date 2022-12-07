@@ -5,6 +5,7 @@ set -euxo pipefail
 DEB_PACKAGES=(
   nmap
   snapd
+  xclip
 )
 
 install_vscode() {
