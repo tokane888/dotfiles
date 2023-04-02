@@ -17,6 +17,7 @@ APT_PACKAGES=(
   make
   npm
   openssh-server
+  peco
   python3
   python3-dev # vim補完するYouCompleteMeが依存
   python3-pip
@@ -28,6 +29,7 @@ APT_PACKAGES=(
   vim
   wget
   zip
+  zsh
 )
 
 UBUNTU_PACKAGES=(
