@@ -98,8 +98,11 @@ install_go_from_src() {
 
     gvm install go1.4 -B
     gvm use go1.4
-    gvm install go1.19.3
-    gvm use go1.19.3 --default
+    # 1.20以降のコンパイルに1.17以上のgoが必要であるため一旦インストール
+    gvm install go1.17
+    gvm use go1.17
+    gvm install go1.20.2
+    gvm use go1.20.2 --default
 
     set -u
   fi
