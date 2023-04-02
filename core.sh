@@ -157,6 +157,10 @@ pip3_install() {
   pip3 install msgpack pynvim
 }
 
+go_install_packages() {
+  go install github.com/x-motemen/ghq@latest
+}
+
 deploy_dotfiles() {
   if [ -v ~/.bashrc ]; then
     mv ~/.bashrc ~/.bashrc.bk
@@ -307,6 +311,7 @@ main() {
   # dep使わなくなり、現在導入対象外であるためコメントアウト
   # go_get
   pip3_install
+  go_install_packages
 
   deploy_dotfiles
   deploy_setting_files
