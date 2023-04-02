@@ -4,6 +4,8 @@
 
 set -eux
 
+REAL_MACHINE=0
+
 is_root() {
   [ ${EUID:-${UID}} = 0 ]
 }
@@ -296,6 +298,14 @@ main() {
   fi
   HOME=$1
 
+  while getopts "r" opt; do
+    case $opt in
+      r)
+        REAL_MACHINE=1
+        ;;
+    esac
+  done
+
   if $(can_use_command "apt"); then
     export DEBIAN_FRONTEND=noninteractive
     add_apt_repository
@@ -323,6 +333,9 @@ main() {
   setup_real_machine
   setup_trivial
   cleanup
+  if [[ $REAL_MACHINE == 1 ]]; then
+    yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
 
   echo "$SECONDS 秒で初期化"
   # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
@@ -331,4 +344,4 @@ main() {
   echo ".gitconfigのuser, passは必要に応じて修正して下さい"
 }
 
-main $1
+main $@
