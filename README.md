@@ -27,7 +27,8 @@ yum install -y curl
 
 # 共通インストールコマンド
 
+下記で`-r`オプション付与で開発用実機向けになり、oh-my-zsh等導入される
+
 ```
 sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo bash -
 ```
-
