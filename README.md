@@ -19,8 +19,8 @@ yum install -y curl
 # ラズパイ事前設定
 
 * /etc/apt/sources.list に下記追記
-  * busterの場合(他のディストリビューションの場合、都度調査)
-    * deb http://ftp.jaist.ac.jp/raspbian/ buster main contrib non-free rpi
+  * bullseyeの場合(他のディストリビューションの場合、都度調査)
+    * deb http://ftp.jaist.ac.jp/raspbian/ bullseye main contrib non-free rpi
 * /etc/apt/sources.list に上記以外のリポジトリが記載されていれば削除
 * .vimrcのYouCompleteMe pluginがラズパイサポート外なので除外
 * .vimrc重すぎるので特にzeroなどの場合必要なら削除
