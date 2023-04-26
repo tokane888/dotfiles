@@ -160,7 +160,7 @@ pip3_install() {
 }
 
 go_install_packages() {
-  go install github.com/x-motemen/ghq@latest
+  go install -v github.com/x-motemen/ghq@latest
 }
 
 deploy_dotfiles() {
