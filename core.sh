@@ -85,7 +85,7 @@ install_go_from_src() {
     pushd .
 
     cd /usr/local
-    wget https://go.dev/dl/go1.20.3.linux-arm64.tar.gz
+    wget https://go.dev/dl/go1.20.3.linux-armv6l.tar.gz
     tar -vxzf *.tar.gz
     ln -fs /usr/local/go/bin/go /usr/bin/go
     ln -fs /usr/local/go/bin/gofmt /usr/bin/gofmt
