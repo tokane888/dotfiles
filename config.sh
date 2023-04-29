@@ -40,23 +40,21 @@ APT_REPOS=(
 UBUNTU_PURGE_PACKAGES=(
   aisleriot
   dnsutils
-  espeak-ng-data:amd64
-  gnome-bluetooth
   gnome-mahjongg
   gnome-mines
   gnome-orca
   gnome-sudoku
   ibus-pinyin
-  libreoffice-calc
-  libreoffice-draw
-  libreoffice-math
-  libreoffice-writer
-  mythes-en-us
+  #libreoffice-calc
+  #libreoffice-draw
+  #libreoffice-math
+  #libreoffice-writer
+  #mythes-en-us
   openssh-client
-  rhythmbox
-  simple-scan
-  thunderbird
-  xul-ext-ubufox
+  #rhythmbox
+  #simple-scan
+  #thunderbird
+  #xul-ext-ubufox
 )
 
 RPM_PACKAGES=(
