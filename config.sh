@@ -2,15 +2,11 @@
 
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
-  aisleriot
   bash-completion
   build-essential # vim補完するYouCompleteMeが依存
   cmake           # vim補完するYouCompleteMeが依存
   exuberant-ctags # tags自動生成
   gcc
-  gnome-mahjongg
-  gnome-mines
-  gnome-sudoku
   g++
   libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
@@ -42,10 +38,14 @@ APT_REPOS=(
 )
 
 UBUNTU_PURGE_PACKAGES=(
+  aisleriot
   dnsutils
   espeak-ng-data:amd64
   gnome-bluetooth
+  gnome-mahjongg
+  gnome-mines
   gnome-orca
+  gnome-sudoku
   ibus-pinyin
   libreoffice-calc
   libreoffice-draw
