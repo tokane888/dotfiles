@@ -30,7 +30,7 @@ Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
 Plugin 'roxma/nvim-yarp'                 " denite.vimが依存
 Plugin 'roxma/vim-hug-neovim-rpc'        " denite.vimが依存
 Plugin 'scrooloose/nerdtree'             " ファイル一覧。移動: (ctrl+w,w), 上下左右ウィンドウ移動: (ctrl+[hjkl])
-Plugin 'Shougo/denite.nvim'
+"Plugin 'Shougo/denite.nvim'
 Plugin 'SirVer/ultisnips'                " ctrl+l => snippet一覧。 ctrl+j => snippet決定
 Plugin 'suy/vim-ctrlp-commandline'       " ctrl+p => f => f コマンド履歴検索
 Plugin 'tacahiroy/ctrlp-funky'           " ctrl+p => f      関数検索
@@ -42,7 +42,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ctrlspace/vim-ctrlspace'     " ctrl+spaceでPJ一覧表示
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ycm-core/YouCompleteMe'
+"Plugin 'ycm-core/YouCompleteMe'         "補完が効くようになるが、依存関係が複雑なので当面無効化
 "Plugin 'Yggdroot/indentLine'             " indent可視化。""が表示されないため当面無効化
 
 " All of your Plugins must be added before the following line
