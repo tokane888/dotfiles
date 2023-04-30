@@ -32,3 +32,8 @@ yum install -y curl
 ```
 sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo bash -
 ```
+
+## 注意
+
+install_vim_plugins以降のログは標準出力に正常に出力されない。
+デバッグの際はdotfiles.logを参照すること
