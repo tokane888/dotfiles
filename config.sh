@@ -37,18 +37,17 @@ UBUNTU_PACKAGES=(
 APT_REPOS=(
 )
 
-UBUNTU_PURGE_PACKAGES=(
+#UBUNTU_PURGE_PACKAGES=(
   #libreoffice-calc
   #libreoffice-draw
   #libreoffice-math
   #libreoffice-writer
   #mythes-en-us
-  openssh-client
   #rhythmbox
   #simple-scan
   #thunderbird
   #xul-ext-ubufox
-)
+#)
 
 RPM_PACKAGES=(
   bash-completion
