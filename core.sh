@@ -310,10 +310,6 @@ main() {
     esac
   done
 
-  # version周りの問題で後のapt install時に問題が生じることがあるため、最初にすべて最新化
-  apt-get update -y
-  apt-get upgrade -y
-
   deploy_dotfiles
   if $(can_use_command "apt"); then
     export DEBIAN_FRONTEND=noninteractive
