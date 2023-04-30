@@ -2,6 +2,10 @@
 
 ## (curlがない場合最初に実行)
 
+* 注意
+  * ubuntu実機でupdateを促すダイアログが出ることがあるが下記実行前は無視すること
+    * 下記実行前にjpでないrepositoryのパッケージ一覧取得してしまうと、jpとの差異が生じることがある
+
 ```
 sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
 apt update -y;
