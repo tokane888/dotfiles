@@ -38,13 +38,6 @@ APT_REPOS=(
 )
 
 UBUNTU_PURGE_PACKAGES=(
-  aisleriot
-  dnsutils
-  gnome-mahjongg
-  gnome-mines
-  gnome-orca
-  gnome-sudoku
-  ibus-pinyin
   #libreoffice-calc
   #libreoffice-draw
   #libreoffice-math
