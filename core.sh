@@ -309,6 +309,7 @@ main() {
     esac
   done
 
+  deploy_dotfiles
   if $(can_use_command "apt"); then
     export DEBIAN_FRONTEND=noninteractive
     add_apt_repository
@@ -326,7 +327,6 @@ main() {
   pip3_install
   go_install_packages
 
-  deploy_dotfiles
   deploy_setting_files
   install_vim_color_scheme
   install_vim_plugins
