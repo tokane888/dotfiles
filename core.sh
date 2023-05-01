@@ -263,6 +263,9 @@ setup_real_machine() {
     sudo apt-get install -y google-chrome-stable
     sudo update-alternatives --set editor /usr/bin/vim.basic
     cp tmux-pane-border /usr/local/bin
+
+    # localhost:5600でdashboardが見られるが、OS再起動するまでは見えない
+    curl -LO https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-linux-x86_64.deb && dpkg -i activitywatch-v0.12.2-linux-x86_64.deb
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
     # TODO: これを/etc/rc.localに書き込まないと再起動後はLED点灯するケース(raspberry PI 3B+)が有ったため対応検討
