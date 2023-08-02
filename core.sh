@@ -13,21 +13,21 @@ is_root() {
 can_use_command() {
   local command=$1
 
-  [ -x "$(command -v $command)" ]
+  [ -x "$(command -v "$command")" ]
 }
 
 get_os() {
-  echo $(
+  echo "$(
     . /etc/os-release
     echo $ID
-  )
+  )"
 }
 
 get_ubuntu_code() {
-  echo $(
+  echo "$(
     . /etc/os-release
-    echo $UBUNTU_CODENAME
-  )
+    echo "$UBUNTU_CODENAME"
+  )"
 }
 
 add_apt_repository() {
@@ -50,22 +50,22 @@ EOS
     #       なのでラズパイの場合は当該リポジトリの追加を行わない
 
     # 複数リポジトリを1コマンドで追加するとエラーになるので1つずつ行う
-    for repo in ${APT_REPOS[@]}; do
-      add-apt-repository -y $repo
+    for repo in "${APT_REPOS[@]}"; do
+      add-apt-repository -y "$repo"
     done
   fi
 }
 
 add_rpm_repository() {
-  for repo in ${RPM_REPOS[@]}; do
-    yum install -y $repo
+  for repo in "${RPM_REPOS[@]}"; do
+    yum install -y "$repo"
   done
 }
 
 install_apt_packages() {
-  apt-get install -y ${APT_PACKAGES[*]}
+  apt-get install -y "${APT_PACKAGES[*]}"
   if [ "$(get_os)" == "ubuntu" ]; then
-    apt-get install -y ${UBUNTU_PACKAGES[*]}
+    apt-get install -y "${UBUNTU_PACKAGES[*]}"
   fi
 
   # npmでnodejsを管理
@@ -75,7 +75,7 @@ install_apt_packages() {
 }
 
 install_rpm_packages() {
-  yum install -y ${RPM_PACKAGES[*]}
+  yum install -y "${RPM_PACKAGES[*]}"
 }
 
 install_go_from_src() {
@@ -128,7 +128,7 @@ install_latest_vim_on_cent() {
 }
 
 setup_yum() {
-  if $(can_use_command "yum"); then
+  if can_use_command "yum"; then
     # dockerのyum設定から、manpageを取得しない設定削除
     sed -i s/tsflags=nodocs//g /etc/yum.conf
   fi
@@ -136,21 +136,21 @@ setup_yum() {
 
 go_get() {
   # TODO: ラズパイdocker環境へgolangインストール
-  if [ $(get_os) == "raspbian" ] && [ -f /.dockerenv ]; then
+  if [ "$(get_os)" == "raspbian" ] && [ -f /.dockerenv ]; then
     return
   fi
 
-  mkdir -p ${HOME%/}/.go
+  mkdir -p "${HOME%/}"/.go
   # GOPATH, PATH設定は.bashrcでも行っているが、PS1変数未定義などで弾かれる。
   # そのため、go getをここで実行するためにGOPATH, PATHをexport
   export GOPATH=${HOME%/}/.go
   export PATH=$PATH:$GOPATH/bin
-  for target in ${GO_GETS[@]}; do
-    go get -u $target
+  for target in "${GO_GETS[@]}"; do
+    go get -u "$target"
   done
-  if [ $(get_os) == "ubuntu" ]; then
-    for target in ${GO_GETS_UBUNTU[@]}; do
-      go get -u $target
+  if [ "$(get_os)" == "ubuntu" ]; then
+    for target in "${GO_GETS_UBUNTU[@]}"; do
+      go get -u "$target"
     done
   fi
 }
@@ -168,9 +168,10 @@ deploy_dotfiles() {
     mv ~/.bashrc ~/.bashrc.bk
   fi
 
-  local dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$|\.ssh$)')
-  for file in ${dot_files[@]}; do
-    ln -fs ${DOT_FILES_DIR}$file ${HOME%/}/$file
+  local dot_files
+  dot_files=$(ls -a | grep '^\..*' | grep -vE '(^\.$|^\.\.$|\.git$|\.ssh$)')
+  for file in "${dot_files[@]}"; do
+    ln -fs "${DOT_FILES_DIR}""$file" "${HOME%/}"/"$file"
   done
 
   if [ ! -f ~/.ssh/config ]; then
@@ -184,7 +185,7 @@ deploy_to_real_debian() {
 }
 
 deploy_setting_files() {
-  if [ $(command -v apt) ]; then
+  if command -v apt; then
     if [ ! -f /.dockerenv ]; then
       deploy_to_real_debian
     fi
@@ -197,21 +198,21 @@ install_vim_plugins() {
     return
   fi
 
-  if [ ! -d ${HOME%/}/.vim/bundle/ ]; then
-    mkdir -p ${HOME%/}/.vim/bundle/
-    git clone https://github.com/VundleVim/Vundle.vim.git ${HOME%/}/.vim/bundle/Vundle.vim
+  if [ ! -d "${HOME%/}"/.vim/bundle/ ]; then
+    mkdir -p "${HOME%/}"/.vim/bundle/
+    git clone https://github.com/VundleVim/Vundle.vim.git "${HOME%/}"/.vim/bundle/Vundle.vim
   fi
 
   vim +PluginInstall +qall < /dev/tty
-  #python3 ${HOME%/}/.vim/bundle/YouCompleteMe/install.py --go-completer
+  #python3 "${HOME%/}"/.vim/bundle/YouCompleteMe/install.py --go-completer
   # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
   vim +'silent :GoInstallBinaries' +qall
 }
 
 install_vim_color_scheme() {
-  if [ ! -d ${HOME%/}/.vim/colors/ ]; then
-    mkdir -p ${HOME%/}/.vim/colors/
-    cd ${HOME%/}/.vim/colors/
+  if [ ! -d "${HOME%/}"/.vim/colors/ ]; then
+    mkdir -p "${HOME%/}"/.vim/colors/
+    cd "${HOME%/}"/.vim/colors/
     wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
   fi
 }
@@ -223,20 +224,20 @@ is_valid_exit_code() {
 
 set_locale() {
   # TODO: ラズパイ実機で日本語入力する際に必要なら設定。dockerでもテキストファイルの日本語が文字化けするので対応
-  if [ $(command -v apt) ]; then
+  if [ "$(command -v apt)" ]; then
     # docker上で日本語入力を可能に
     sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
     locale-gen ja_JP.utf8
-  elif [ $(command -v yum) ]; then
+  elif [ "$(command -v yum)" ]; then
     localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
   fi
 }
 
 set_timezone() {
-  if [ $(date +%Z) = "UTC" ]; then
-    if [ $(command -v apt) ]; then
+  if [ "$(date +%Z)" = "UTC" ]; then
+    if [ "$(command -v apt)" ]; then
       apt install -y tzdata
-    elif [ $(command -v yum) ]; then
+    elif [ "$(command -v yum)" ]; then
       yum install -y tzdata
     fi
 
@@ -296,7 +297,7 @@ cleanup() {
 main() {
   SECONDS=0
 
-  if ! $(is_root); then
+  if ! is_root; then
     echo "Please run with sudo."
     exit 1
   fi
@@ -307,17 +308,19 @@ main() {
       r)
         REAL_MACHINE=1
         ;;
+      *)
+        ;;
     esac
   done
 
   deploy_dotfiles
-  if $(can_use_command "apt"); then
+  if can_use_command "apt"; then
     export DEBIAN_FRONTEND=noninteractive
     add_apt_repository
     apt-get update -y
     install_apt_packages
     install_go_from_src
-  elif $(can_use_command "yum"); then
+  elif can_use_command "yum"; then
     setup_yum
     add_rpm_repository
     install_rpm_packages
@@ -333,7 +336,7 @@ main() {
   install_vim_plugins
   set_locale
   set_timezone
-  generate_bashrc $HOME
+  generate_bashrc "$HOME"
   setup_real_machine
   setup_trivial
   cleanup
@@ -348,4 +351,4 @@ main() {
   echo ".gitconfigのuser, passは必要に応じて修正して下さい"
 }
 
-main $@
+main "$@"
