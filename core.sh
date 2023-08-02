@@ -259,7 +259,7 @@ setup_real_machine() {
     # ubuntu最小構成では削除対象パッケージが0件になったため削除
     # apt-get purge -y ${UBUNTU_PURGE_PACKAGES[*]}
 
-    apt-get install -y openssh-server
+    apt-get install -y openssh-server sshpass
     sudo update-alternatives --set editor /usr/bin/vim.basic
     cp tmux-pane-border /usr/local/bin
 
@@ -273,6 +273,11 @@ setup_real_machine() {
       sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
     apt-get update -y
     apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+    # plantuml向け
+    apt-get install -y default-jre graphviz fonts-ipafont
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
     # TODO: これを/etc/rc.localに書き込まないと再起動後はLED点灯するケース(raspberry PI 3B+)が有ったため対応検討
