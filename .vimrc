@@ -77,6 +77,7 @@ set shiftwidth=2               " smartindentで増減するインデントの幅
 set expandtab
 set tabstop=2
 set list lcs=tab:\|\           " tab可視化
+set nolist
 
 set whichwrap=b,s,h,l,<,>,[,],~       " カーソルの左右移動で行末から次の行の行頭へ移動
 set cursorline
