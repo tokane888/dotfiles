@@ -211,9 +211,13 @@ install_vim_plugins() {
 
 install_vim_color_scheme() {
   if [ ! -d "${HOME%/}"/.vim/colors/ ]; then
+    pushd .
+
     mkdir -p "${HOME%/}"/.vim/colors/
     cd "${HOME%/}"/.vim/colors/
     wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+
+    popd
   fi
 }
 
