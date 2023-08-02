@@ -252,6 +252,8 @@ setup_real_machine() {
     return
   fi
 
+  # WSL上のubuntu及び実機ubuntu向けの処理。
+  # 実機ubuntuのみに対する処理はdotfiles_ubuntu.gitで実行
   if [ "$(get_os)" == "ubuntu" ]; then
     # 実機では余計なパッケージが大量に突っ込まれるので削除。
     # ubuntu最小構成では削除対象パッケージが0件になったため削除
