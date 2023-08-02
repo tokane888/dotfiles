@@ -258,10 +258,6 @@ setup_real_machine() {
     # apt-get purge -y ${UBUNTU_PURGE_PACKAGES[*]}
 
     apt-get install -y openssh-server
-    curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-    sudo apt-get update -y
-    sudo apt-get install -y google-chrome-stable
     sudo update-alternatives --set editor /usr/bin/vim.basic
     cp tmux-pane-border /usr/local/bin
   elif [ "$(get_os)" == "raspbian" ]; then
