@@ -203,7 +203,7 @@ install_vim_plugins() {
     git clone https://github.com/VundleVim/Vundle.vim.git "${HOME%/}"/.vim/bundle/Vundle.vim
   fi
 
-  vim +PluginInstall +qall < /dev/tty
+  vim +PluginInstall +qall </dev/tty
   #python3 "${HOME%/}"/.vim/bundle/YouCompleteMe/install.py --go-completer
   # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
   vim +'silent :GoInstallBinaries' +qall
@@ -264,15 +264,15 @@ setup_real_machine() {
     cp tmux-pane-border /usr/local/bin
 
     apt-get install -y ca-certificates curl gnupg
-install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-chmod a+r /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get update -y
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    chmod a+r /etc/apt/keyrings/docker.gpg
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
+      sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+    apt-get update -y
+    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
     # TODO: これを/etc/rc.localに書き込まないと再起動後はLED点灯するケース(raspberry PI 3B+)が有ったため対応検討
@@ -314,11 +314,10 @@ main() {
 
   while getopts "r" opt; do
     case $opt in
-      r)
-        REAL_MACHINE=1
-        ;;
-      *)
-        ;;
+    r)
+      REAL_MACHINE=1
+      ;;
+    *) ;;
     esac
   done
 
