@@ -268,6 +268,9 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.local/dotfiles/vim/UltiSnips']
 " vim-airline/vim-airline
 let g:airline_theme = 'molokai'
 
+" 80文字以上を許容
+let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
+
 " vim-ctrlspace/vim-ctrlspace
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
