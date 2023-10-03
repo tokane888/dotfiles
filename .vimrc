@@ -101,6 +101,9 @@ set backspace=indent,eol,start " プラグイン導入後もbackspaceを使用�
 set t_u7=                      " Vim起動時にReplaceモードになる場合がある問題の対策
 set tags=.tags
 
+" ctrl + dでスクロールした際にカーソルを行頭に戻さない
+set nostartofline
+
 syntax on
 colorscheme molokai
 set t_Co=256
