@@ -282,6 +282,10 @@ setup_real_machine() {
     apt-get install -y default-jre graphviz fonts-ipafont
 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # WSL上のubuntuのみの処理
+    if grep -q "WSL" /proc/version; then
+      apt-get install -y taskwarrior
+    fi
   elif [ "$(get_os)" == "raspbian" ]; then
     # LEDをoffに
     # TODO: これを/etc/rc.localに書き込まないと再起動後はLED点灯するケース(raspberry PI 3B+)が有ったため対応検討
