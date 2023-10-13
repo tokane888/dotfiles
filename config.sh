@@ -82,7 +82,6 @@ GO_GETS_UBUNTU=(
 
 PIP3_PACKAGES=(
   autopep8
-  black
   flake8
   msgpack
   pynvim
