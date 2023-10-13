@@ -1,0 +1,25 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: r-board
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  ourboard:
+    image: raimohanska/ourboard:latest
+    container_name: ourboard
+    restart: always
+    ports:
+      - 1337:1337
+    environment:
+      SESSION_SIGNING_SECRET: NOTICE________THIS_________IS____NOT___SECURE_____USE_RANDOMIZED____STRING__INSTEAD
+      DATABASE_URL: postgres://r-board:secret@db:5432/r-board
+    volumes:
+      - ourboard-volume:/usr/src/app/backend/localfiles
+volumes:
+  pgdata:
+  ourboard-volume:

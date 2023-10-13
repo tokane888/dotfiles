@@ -282,6 +282,12 @@ setup_real_machine() {
     apt-get install -y default-jre graphviz fonts-ipafont
 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    mkdir -p /opt/ourboard
+    cp ./ourboard/docker-compose.yml /opt/ourboard/docker-compose.yml
+    cd /opt/ourboard
+    docker compose up -d
+    cd -
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
       apt-get install -y taskwarrior
