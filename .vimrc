@@ -49,7 +49,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-filetype plugin on
+"filetype plugin on
 
 " Brief help
 " :PluginList       - lists configured plugins
