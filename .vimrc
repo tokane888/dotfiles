@@ -24,6 +24,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'         " gaip= => =でindent揃え。 gaip*X" => "(regex)でindent揃え
 Plugin 'ludovicchabant/vim-gutentags'    " tags自動生成
 Plugin 'mattn/emmet-vim'                 " ctrl+y => , でhtml補完
+Plugin 'nvie/vim-flake8'                 " python syntax and style checker
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
 Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
@@ -34,6 +35,7 @@ Plugin 'scrooloose/nerdtree'             " ファイル一覧。移動: (ctrl+w,
 Plugin 'SirVer/ultisnips'                " ctrl+l => snippet一覧。 ctrl+j => snippet決定
 Plugin 'suy/vim-ctrlp-commandline'       " ctrl+p => f => f コマンド履歴検索
 Plugin 'tacahiroy/ctrlp-funky'           " ctrl+p => f      関数検索
+Plugin 'tell-k/vim-autopep8'             " python自動整形ツール
 Plugin 'tpope/vim-commentary'            " gcap             comment out paragraph
 Plugin 'tpope/vim-fugitive'              " :Git status      ファイル内からgit status
 Plugin 'tpope/vim-repeat'
@@ -293,3 +295,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " memo
 " * " gxでurlをブラウザで開けるが、:redraw!しないとvimが真っ黒になるバグがある。修正中とのこと
 " https://stackoverflow.com/questions/9458294/open-url-under-cursor-in-vim-with-browser
+
+" tell-k/vim-autopep8
+let g:autopep8_on_save = 1
+let g:autopep8_disable_show_diff=1

@@ -79,3 +79,11 @@ GO_GETS_UBUNTU=(
   # https://github.com/go-delve/delve/issues/20
   github.com/go-delve/delve/cmd/dlv
 )
+
+PIP3_PACKAGES=(
+  autopep8
+  black
+  flake8
+  msgpack
+  pynvim
+)

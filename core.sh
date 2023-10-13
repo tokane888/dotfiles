@@ -156,7 +156,7 @@ go_get() {
 }
 
 pip3_install() {
-  pip3 install msgpack pynvim
+  pip3 install "${PIP3_PACKAGES[*]}"
 }
 
 go_install_packages() {
