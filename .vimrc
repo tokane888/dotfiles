@@ -72,11 +72,13 @@ set incsearch                  " インクリメンタルサーチ。1文字入�
 set smartcase                  " 検索パターンに大文字を含んでいたら大文字小文字を区別
 set hlsearch
 
-set autoindent                 " 改行時に前の行のインデントを継続
 set smartindent                " 改行時に前の行の構文をチェックし、次の行のインデントを増減
 set shiftwidth=2               " smartindentで増減するインデントの幅
 set expandtab
 set tabstop=2
+" pythonではpep8にしたがってindentはspace4つに
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+
 set list lcs=tab:\|\           " tab可視化
 set nolist
 
