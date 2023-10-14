@@ -17,6 +17,7 @@ APT_PACKAGES=(
   python3
   python3-dev # vim補完するYouCompleteMeが依存
   python3-pip
+  python3-venv # vimのblack pluginが依存
   silversearcher-ag
   tmux
   tree
@@ -81,7 +82,7 @@ GO_GETS_UBUNTU=(
 )
 
 PIP3_PACKAGES=(
-  autopep8
+  black
   flake8
   msgpack
   pynvim
