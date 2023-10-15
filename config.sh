@@ -82,6 +82,7 @@ GO_GETS_UBUNTU=(
 )
 
 PIP3_PACKAGES=(
+  autoflake
   black
   flake8
   isort

@@ -28,6 +28,7 @@ Plugin 'mattn/emmet-vim'                 " ctrl+y => , でhtml補完
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
 Plugin 'psf/black'                       " python formatter
+Plugin 'pycqa/autoflake'
 Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
 Plugin 'roxma/nvim-yarp'                 " denite.vimが依存
 Plugin 'roxma/vim-hug-neovim-rpc'        " denite.vimが依存
@@ -186,7 +187,7 @@ let g:ale_fixers={
 \   'sh': ['remove_trailing_lines', 'trim_whitespace'],
 \   'go': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
-\   'python': ['black', 'isort'],
+\   'python': ['autoflake', 'black', 'isort'],
 \}
 let g:ale_linters = {'python': ['flake8']}  " 使用するリンターを選択
 let g:ale_fix_on_save=1
