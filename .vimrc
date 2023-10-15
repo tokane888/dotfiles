@@ -229,7 +229,7 @@ let g:vim_markdown_new_list_item_indent = 0 "インデント無効化。.vimrc�
 "let g:vim_markdown_auto_insert_bullets = 0  " *等の自動挿入無効化
 
 " scrooloose/nerdtree'
-nnoremap <silent><C-s> :NERDTreeToggle<CR>
+nnoremap <silent><C-n> :NERDTreeToggle<CR>
 " vim起動時にファイル未指定又はディレクトリを開いた際にNERDTreeを開く
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
