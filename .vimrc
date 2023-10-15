@@ -27,6 +27,7 @@ Plugin 'mattn/emmet-vim'                 " ctrl+y => , でhtml補完
 Plugin 'nvie/vim-flake8'                 " python syntax and style checker
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
+Plugin 'psf/black'                       " python formatter
 Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
 Plugin 'roxma/nvim-yarp'                 " denite.vimが依存
 Plugin 'roxma/vim-hug-neovim-rpc'        " denite.vimが依存
@@ -298,3 +299,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " memo
 " * " gxでurlをブラウザで開けるが、:redraw!しないとvimが真っ黒になるバグがある。修正中とのこと
 " https://stackoverflow.com/questions/9458294/open-url-under-cursor-in-vim-with-browser
+
+" psf/black
+autocmd BufWritePre *.py Black
