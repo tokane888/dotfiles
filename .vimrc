@@ -25,7 +25,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'         " gaip= => =でindent揃え。 gaip*X" => "(regex)でindent揃え
 Plugin 'ludovicchabant/vim-gutentags'    " tags自動生成
 Plugin 'mattn/emmet-vim'                 " ctrl+y => , でhtml補完
-Plugin 'nvie/vim-flake8'                 " python syntax and style checker
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
 Plugin 'psf/black'                       " python formatter
@@ -189,6 +188,7 @@ let g:ale_fixers={
 \   'javascript': ['eslint'],
 \   'python': ['black', 'isort'],
 \}
+let g:ale_linters = {'python': ['flake8']}  " 使用するリンターを選択
 let g:ale_fix_on_save=1
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
