@@ -155,6 +155,7 @@ nnoremap <Down> gj
 nnoremap <Up> gk
 " insert mode時にctrl-sで保存
 inoremap <C-s> <Esc>:w<CR>i
+nnoremap <C-s> :w<CR>
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left> " virual modeでctrl+r => enterで、1つ1つ確認しながらreplace実行
 
