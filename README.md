@@ -37,6 +37,12 @@ yum install -y curl
 sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo bash -
 ```
 
+インストール後に、copilot vim pluginについては下記で手動セットアップが必要
+
+```
+:Copilot setup
+```
+
 ## 注意
 
 install_vim_plugins以降のログは標準出力に正常に出力されない。
