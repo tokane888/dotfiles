@@ -36,6 +36,7 @@ UBUNTU_PACKAGES=(
 )
 
 APT_REPOS=(
+  ppa:jonathonf/vim
 )
 
 #UBUNTU_PURGE_PACKAGES=(
