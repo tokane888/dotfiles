@@ -84,6 +84,7 @@ GO_GETS_UBUNTU=(
 PIP3_PACKAGES=(
   black
   flake8
+  isort
   msgpack
   pynvim
 )
