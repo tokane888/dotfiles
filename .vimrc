@@ -29,7 +29,7 @@ Plugin 'mattn/emmet-vim'                 " ctrl+y => , でhtml補完
 Plugin 'plasticboy/vim-markdown'         " .mdプレビュー
 Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
 Plugin 'psf/black'                       " python formatter
-Plugin 'pycqa/autoflake'
+Plugin 'pycqa/autoflake'                 " pythonで不要なimport文等を自動削除
 Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
 Plugin 'roxma/nvim-yarp'                 " denite.vimが依存
 Plugin 'roxma/vim-hug-neovim-rpc'        " denite.vimが依存
