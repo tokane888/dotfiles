@@ -186,6 +186,7 @@ let g:ale_fixers={
 \   'sh': ['remove_trailing_lines', 'trim_whitespace'],
 \   'go': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
+\   'python': ['black'],
 \}
 let g:ale_fix_on_save=1
 let g:ale_sign_error = '❌'
@@ -300,5 +301,3 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " * " gxでurlをブラウザで開けるが、:redraw!しないとvimが真っ黒になるバグがある。修正中とのこと
 " https://stackoverflow.com/questions/9458294/open-url-under-cursor-in-vim-with-browser
 
-" psf/black
-autocmd BufWritePre *.py Black
