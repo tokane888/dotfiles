@@ -86,6 +86,7 @@ PIP3_PACKAGES=(
   autoflake
   black
   flake8
+  icdiff
   isort
   msgpack
   pynvim
