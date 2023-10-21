@@ -11,6 +11,7 @@ APT_PACKAGES=(
   libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
   make
+  nmap
   npm
   openssh-server
   peco
@@ -84,7 +85,7 @@ GO_GETS_UBUNTU=(
 
 PIP3_PACKAGES=(
   autoflake
-  black
+  black # pythonのformatter
   flake8
   icdiff
   isort
