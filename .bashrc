@@ -30,3 +30,6 @@ alias ffprobe='ffprobe -hide_banner'
 alias gipu='git add . && git commit -m "追記" && git push'
 
 mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+alias clip.exe=/mnt/c/Windows/System32/clip.exe
+alias ffplay.exe=/mnt/c/ProgramData/chocolatey/bin/ffplay.exe
