@@ -2,6 +2,7 @@
 
 DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
+  apt-rdepends
   bash-completion
   build-essential # vim補完するYouCompleteMeが依存
   cmake           # vim補完するYouCompleteMeが依存
