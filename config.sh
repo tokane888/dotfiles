@@ -5,6 +5,7 @@ APT_PACKAGES=(
   apt-rdepends
   bash-completion
   build-essential # vim補完するYouCompleteMeが依存
+  cloc            # cloc . --vcs=gitでソース行数等カウント
   cmake           # vim補完するYouCompleteMeが依存
   exuberant-ctags # tags自動生成
   gcc
