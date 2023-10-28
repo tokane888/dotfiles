@@ -291,6 +291,8 @@ setup_real_machine() {
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
       apt-get install -y taskwarrior
+      # TODO: taskwarrior-tuiのインストール処理が簡略化されたら追記
+
       cp wsl.conf /etc/wsl.conf
     fi
   elif [ "$(get_os)" == "raspbian" ]; then
