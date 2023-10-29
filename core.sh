@@ -290,8 +290,12 @@ setup_real_machine() {
     cd -
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
-      apt-get install -y taskwarrior
+      apt-get install -y taskwarrior timewarrior
       # TODO: taskwarrior-tuiのインストール処理が簡略化されたら追記
+
+      # taskwarrior - timewarrior連携
+      cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior ~/.task/hooks/
+      chmod +x ~/.task/hooks/on-modify.timewarrior
 
       cp wsl.conf /etc/wsl.conf
     fi
