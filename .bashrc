@@ -33,3 +33,7 @@ mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 alias clip.exe=/mnt/c/Windows/System32/clip.exe
 alias ffplay.exe=/mnt/c/ProgramData/chocolatey/bin/ffplay.exe
+
+# WSL2向けvagrant設定
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox:/mnt/c/Windows/System32"
