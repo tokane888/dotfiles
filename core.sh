@@ -297,6 +297,10 @@ setup_real_machine() {
       cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior ~/.task/hooks/
       chmod +x ~/.task/hooks/on-modify.timewarrior
 
+      # timewarrior集計ツール
+      pip3 install timew-report
+      cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
+
       cp wsl.conf /etc/wsl.conf
     fi
   elif [ "$(get_os)" == "raspbian" ]; then
