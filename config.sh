@@ -87,11 +87,8 @@ GO_GETS_UBUNTU=(
 )
 
 PIP3_PACKAGES=(
-  autoflake
-  black # pythonのformatter
-  flake8
   icdiff
-  isort
   msgpack
   pynvim
+  ruff
 )
