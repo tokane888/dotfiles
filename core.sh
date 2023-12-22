@@ -304,6 +304,9 @@ setup_real_machine() {
       cp wsl.conf /etc/wsl.conf
     fi
   elif [ "$(get_os)" == "raspbian" ]; then
+    # TODO: リンク先の方法でlanも含めたLED消去対応
+    #     https://smarthomescene.com/guides/how-to-disable-leds-on-raspberry-pi-3b-4b/
+
     # LEDをoffに
     # TODO: これを/etc/rc.localに書き込まないと再起動後はLED点灯するケース(raspberry PI 3B+)が有ったため対応検討
     echo "none" >/sys/class/leds/led0/trigger
