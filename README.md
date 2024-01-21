@@ -34,7 +34,8 @@ yum install -y curl
 下記で`-r`オプション付与で開発用実機向けになる
 
 ```
-sudo curl -sfL https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh | sudo bash -
+curl -LO https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh
+sudo bash -x install.sh | tee dotfiles.log
 ```
 
 インストール後に、copilot vim pluginについては下記で手動セットアップが必要
