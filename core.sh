@@ -102,6 +102,7 @@ install_go_from_src() {
 
     set +u
     source ~/.bashrc
+    source /root/.gvm/scripts/gvm
 
     gvm install go1.4 -B
     gvm use go1.4
