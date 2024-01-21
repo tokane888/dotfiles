@@ -279,10 +279,10 @@ setup_real_machine() {
     return
   fi
 
-  setup_real_ubuntu
   # WSL上のubuntu及び実機ubuntu向けの処理。
   # 実機ubuntuのみに対する処理はdotfiles_ubuntu.gitで実行
   if [ "$(get_os)" == "ubuntu" ]; then
+    setup_real_ubuntu
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
       cp wsl.conf /etc/wsl.conf
