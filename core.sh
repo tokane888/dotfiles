@@ -68,7 +68,10 @@ install_apt_packages() {
     apt-get install -y "$package"
   done
   if [ "$(get_os)" == "ubuntu" ]; then
-    apt-get install -y "${UBUNTU_PACKAGES[*]}"
+    for package in  "${UBUNTU_PACKAGES[@]}"
+    do
+      apt-get install -y "$package"
+    done
   fi
 
   # npmでnodejsを管理
