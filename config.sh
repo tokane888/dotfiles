@@ -43,18 +43,6 @@ APT_REPOS=(
   ppa:jonathonf/vim
 )
 
-#UBUNTU_PURGE_PACKAGES=(
-  #libreoffice-calc
-  #libreoffice-draw
-  #libreoffice-math
-  #libreoffice-writer
-  #mythes-en-us
-  #rhythmbox
-  #simple-scan
-  #thunderbird
-  #xul-ext-ubufox
-#)
-
 RPM_PACKAGES=(
   bash-completion
   cmake

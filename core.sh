@@ -255,10 +255,6 @@ set_timezone() {
 }
 
 setup_real_ubuntu() {
-  # 実機では余計なパッケージが大量に突っ込まれるので削除。
-  # ubuntu最小構成では削除対象パッケージが0件になったため削除
-  # apt-get purge -y ${UBUNTU_PURGE_PACKAGES[*]}
-
   apt-get install -y openssh-server sshpass
   sudo update-alternatives --set editor /usr/bin/vim.basic
   cp tmux-pane-border /usr/local/bin
