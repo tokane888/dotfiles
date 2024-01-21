@@ -272,6 +272,80 @@ setup_real_ubuntu() {
   # timewarrior集計ツール
   pip3 install timew-report
   cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
+
+  pip3 install "${REAL_PIP3_PACKAGES[*]}"
+  install_starship_shell_prompt
+}
+
+install_main_deb_packages() {
+  # localhost:5600でdashboardが見られるが、OS再起動するまでは見えない
+  curl -LO https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-linux-x86_64.deb
+  dpkg -i activitywatch-v0.12.2-linux-x86_64.deb
+
+  for repo in "${MAIN_PC_APT_REPOS[@]}"
+  do
+    add-apt-repository -y "$repo"
+  done
+
+  echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
+  DEBIAN_FRONTEND=noninteractive apt-get -y install wireshark
+
+  apt-get update -y
+  apt-get install -y "${MAIN_PC_APT_PACKAGES[*]}"
+
+  curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+  sudo apt-get update -y
+  sudo apt-get install -y google-chrome-stable
+
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  setup_autokey
+}
+
+setup_autokey() {
+  mkdir bk
+  cp /usr/share/X11/xkb/symbols/inet bk/
+  sed -i 's/Henkan/Hyper_L/' /usr/share/X11/xkb/symbols/inet
+  sed -i 's/Muhenkan/Meta_L/' /usr/share/X11/xkb/symbols/inet
+}
+
+install_main_snap_packages() {
+  snap refresh
+  snap install "${MAIN_PC_SNAP_PACKAGES[*]}"
+}
+
+install_starship_shell_prompt() {
+  pushd .
+  ghq get https://github.com/ryanoasis/nerd-fonts.git
+  cd "$(ghq list -p | grep nerd-fonts)"
+  ./install.sh FiraCode
+  popd
+
+  curl -sS https://starship.rs/install.sh -o /tmp/starship_install.sh
+  sh /tmp/starship_install.sh --yes
+
+  mkdir ~/.config/
+  cp config/startship.toml ~/.config/
+}
+
+install_oh-my-zsh_plugin() {
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  ## TODO: .zshrcのpluginにgit zsh-syntax-highlighting zsh-autosuggestions追記
+}
+
+install_pc_record_service() {
+  cp pc_usage_record.service /lib/systemd/system/
+  systemctl daemon-reload
+  systemctl enable --now pc_usage_record.service
+}
+
+setup_main_ubuntu() {
+  install_main_deb_packages
+  install_main_snap_packages
+  install_starship_shell_prompt
+  install_pc_record_service
 }
 
 setup_real_machine() {
@@ -283,6 +357,9 @@ setup_real_machine() {
   # 実機ubuntuのみに対する処理はdotfiles_ubuntu.gitで実行
   if [ "$(get_os)" == "ubuntu" ]; then
     setup_real_ubuntu
+    if (( MAIN_MACHINE == 1 )); then
+      setup_main_ubuntu
+    fi
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
       cp wsl.conf /etc/wsl.conf

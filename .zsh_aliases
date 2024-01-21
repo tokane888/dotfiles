@@ -1,0 +1,21 @@
+alias crontab="crontab -i"
+alias ej="trans :ja"
+alias ffmpeg="ffmpeg -hide_banner"
+alias ffplay="ffplay -hide_banner"
+alias ffprobe="ffprobe -hide_banner"
+alias je="trans :en"
+alias lal="ls -Al"
+alias ll="ls -l"
+alias rm="rm -f" # 別の場所でのalias設定で、ファイル削除時毎回確認されることを抑止
+alias sc="sgpt --chat program"
+alias sn="sgpt --chat nornal"
+alias sr="sgpt --repl program"
+alias s="sgpt"
+alias tt="taskwarrior-tui"
+alias xc="xclip -selection clipboard"
+
+# WSL向け設定
+alias clip.exe="/mnt/c/Windows/System32/clip.exe"
+alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
+alias explorer.exe="/mnt/c/Windows/explorer.exe"
+alias ffplay.exe="/mnt/c/ProgramData/chocolatey/bin/ffplay.exe"

@@ -1,0 +1,7 @@
+[Unit]
+Description=Run todoist sync on Startup
+
+[Service]
+Type=oneshot
+ExecStart=/home/tom/.gvm/pkgsets/go1.20.3/global/bin/todoist sync
+User=tom

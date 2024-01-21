@@ -1,0 +1,24 @@
+# デスクトップ画像 + カメラ映像を記録
+[Unit]
+Description=pc desktop and camera recorder
+After=local-fs.target
+
+[Service]
+ExecStartPre=/usr/bin/mkdir -p /home/tom/Videos/pc_usage_record
+# 1ヶ月以上前の動画は削除
+ExecStartPre=bash -c 'rm -rf /home/tom/Videos/pc_usage_record/$(date -d "2 month ago" +%%Y%%m)*'
+# 映像のみver
+#ExecStart=/usr/bin/ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0 -f v4l2 -s 480x256 -i /dev/video0 -filter_complex "[0:v][1:v]overlay=x=W-w:y=0" -c:v libx264 -preset ultrafast -b:v 4000k -strftime 1 -hls_segment_filename '%%Y%%m%%d_%%H%%M_%%S.ts' -hls_time 3600 out.m3u8
+# 音声ありver
+ExecStart=/usr/bin/ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0 -f v4l2 -s 480x256 -i /dev/video0 -f alsa -ac 2 -i hw:0,6 -filter_complex "[0:v][1:v]overlay=x=W-w:y=28" -ac 2 -c:v libx264 -preset ultrafast -b:v 4000k -strftime 1 -hls_segment_filename '%%Y%%m%%d_%%H%%M_%%S.ts' -hls_time 3600 out.m3u8
+WorkingDirectory=/home/tom/Videos/pc_usage_record
+Restart=always
+RestartSec=1
+StartLimitIntervalSec=0
+StartLimitBurst=0
+Type=simple
+User=tom
+
+[Install]
+WantedBy=multi-user.target
+

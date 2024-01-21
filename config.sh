@@ -43,6 +43,31 @@ APT_REPOS=(
   ppa:jonathonf/vim
 )
 
+MAIN_PC_APT_PACKAGES=(
+  autokey-gtk
+  cheese
+  code
+  copyq
+  libreoffice-calc
+  libreoffice-impress
+  libx11-dev
+  pinta
+  solaar
+  translate-shell # 右記のようなコマンドで翻訳 trans :ja "hello"
+  wireshark # TODO: install時にpromptが出るので回答自動化
+  xclip
+  zsh
+)
+
+MAIN_PC_APT_REPOS=(
+  ppa:appimagelauncher-team/stable
+  ppa:hluk/copyq
+)
+
+MAIN_PC_SNAP_PACKAGES=(
+  xmind
+)
+
 RPM_PACKAGES=(
   bash-completion
   cmake
@@ -69,4 +94,9 @@ PIP3_PACKAGES=(
   msgpack
   pynvim
   ruff
+)
+
+REAL_PIP3_PACKAGES=(
+  shell-gpt
+  togglCli
 )
