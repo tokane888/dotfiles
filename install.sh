@@ -24,13 +24,13 @@ main() {
     yum install -y https://centos7.iuscommunity.org/ius-release.rpm
     yum install -y git2u sudo
   fi
-  mkdir -p ~/.local
-  cd ~/.local
-  if [ ! -d /root/.local/dotfiles ]; then
+  mkdir -p "$(get_home)"/.local
+  cd "$(get_home)"//.local
+  if [ ! -d "$(get_home)"/.local/dotfiles ]; then
     git clone https://github.com/tokane888/dotfiles.git
   fi
-  cd ~/.local/dotfiles
-  sudo ./core.sh $(get_home) $@ 2>&1 | tee dotfiles.log
+  cd "$(get_home)"/.local/dotfiles
+  sudo ./core.sh "$(get_home)" $@ 2>&1 | tee dotfiles.log
 }
 
 main $@
