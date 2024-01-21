@@ -254,45 +254,49 @@ set_timezone() {
   fi
 }
 
+setup_real_ubuntu() {
+  # 実機では余計なパッケージが大量に突っ込まれるので削除。
+  # ubuntu最小構成では削除対象パッケージが0件になったため削除
+  # apt-get purge -y ${UBUNTU_PURGE_PACKAGES[*]}
+
+  apt-get install -y openssh-server sshpass
+  sudo update-alternatives --set editor /usr/bin/vim.basic
+  cp tmux-pane-border /usr/local/bin
+
+  apt-get install -y ca-certificates curl gnupg
+  install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  chmod a+r /etc/apt/keyrings/docker.gpg
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
+    sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+  apt-get update -y
+  apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+  # plantuml向け
+  apt-get install -y default-jre graphviz fonts-ipafont
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  mkdir -p /opt/ourboard
+  cp ./ourboard/docker-compose.yml /opt/ourboard/docker-compose.yml
+  cd /opt/ourboard
+  docker compose up -d
+  cd -
+
+  yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
 setup_real_machine() {
   if [ -f /.dockerenv ]; then
     return
   fi
 
+  setup_real_ubuntu
   # WSL上のubuntu及び実機ubuntu向けの処理。
   # 実機ubuntuのみに対する処理はdotfiles_ubuntu.gitで実行
   if [ "$(get_os)" == "ubuntu" ]; then
-    # 実機では余計なパッケージが大量に突っ込まれるので削除。
-    # ubuntu最小構成では削除対象パッケージが0件になったため削除
-    # apt-get purge -y ${UBUNTU_PURGE_PACKAGES[*]}
-
-    apt-get install -y openssh-server sshpass
-    sudo update-alternatives --set editor /usr/bin/vim.basic
-    cp tmux-pane-border /usr/local/bin
-
-    apt-get install -y ca-certificates curl gnupg
-    install -m 0755 -d /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    chmod a+r /etc/apt/keyrings/docker.gpg
-    echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
-      sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
-    apt-get update -y
-    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-    # plantuml向け
-    apt-get install -y default-jre graphviz fonts-ipafont
-
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-    mkdir -p /opt/ourboard
-    cp ./ourboard/docker-compose.yml /opt/ourboard/docker-compose.yml
-    cd /opt/ourboard
-    docker compose up -d
-    cd -
-
-    yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
       apt-get install -y taskwarrior timewarrior
