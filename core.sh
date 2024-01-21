@@ -289,6 +289,7 @@ install_main_deb_packages() {
 
   echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
   DEBIAN_FRONTEND=noninteractive apt-get -y install wireshark
+  prepare_vscode_install
 
   apt-get update -y
   apt-get install -y "${MAIN_PC_APT_PACKAGES[*]}"
@@ -301,6 +302,8 @@ install_main_deb_packages() {
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
   setup_autokey
+
+  gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'jp'), ('ibus', 'mozc-jp')]"
 }
 
 setup_autokey() {
@@ -308,6 +311,15 @@ setup_autokey() {
   cp /usr/share/X11/xkb/symbols/inet bk/
   sed -i 's/Henkan/Hyper_L/' /usr/share/X11/xkb/symbols/inet
   sed -i 's/Muhenkan/Meta_L/' /usr/share/X11/xkb/symbols/inet
+}
+
+prepare_vscode_install() {
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+  rm -f packages.microsoft.gpg
+  apt-get install -y apt-transport-https
+  apt-get update -y
 }
 
 install_main_snap_packages() {

@@ -9,6 +9,7 @@ APT_PACKAGES=(
   cmake           # vim補完するYouCompleteMeが依存
   exuberant-ctags # tags自動生成
   gcc
+  gpg
   g++
   libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
@@ -48,13 +49,14 @@ MAIN_PC_APT_PACKAGES=(
   cheese
   code
   copyq
+  ibus-mozc
   libreoffice-calc
   libreoffice-impress
   libx11-dev
   pinta
   solaar
   translate-shell # 右記のようなコマンドで翻訳 trans :ja "hello"
-  wireshark # TODO: install時にpromptが出るので回答自動化
+  wireshark
   xclip
   zsh
 )
