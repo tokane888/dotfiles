@@ -137,27 +137,6 @@ setup_yum() {
   fi
 }
 
-go_get() {
-  # TODO: ラズパイdocker環境へgolangインストール
-  if [ "$(get_os)" == "raspbian" ] && [ -f /.dockerenv ]; then
-    return
-  fi
-
-  mkdir -p "${HOME%/}"/.go
-  # GOPATH, PATH設定は.bashrcでも行っているが、PS1変数未定義などで弾かれる。
-  # そのため、go getをここで実行するためにGOPATH, PATHをexport
-  export GOPATH=${HOME%/}/.go
-  export PATH=$PATH:$GOPATH/bin
-  for target in "${GO_GETS[@]}"; do
-    go get -u "$target"
-  done
-  if [ "$(get_os)" == "ubuntu" ]; then
-    for target in "${GO_GETS_UBUNTU[@]}"; do
-      go get -u "$target"
-    done
-  fi
-}
-
 pip3_install() {
   pip3 install "${PIP3_PACKAGES[*]}"
 }
