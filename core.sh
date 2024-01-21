@@ -291,6 +291,8 @@ setup_real_machine() {
     cd /opt/ourboard
     docker compose up -d
     cd -
+
+    yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
       apt-get install -y taskwarrior timewarrior
@@ -384,9 +386,6 @@ main() {
   setup_real_machine
   setup_trivial
   cleanup
-  if [[ $REAL_MACHINE == 1 ]]; then
-    yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  fi
 
   echo "$SECONDS 秒で初期化"
   # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
