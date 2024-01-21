@@ -63,7 +63,10 @@ add_rpm_repository() {
 }
 
 install_apt_packages() {
-  apt-get install -y "${APT_PACKAGES[*]}"
+  for package in "${APT_PACKAGES[@]}"
+  do
+    apt-get install -y "$package"
+  done
   if [ "$(get_os)" == "ubuntu" ]; then
     apt-get install -y "${UBUNTU_PACKAGES[*]}"
   fi
