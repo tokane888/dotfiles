@@ -282,6 +282,17 @@ setup_real_ubuntu() {
   cd -
 
   yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  apt-get install -y taskwarrior timewarrior
+  # TODO: taskwarrior-tuiのインストール処理が簡略化されたら追記
+
+  # taskwarrior - timewarrior連携
+  cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior ~/.task/hooks/
+  chmod +x ~/.task/hooks/on-modify.timewarrior
+
+  # timewarrior集計ツール
+  pip3 install timew-report
+  cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
 }
 
 setup_real_machine() {
@@ -295,17 +306,6 @@ setup_real_machine() {
   if [ "$(get_os)" == "ubuntu" ]; then
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
-      apt-get install -y taskwarrior timewarrior
-      # TODO: taskwarrior-tuiのインストール処理が簡略化されたら追記
-
-      # taskwarrior - timewarrior連携
-      cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior ~/.task/hooks/
-      chmod +x ~/.task/hooks/on-modify.timewarrior
-
-      # timewarrior集計ツール
-      pip3 install timew-report
-      cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
-
       cp wsl.conf /etc/wsl.conf
     fi
   elif [ "$(get_os)" == "raspbian" ]; then
