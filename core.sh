@@ -106,8 +106,8 @@ install_go_from_src() {
     # 1.20以降のコンパイルに1.17以上のgoが必要であるため一旦インストール
     gvm install go1.17
     gvm use go1.17
-    gvm install go1.20.3
-    gvm use go1.20.3 --default
+    gvm install go1.21.6
+    gvm use go1.21.6 --default
 
     set -u
   fi
