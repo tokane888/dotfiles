@@ -4,7 +4,7 @@
 
 set -eux
 
-REAL_MACHINE=0
+MAIN_MACHINE=0
 
 is_root() {
   [ ${EUID:-${UID}} = 0 ]
@@ -332,7 +332,7 @@ main() {
   while getopts "r" opt; do
     case $opt in
     r)
-      REAL_MACHINE=1
+      MAIN_MACHINE=1
       ;;
     *) ;;
     esac
