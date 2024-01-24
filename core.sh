@@ -152,9 +152,10 @@ deploy_dotfiles() {
     mv ~/.bashrc ~/.bashrc.bk
   fi
 
-  dot_files=(~/.*)
-  for file in "${dot_files[@]}"; do
-    if [[ ! "$file" =~ /(\.|\.\.|\.git|\.ssh)$ ]]; then
+  local dot_files=(~/.*)
+  for path in "${dot_files[@]}"; do
+    local file=$(basename $path)
+    if [[ ! "$file" =~ ^(\.|\.\.|\.git|\.ssh)$ ]]; then
       ln -fs "${DOT_FILES_DIR}""$file" "${HOME%/}"/"$file"
     fi
   done
