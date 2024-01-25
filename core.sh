@@ -157,6 +157,9 @@ deploy_dotfiles() {
     local file=$(basename $path)
     if [[ ! "$file" =~ ^(\.|\.\.|\.git|\.ssh)$ ]]; then
       ln -fs "${DOT_FILES_DIR}""$file" "${HOME%/}"/"$file"
+      if [[ -v "SUDO_USER" ]]; then
+        chown "$SUDO_USER":"$SUDO_USER" "${DOT_FILES_DIR}""$file"
+      fi
     fi
   done
 
