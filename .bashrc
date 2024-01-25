@@ -38,5 +38,3 @@ alias ffplay.exe=/mnt/c/ProgramData/chocolatey/bin/ffplay.exe
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox:/mnt/c/Windows/System32"
 export PATH="$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
-# TODO: ユーザー名入ってしまっているので置換
-alias "Windows PowerShell"="/mnt/c/Users/tom/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Windows PowerShell"
