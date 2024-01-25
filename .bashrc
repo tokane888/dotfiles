@@ -23,13 +23,9 @@ PS1='\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[0;35m\]$(__git_ps1)\n\[\e[
 export EDITOR=/usr/bin/vim
 
 alias crontab='crontab -i'
-alias lal='ls -Al'
 alias ll='ls -l'
 alias rm='rm' # 別の場所でのalias設定で、ファイル削除時毎回確認されることを抑止
 alias ffprobe='ffprobe -hide_banner'
-alias gipu='git add . && git commit -m "追記" && git push'
-
-mc() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 alias clip.exe=/mnt/c/Windows/System32/clip.exe
 alias ffplay.exe=/mnt/c/ProgramData/chocolatey/bin/ffplay.exe
