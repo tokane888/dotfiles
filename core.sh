@@ -75,7 +75,10 @@ install_apt_packages() {
 }
 
 install_rpm_packages() {
-  yum install -y "${RPM_PACKAGES[*]}"
+  for package in "${RPM_PACKAGES[@]}"
+  do
+    yum install -y "$packages"
+  done
 }
 
 install_go_from_src() {
