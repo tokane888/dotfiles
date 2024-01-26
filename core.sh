@@ -243,15 +243,11 @@ setup_real_ubuntu() {
   # plantuml向け
   apt-get install -y default-jre graphviz fonts-ipafont
 
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
   mkdir -p /opt/ourboard
   cp ./ourboard/docker-compose.yml /opt/ourboard/docker-compose.yml
   cd /opt/ourboard
   docker compose up -d
   cd -
-
-  yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
   apt-get install -y taskwarrior timewarrior
   # TODO: taskwarrior-tuiのインストール処理が簡略化されたら追記
@@ -290,7 +286,7 @@ install_main_deb_packages() {
   sudo apt-get update -y
   sudo apt-get install -y google-chrome-stable
 
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
   setup_autokey
 
