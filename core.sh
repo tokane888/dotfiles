@@ -355,13 +355,7 @@ install_pc_record_service() {
   systemctl enable --now pc_usage_record.service
 }
 
-setup_keymap() {
-  sed -i 's/Muhenka/Meta_L/' /usr/share/X11/xkb/symbols/inet
-  sed -i 's/Henkan/Hyper_L/' /usr/share/X11/xkb/symbols/inet
-}
-
 setup_main_ubuntu() {
-  setup_keymap
   install_main_deb_packages
   install_main_snap_packages
   install_starship_shell_prompt
