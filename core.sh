@@ -243,7 +243,7 @@ setup_real_ubuntu() {
   # plantuml向け
   apt-get install -y default-jre graphviz fonts-ipafont
 
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
   mkdir -p /opt/ourboard
   cp ./ourboard/docker-compose.yml /opt/ourboard/docker-compose.yml
