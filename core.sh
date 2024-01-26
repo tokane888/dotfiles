@@ -257,11 +257,13 @@ setup_real_ubuntu() {
   cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior ~/.task/hooks/
   chmod +x ~/.task/hooks/on-modify.timewarrior
 
-  # timewarrior集計ツール
-  pip3 install timew-report
+  for package in "${REAL_PIP3_PACKAGES[@]}"
+  do
+    pip3 install "$package"
+  done
+  # timewarrior集計script
   cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
 
-  pip3 install "${REAL_PIP3_PACKAGES[*]}"
   install_starship_shell_prompt
 }
 
