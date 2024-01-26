@@ -132,8 +132,8 @@ go_install_packages() {
 }
 
 deploy_dotfiles() {
-  if [ -v ~/.bashrc ]; then
-    mv ~/.bashrc ~/.bashrc.bk
+  if [ -v "${HOME%/}"/.bashrc ]; then
+    mv "${HOME%/}"/.bashrc "${HOME%/}"/.bashrc.bk
   fi
 
   local dot_files=(~/.*)
@@ -147,8 +147,8 @@ deploy_dotfiles() {
     fi
   done
 
-  if [ ! -f ~/.ssh/config ]; then
-    cp -r .ssh ~/.ssh
+  if [ ! -f "${HOME%/}"/.ssh/config ]; then
+    cp -r .ssh "${HOME%/}"/.ssh
   fi
 }
 
@@ -255,8 +255,8 @@ setup_real_ubuntu() {
   yes | timew
 
   # taskwarrior - timewarrior連携
-  cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior ~/.task/hooks/
-  chmod +x ~/.task/hooks/on-modify.timewarrior
+  cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior "${HOME%/}"/.task/hooks/
+  chmod +x "${HOME%/}"/.task/hooks/on-modify.timewarrior
 
   for package in "${REAL_PIP3_PACKAGES[@]}"
   do
@@ -331,16 +331,15 @@ install_starship_shell_prompt() {
   ./install.sh FiraCode
   popd
 
-  curl -sS https://starship.rs/install.sh -o /tmp/starship_install.sh
-  sh /tmp/starship_install.sh --yes
+  snap install starship --edge
 
   mkdir -p "${HOME%/}"/.config/
   cp config/startship.toml "${HOME%/}"/.config/
 }
 
 install_oh-my-zsh_plugin() {
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   ## TODO: .zshrcのpluginにgit zsh-syntax-highlighting zsh-autosuggestions追記
 }
 
