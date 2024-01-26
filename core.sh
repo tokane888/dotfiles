@@ -121,7 +121,10 @@ setup_yum() {
 }
 
 pip3_install() {
-  pip3 install "${PIP3_PACKAGES[*]}"
+  for package in "${PIP3_PACKAGES[@]}"
+  do
+    pip3 install "$package"
+  done
 }
 
 go_install_packages() {
