@@ -438,8 +438,6 @@ main() {
     install_rpm_packages
     install_latest_vim_on_cent
   fi
-  # dep使わなくなり、現在導入対象外であるためコメントアウト
-  # go_get
   pip3_install
   go_install_packages
 
