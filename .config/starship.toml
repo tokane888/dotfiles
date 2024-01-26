@@ -1,6 +1,0 @@
-[directory]
-truncation_length = 1000
-truncate_to_repo = true
-
-[cmd_duration]
-disabled = true
