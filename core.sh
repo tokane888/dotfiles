@@ -334,8 +334,8 @@ install_starship_shell_prompt() {
   curl -sS https://starship.rs/install.sh -o /tmp/starship_install.sh
   sh /tmp/starship_install.sh --yes
 
-  mkdir ~/.config/
-  cp config/startship.toml ~/.config/
+  mkdir "${HOME%/}"/.config/
+  cp config/startship.toml "${HOME%/}"/.config/
 }
 
 install_oh-my-zsh_plugin() {
