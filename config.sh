@@ -34,12 +34,6 @@ APT_PACKAGES=(
   zsh
 )
 
-UBUNTU_PACKAGES=(
-  mercurial # gvmが依存
-  binutils  # gvmが依存
-  bison     # gvmが依存
-)
-
 APT_REPOS=(
   ppa:jonathonf/vim
 )

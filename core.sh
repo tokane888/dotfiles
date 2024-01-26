@@ -67,12 +67,6 @@ install_apt_packages() {
   do
     apt-get install -y "$package"
   done
-  if [ "$(get_os)" == "ubuntu" ]; then
-    for package in  "${UBUNTU_PACKAGES[@]}"
-    do
-      apt-get install -y "$package"
-    done
-  fi
 
   # npmでnodejsを管理
   npm install n -g
@@ -98,20 +92,7 @@ install_go_from_src() {
 
     popd
   elif [ "$(get_os)" == "ubuntu" ]; then
-    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-
-    set +u
-    source ~/.bashrc
-
-    gvm install go1.4 -B
-    gvm use go1.4
-    # 1.20以降のコンパイルに1.17以上のgoが必要であるため一旦インストール
-    gvm install go1.17
-    gvm use go1.17
-    gvm install go1.21.6
-    gvm use go1.21.6 --default
-
-    set -u
+    snap install --classic go
   fi
 }
 
