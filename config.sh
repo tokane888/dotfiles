@@ -11,6 +11,7 @@ APT_PACKAGES=(
   gcc
   gpg
   g++
+  jq
   libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
   make
