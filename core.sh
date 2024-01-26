@@ -448,6 +448,7 @@ main() {
   setup_real_machine
   setup_trivial
   cleanup
+  chown -R $NORMAL_USER:$NORMAL_USER "$HOME"
 
   echo "$SECONDS 秒で初期化"
   # . .bashrc は、デフォルトの.bashrcに、PS1が設定されていない場合(.sh実行時など)は
