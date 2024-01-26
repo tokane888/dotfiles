@@ -32,6 +32,8 @@ function peco-branch () {
 zle -N peco-branch
 bindkey '^xb' peco-branch # C-x b でブランチ選択
 
+export PATH=$PATH:~/go/bin
+
 eval "$(starship init zsh)"
 
 . ~/.zshrc_cmd/todoist_toggl.sh
