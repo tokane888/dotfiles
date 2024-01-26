@@ -329,9 +329,12 @@ install_main_snap_packages() {
 
 install_starship_shell_prompt() {
   pushd .
-  ghq get https://github.com/ryanoasis/nerd-fonts.git
-  cd "$(ghq list -p | grep nerd-fonts)"
-  ./install.sh FiraCode
+  cd $HOME
+  mkdir -p ghq/github.com/ryanoasis/nerd-fonts
+  chown -R $NORMAL_USER:$NORMAL_USER ghq
+  cd $HOME/ghq/github.com/ryanoasis/nerd-fonts
+  sudo su $NORMAL_USER -c "git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
+  sudo su $NORMAL_USER -c "$HOME/ghq/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
   popd
 
   snap install starship --edge
@@ -418,6 +421,7 @@ main() {
     exit 1
   fi
   HOME=$1
+  NORMAL_USER=$(basename $HOME)
 
   deploy_dotfiles
   if can_use_command "apt"; then
