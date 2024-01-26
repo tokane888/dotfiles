@@ -416,15 +416,6 @@ main() {
   fi
   HOME=$1
 
-  while getopts "r" opt; do
-    case $opt in
-    r)
-      MAIN_MACHINE=1
-      ;;
-    *) ;;
-    esac
-  done
-
   deploy_dotfiles
   if can_use_command "apt"; then
     export DEBIAN_FRONTEND=noninteractive
@@ -457,5 +448,11 @@ main() {
   echo ". ~/.bashrc を実行して下さい"
   echo ".gitconfigのuser, passは必要に応じて修正して下さい"
 }
+
+if (($# >= 2)); then
+  if [[ "$2" == "-r" ]]; then
+    MAIN_MACHINE=1
+  fi
+fi
 
 main "$@"
