@@ -61,4 +61,5 @@ function peco-todoist-close() {
 zle -N peco-todoist-close
 bindkey "^xtc" peco-todoist-close
 
-PROG=todoist source "/home/tom/ghq/github.com/urfave/cli/autocomplete/zsh_autocomplete"
+# 補完効かせたいが、repo消えてる。対応優先度低め
+#PROG=todoist source "/home/tom/ghq/github.com/urfave/cli/autocomplete/zsh_autocomplete"
