@@ -341,7 +341,6 @@ install_starship_shell_prompt() {
 install_oh-my-zsh_plugin() {
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-  ## TODO: .zshrcのpluginにgit zsh-syntax-highlighting zsh-autosuggestions追記
 }
 
 install_pc_record_service() {
