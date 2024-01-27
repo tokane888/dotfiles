@@ -143,7 +143,10 @@ function peco-branch () {
 zle -N peco-branch
 bindkey '^xb' peco-branch # C-x b でブランチ選択
 
+# go installしたバイナリへパスを通す
 export PATH=$PATH:~/go/bin
+# gnome shell extensionインストール先
+export PATH=$PATH:~/.local/bin
 
 . ~/.zshrc_cmd/todoist_toggl.sh
 

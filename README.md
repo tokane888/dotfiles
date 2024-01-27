@@ -49,10 +49,13 @@ sudo bash -x install.sh
 ## Ubuntu実機での追加設定
 
 - gsettings関連コマンドはsudoで実行すると終了コードは0になるもののwarnを出してfailするので、別途下記で実行
+  - 最初に確認ダイアログが表示される
 
-  ```shell
-  ./real_ubuntu.sh
-  ```
+    ```shell
+    ./real_ubuntu.sh
+    ```
+
+  - インストール後に画面右上から適宜Time++関連設定調整
 
 - autokeyがwaylandに対応するまで当面下記手順でx11を使用
   - 手順
