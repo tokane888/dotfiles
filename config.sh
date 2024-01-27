@@ -8,6 +8,7 @@ APT_PACKAGES=(
   cloc            # cloc . --vcs=gitでソース行数等カウント
   cmake           # vim補完するYouCompleteMeが依存
   exuberant-ctags # tags自動生成
+  ffmpeg
   gcc
   gpg
   g++
