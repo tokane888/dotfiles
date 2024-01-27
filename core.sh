@@ -293,6 +293,11 @@ install_main_deb_packages() {
   sudo apt-get update -y
   sudo apt-get install -y google-chrome-stable
 
+  for packages in "${MAIN_PIP3_PACKAGES[@]}"
+  do
+    pip3 install "$packages"
+  done
+
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   ln -fs .zshrc "${HOME%/}"/.zshrc
   chsh -s /usr/bin/zsh "$NORMAL_USER"

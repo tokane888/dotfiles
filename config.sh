@@ -93,3 +93,7 @@ REAL_PIP3_PACKAGES=(
   timew-report
   togglCli
 )
+
+MAIN_PIP3_PACKAGES=(
+  gnome-extensions-cli
+)
