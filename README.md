@@ -1,54 +1,55 @@
-# Ubuntu事前設定
+# dotfiles
 
-## (curlがない場合最初に実行)
+## Ubuntu事前設定
 
-* 注意
-  * ubuntu実機でupdateを促すダイアログが出ることがあるが下記実行前は無視すること
-    * 下記実行前にjpでないrepositoryのパッケージ一覧取得してしまうと、jpとの差異が生じることがある
+- curlがない場合下記で追加
+  - 注意
+    - ubuntu実機でupdateを促すダイアログが出ることがあるが下記実行前は無視すること
+      - 下記実行前にjpでないrepositoryのパッケージ一覧取得してしまうと、jpとの差異が生じることがある
 
-```
-sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
-apt update -y;
-apt install -y curl sudo;
-```
+  ```shell
+  sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
+  apt update -y;
+  apt install -y curl sudo;
+  ```
 
-# CentOS事前設定
+## CentOS事前設定
 
-## (curlがない場合最初に実行)
+- curlがない場合
 
-```
-yum install -y curl
-```
+  ```shell
+  yum install -y curl
+  ```
 
-# ラズパイ事前設定
+## ラズパイ事前設定
 
-* /etc/apt/sources.list に下記追記
-  * bullseyeの場合(他のディストリビューションの場合、都度調査)
-    * deb <http://ftp.jaist.ac.jp/raspbian/> bullseye main contrib non-free rpi
-* /etc/apt/sources.list に上記以外のリポジトリが記載されていれば削除
-* .vimrcのYouCompleteMe pluginがラズパイサポート外なので除外
-* .vimrc重すぎるので特にzeroなどの場合必要なら削除
+- /etc/apt/sources.list に下記追記
+  - bullseyeの場合(他のディストリビューションの場合、都度調査)
+    - deb <http://ftp.jaist.ac.jp/raspbian/> bullseye main contrib non-free rpi
+- /etc/apt/sources.list に上記以外のリポジトリが記載されていれば削除
+- .vimrcのYouCompleteMe pluginがラズパイサポート外なので除外
+- .vimrc重すぎるので特にzeroなどの場合必要なら削除
 
-# 共通インストールコマンド
+## 共通インストールコマンド
 
 下記で`-r`オプション付与で開発用実機向けになる
 
-```
+```shell
 curl -LO https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh
 sudo bash -x install.sh
 ```
 
 インストール後に、copilot vim pluginについては下記で手動セットアップが必要
 
-```
+```shell
 :Copilot setup
 ```
 
-# Ubuntu実機での追加設定コマンド
+## Ubuntu実機での追加設定コマンド
 
-* gsettings関連コマンドはsudoで実行すると終了コードは0になるもののwarnを出してfailするので、別途下記で実行
+- gsettings関連コマンドはsudoで実行すると終了コードは0になるもののwarnを出してfailするので、別途下記で実行
 
-  ```
+  ```shell
   ./real_ubuntu.sh
   ```
 
