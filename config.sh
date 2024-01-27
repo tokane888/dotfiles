@@ -4,16 +4,13 @@ DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   apt-rdepends
   bash-completion
-  build-essential # vim補完するYouCompleteMeが依存
   cloc            # cloc . --vcs=gitでソース行数等カウント
-  cmake           # vim補完するYouCompleteMeが依存
   exuberant-ctags # tags自動生成
   ffmpeg
   gcc
   gpg
   g++
   jq
-  libclang-dev # vim補完するYouCompleteMeが依存
   locales      # docker上で日本語使うため
   make
   nmap
@@ -21,7 +18,6 @@ APT_PACKAGES=(
   openssh-server
   peco
   python3
-  python3-dev # vim補完するYouCompleteMeが依存
   python3-pip
   python3-venv # vimのblack pluginが依存
   silversearcher-ag
@@ -70,12 +66,10 @@ RPM_PACKAGES=(
   bash-completion
   cmake
   gcc     # vimビルド時に使用
-  gcc-c++ # YouCompleteMeが依存
   golang
   make
   man-pages
   ncurses-devel # vimビルド時に使用
-  python3-devel # YouCompleteMeが依存
   tree
   unzip
   wget

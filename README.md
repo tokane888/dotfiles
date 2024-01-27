@@ -29,7 +29,6 @@
   - bullseyeの場合(他のディストリビューションの場合、都度調査)
     - deb <http://ftp.jaist.ac.jp/raspbian/> bullseye main contrib non-free rpi
 - /etc/apt/sources.list に上記以外のリポジトリが記載されていれば削除
-- .vimrcのYouCompleteMe pluginがラズパイサポート外なので除外
 - .vimrc重すぎるので特にzeroなどの場合必要なら削除
 
 ## 共通インストールコマンド

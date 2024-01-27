@@ -180,7 +180,6 @@ install_vim_plugins() {
   fi
 
   vim +PluginInstall +qall </dev/tty
-  #python3 "${HOME%/}"/.vim/bundle/YouCompleteMe/install.py --go-completer
   # メッセージがコンソール画面に収まらないと手入力が必要になるのでsilentにバイナリインストール
   vim +'silent :GoInstallBinaries' +qall
 }

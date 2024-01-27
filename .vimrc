@@ -46,7 +46,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ctrlspace/vim-ctrlspace'     " ctrl+spaceでPJ一覧表示
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'ycm-core/YouCompleteMe'         "補完が効くようになるが、依存関係が複雑なので当面無効化
 "Plugin 'Yggdroot/indentLine'             " indent可視化。""が表示されないため当面無効化
 
 " All of your Plugins must be added before the following line
@@ -290,7 +289,6 @@ let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
-" ycm-core/YouCompleteMe
 " 補完ウィンドウ表示のためにユーザーが入力する必要のある文字数
 let g:ycm_min_num_of_chars_for_completion=2
 " 関数説明などのpopup自動表示無効化
