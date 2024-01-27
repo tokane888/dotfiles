@@ -286,7 +286,10 @@ install_main_deb_packages() {
   prepare_vscode_install
 
   apt-get update -y
-  apt-get install -y "${MAIN_PC_APT_PACKAGES[*]}"
+  for package in "${MAIN_PC_APT_PACKAGES[@]}"
+  do
+    apt-get install -y "$package"
+  done
 
   curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
