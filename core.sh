@@ -142,7 +142,7 @@ deploy_dotfiles() {
   local dot_files=(.*)
   for path in "${dot_files[@]}"; do
     local file=$(basename $path)
-    if [[ ! "$file" =~ ^(\.|\.\.|\.git|\.ssh)$ ]]; then
+    if [[ ! "$file" =~ ^(\.|\.\.|\.git|\.ssh|\.zshrc)$ ]]; then
       ln -fs "${DOT_FILES_DIR}""$file" "${HOME%/}"/"$file"
       if [[ -v "SUDO_USER" ]]; then
         chown "$SUDO_USER":"$SUDO_USER" "${DOT_FILES_DIR}""$file"
@@ -295,6 +295,7 @@ install_main_deb_packages() {
   sudo apt-get install -y google-chrome-stable
 
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  ln -fs .zshrc "${HOME%/}"/.zshrc
 
   setup_autokey
 }
