@@ -296,6 +296,7 @@ install_main_deb_packages() {
 
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   ln -fs .zshrc "${HOME%/}"/.zshrc
+  chsh -s /usr/bin/zsh "$NORMAL_USER"
 
   setup_autokey
 }
