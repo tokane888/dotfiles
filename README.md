@@ -44,6 +44,14 @@ sudo bash -x install.sh
 :Copilot setup
 ```
 
+# Ubuntu実機での追加設定コマンド
+
+* gsettings関連コマンドはsudoで実行すると終了コードは0になるもののwarnを出してfailするので、別途下記で実行
+
+  ```
+  ./real_ubuntu.sh
+  ```
+
 ## 注意
 
 install_vim_plugins以降のログは標準出力に正常に出力されない。

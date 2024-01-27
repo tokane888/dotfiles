@@ -296,14 +296,6 @@ install_main_deb_packages() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
   setup_autokey
-
-  gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'jp'), ('ibus', 'mozc-jp')]"
-  # super + lによるlock無効化
-  gsettings set org.gnome.desktop.lockdown disable-lock-screen true
-  # ctrl + l => 下線付きの_ 無効化
-  gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"
-  # win + d => desktop表示 無効化
-  gsettings set org.gnome.desktop.wm.keybindings show-desktop "[]"
 }
 
 setup_autokey() {
