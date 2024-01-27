@@ -346,6 +346,7 @@ install_oh-my-zsh_plugin() {
 }
 
 install_pc_record_service() {
+  mkdir -p "${HOME%/}"/Videos/pc_usage_record
   cp pc_usage_record.service /lib/systemd/system/
   systemctl daemon-reload
   systemctl enable --now pc_usage_record.service

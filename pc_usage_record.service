@@ -4,7 +4,6 @@ Description=pc desktop and camera recorder
 After=local-fs.target
 
 [Service]
-ExecStartPre=/usr/bin/mkdir -p /home/tom/Videos/pc_usage_record
 # 1ヶ月以上前の動画は削除
 ExecStartPre=bash -c 'rm -rf /home/tom/Videos/pc_usage_record/$(date -d "2 month ago" +%%Y%%m)*'
 # 映像のみver
