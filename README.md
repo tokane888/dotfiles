@@ -88,9 +88,6 @@ sudo bash -x install.sh
 
 ### Ubuntu実機での現時点での制約
 
-- vscodeのterminal上でnerd font(gitグラフアイコン等)が正常に表示されない
-  - <https://github.com/ryanoasis/nerd-fonts/issues/831>
-  - あまり影響ないのでvscode updateで解消するのを待つ
 - OSの無変換+ctrl+dショートカットは手動で再設定が必要
 
 ## 注意
