@@ -31,10 +31,7 @@ Plugin 'preservim/tagbar'                " ctagを元に関数一覧表示
 Plugin 'psf/black'                       " python formatter
 Plugin 'pycqa/autoflake'                 " pythonで不要なimport文等を自動削除
 Plugin 'rking/ag.vim'                    " ctrlp.vimの検索高速化
-Plugin 'roxma/nvim-yarp'                 " denite.vimが依存
-Plugin 'roxma/vim-hug-neovim-rpc'        " denite.vimが依存
 Plugin 'scrooloose/nerdtree'             " ファイル一覧。移動: (ctrl+w,w), 上下左右ウィンドウ移動: (ctrl+[hjkl])
-"Plugin 'Shougo/denite.nvim'
 Plugin 'SirVer/ultisnips'                " ctrl+l => snippet一覧。 ctrl+j => snippet決定
 Plugin 'suy/vim-ctrlp-commandline'       " ctrl+p => f => f コマンド履歴検索
 Plugin 'tacahiroy/ctrlp-funky'           " ctrl+p => f      関数検索
@@ -251,25 +248,6 @@ map <leader>r :NERDTreeFind<cr>
 " F8: 関数一覧表示
 nmap <F8> :TagbarToggle<CR>
 
-" Shougo/denite.nvim
-" denite.nvim key mapping
-" Define mappings
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
-
 " SirVer/ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-l>"
@@ -288,16 +266,6 @@ let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: dis
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
-
-" 補完ウィンドウ表示のためにユーザーが入力する必要のある文字数
-let g:ycm_min_num_of_chars_for_completion=2
-" 関数説明などのpopup自動表示無効化
-let g:ycm_auto_hover=""
-" <leader> => s で関数document表示
-nmap <leader>s <plug>(YCMHover)
-let g:ycm_filetype_blacklist = { 'sh': 1 }
-" insert modeを抜けた際に自動でpreview windowsを閉じる
-let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " memo
 " * " gxでurlをブラウザで開けるが、:redraw!しないとvimが真っ黒になるバグがある。修正中とのこと
