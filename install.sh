@@ -30,7 +30,7 @@ main() {
     git clone https://github.com/tokane888/dotfiles.git
   fi
   cd "$(get_home)"/.local/dotfiles
-  sudo ./core.sh "$(get_home)" $@ 2>&1 | tee dotfiles.log
+  ./core.sh "$(get_home)" $@ 2>&1 | tee dotfiles.log
 }
 
 main $@

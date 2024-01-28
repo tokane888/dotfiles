@@ -229,17 +229,17 @@ set_timezone() {
 
 setup_real_ubuntu() {
   apt-get install -y openssh-server sshpass
-  sudo update-alternatives --set editor /usr/bin/vim.basic
+  update-alternatives --set editor /usr/bin/vim.basic
   cp tmux-pane-border /usr/local/bin
 
   apt-get install -y ca-certificates curl gnupg
   install -m 0755 -d /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   chmod a+r /etc/apt/keyrings/docker.gpg
   echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
     $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
-    sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+    tee /etc/apt/sources.list.d/docker.list >/dev/null
   apt-get update -y
   apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
@@ -292,9 +292,9 @@ install_main_deb_packages() {
   done
 
   curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-  sudo apt-get update -y
-  sudo apt-get install -y google-chrome-stable
+  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
+  apt-get update -y
+  apt-get install -y google-chrome-stable
 
   for packages in "${MAIN_PIP3_PACKAGES[@]}"
   do
@@ -317,8 +317,8 @@ setup_autokey() {
 
 prepare_vscode_install() {
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+  install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+  sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
   rm -f packages.microsoft.gpg
   apt-get install -y apt-transport-https
   apt-get update -y
@@ -335,8 +335,8 @@ install_starship_shell_prompt() {
   mkdir -p ghq/github.com/ryanoasis/nerd-fonts
   chown -R $NORMAL_USER:$NORMAL_USER ghq
   cd $HOME/ghq/github.com/ryanoasis/nerd-fonts
-  sudo su $NORMAL_USER -c "git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
-  sudo su $NORMAL_USER -c "$HOME/ghq/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
+  su $NORMAL_USER -c "git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
+  su $NORMAL_USER -c "$HOME/ghq/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
   popd
 
   snap install starship --edge
@@ -412,7 +412,7 @@ setup_trivial() {
   # terminalでのビープ音無効化
   sed -i -r -e 's/#\s?set bell-style none/set bell-style none/' /etc/inputrc
   # visudoのエディタをvimに
-  sudo update-alternatives --set editor /usr/bin/vim.basic
+  update-alternatives --set editor /usr/bin/vim.basic
 }
 
 cleanup() {
