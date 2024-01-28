@@ -89,6 +89,11 @@ sudo bash -x install.sh
 ### Ubuntu実機での現時点での制約
 
 - OSの無変換+ctrl+dショートカットは手動で再設定が必要
+- tmux上でのコピーは下記で可能
+  - shift押下
+    - shift押下せずに範囲選択も可能だが、コピーが失敗する
+  - 文字列範囲選択
+  - ctrl+shift+c
 
 ## 注意
 
