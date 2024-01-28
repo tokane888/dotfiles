@@ -145,6 +145,9 @@ export PATH=$PATH:~/go/bin
 # gnome shell extensionインストール先
 export PATH=$PATH:~/.local/bin
 
+# ls出力のディレクトリが深い青で見にくいので調整
+export LS_COLORS=$LS_COLORS:'di=01;36:'
+
 . ~/.zshrc_cmd/todoist_toggl.sh
 
 if [ -f ~/.zsh_aliases ]; then
