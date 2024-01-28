@@ -73,6 +73,14 @@ sudo bash -x install.sh
   - "ok"
   - CopyQを再度起動し、Tabs => New tabから適宜tab追加
 
+- 無変換+ctrl+dでDownloadディレクトリ開くショートカット追加
+  - win => settings => Keyboard => Custom Shortcuts
+  - "nautilus /home/tom/Downloads"
+    - ユーザー名は適宜調整
+      - エラーになるので必ず絶対パス指定
+  - TODO: 設定backup可能か検討
+    - <https://askubuntu.com/questions/682513/how-to-backup-restore-system-custom-keyboard-shortcuts>
+
 - 他注意点
   - 少なくとも下記の変更は再起動するまで反映されない
     - ダウンロードディレクトリ等の名前の英語への変更されない
@@ -83,6 +91,7 @@ sudo bash -x install.sh
 - vscodeのterminal上でnerd font(gitグラフアイコン等)が正常に表示されない
   - <https://github.com/ryanoasis/nerd-fonts/issues/831>
   - あまり影響ないのでvscode updateで解消するのを待つ
+- OSの無変換+ctrl+dショートカットは手動で再設定が必要
 
 ## 注意
 
