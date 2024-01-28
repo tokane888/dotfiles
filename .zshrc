@@ -112,9 +112,6 @@ autoload -U compinit && compinit -u
 # rm *で確認を求める機能を無効化
 setopt RM_STAR_SILENT
 
-# prompt表示にstarshipを使用するよう設定
-eval "$(starship init zsh)"
-
 # ctrl-]で指定gitのディレクトリへ移動
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")

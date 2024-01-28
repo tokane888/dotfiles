@@ -267,8 +267,6 @@ setup_real_ubuntu() {
   done
   # timewarrior集計script
   cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
-
-  install_starship_shell_prompt
 }
 
 install_main_deb_packages() {
@@ -329,22 +327,6 @@ install_main_snap_packages() {
   snap install "${MAIN_PC_SNAP_PACKAGES[*]}"
 }
 
-install_starship_shell_prompt() {
-  pushd .
-  cd $HOME
-  mkdir -p ghq/github.com/ryanoasis/nerd-fonts
-  chown -R $NORMAL_USER:$NORMAL_USER ghq
-  cd $HOME/ghq/github.com/ryanoasis/nerd-fonts
-  su $NORMAL_USER -c "git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
-  su $NORMAL_USER -c "$HOME/ghq/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
-  popd
-
-  snap install starship --edge
-
-  mkdir -p "${HOME%/}"/.config/
-  cp config/startship.toml "${HOME%/}"/.config/
-}
-
 install_oh-my-zsh_plugin() {
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -363,7 +345,6 @@ install_pc_record_service() {
 setup_main_ubuntu() {
   install_main_deb_packages
   install_main_snap_packages
-  install_starship_shell_prompt
   install_pc_record_service
 }
 
