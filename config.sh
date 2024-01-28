@@ -89,7 +89,6 @@ PIP3_PACKAGES=(
 )
 
 REAL_PIP3_PACKAGES=(
-  shell-gpt
   timew-report
   togglCli
 )
