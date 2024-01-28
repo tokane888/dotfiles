@@ -142,7 +142,7 @@ deploy_dotfiles() {
   local dot_files=(.*)
   for path in "${dot_files[@]}"; do
     local file=$(basename $path)
-    if [[ ! "$file" =~ ^(\.|\.\.|\.git|\.ssh|\.zshrc)$ ]]; then
+    if [[ ! "$file" =~ ^(\.|\.\.|\.git|\.ssh|\.zshrc|\.zsh_aliases_wsl)$ ]]; then
       ln -fs "${DOT_FILES_DIR}""$file" "${HOME%/}"/"$file"
       if [[ -v "SUDO_USER" ]]; then
         chown "$SUDO_USER":"$SUDO_USER" "${DOT_FILES_DIR}""$file"
@@ -382,6 +382,7 @@ setup_real_machine() {
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
       cp wsl.conf /etc/wsl.conf
+      ln -fs "${DOT_FILES_DIR}"/.zsh_aliases_wsl "${HOME%/}"/.zsh_aliases_wsl
     fi
   elif [ "$(get_os)" == "raspbian" ]; then
     # TODO: リンク先の方法でlanも含めたLED消去対応

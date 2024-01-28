@@ -153,6 +153,9 @@ export PATH=$PATH:~/.local/bin
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
+if [ -f ~/.zsh_aliases_wsl ]; then
+    source ~/.zsh_aliases_wsl
+fi
 if [ -f ~/.zsh_aliases_local ]; then
     source ~/.zsh_aliases_local
 fi

@@ -13,9 +13,3 @@ alias sr="sgpt --repl program"
 alias s="sgpt"
 alias tt="taskwarrior-tui"
 alias xc="xclip -selection clipboard"
-
-# WSL向け設定
-alias clip.exe="/mnt/c/Windows/System32/clip.exe"
-alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
-alias explorer.exe="/mnt/c/Windows/explorer.exe"
-alias ffplay.exe="/mnt/c/ProgramData/chocolatey/bin/ffplay.exe"
