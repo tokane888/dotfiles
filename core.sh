@@ -267,6 +267,8 @@ setup_real_ubuntu() {
   done
   # timewarrior集計script
   cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
+
+  install_nerd_font
 }
 
 install_main_deb_packages() {
@@ -325,6 +327,17 @@ prepare_vscode_install() {
 install_main_snap_packages() {
   snap refresh
   snap install "${MAIN_PC_SNAP_PACKAGES[*]}"
+}
+
+install_nerd_font() {
+  pushd .
+  cd "$HOME"
+  mkdir -p ghq/github.com/ryanoasis/nerd-fonts
+  chown -R "$NORMAL_USER":"$NORMAL_USER" ghq
+  cd "${HOME%/}"/ghq/github.com/ryanoasis/nerd-fonts
+  su "$NORMAL_USER" -c "git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
+  su "$NORMAL_USER" -c "$HOME/ghq/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
+  popd
 }
 
 install_oh-my-zsh_plugin() {
