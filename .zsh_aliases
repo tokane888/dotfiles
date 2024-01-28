@@ -1,3 +1,4 @@
+alias cdd="cd ~/Downloads"
 alias crontab="crontab -i"
 alias ej="trans :ja"
 alias ffmpeg="ffmpeg -hide_banner"
