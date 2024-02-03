@@ -59,6 +59,7 @@ MAIN_PC_APT_REPOS=(
 )
 
 MAIN_PC_SNAP_PACKAGES=(
+  okular
   xmind
 )
 
