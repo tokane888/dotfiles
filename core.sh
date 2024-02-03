@@ -268,6 +268,9 @@ setup_real_ubuntu() {
   # timewarrior集計script
   cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
 
+  # taskwarrior-tui install
+  curl -L https://github.com/kdheepak/taskwarrior-tui/releases/download/v0.25.4/taskwarrior-tui-x86_64-unknown-linux-gnu.tar.gz | tar zxv --directory=/usr/local/bin
+
   install_nerd_font
 }
 
