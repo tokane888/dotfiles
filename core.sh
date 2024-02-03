@@ -329,7 +329,10 @@ prepare_vscode_install() {
 
 install_main_snap_packages() {
   snap refresh
-  snap install "${MAIN_PC_SNAP_PACKAGES[*]}"
+  for package in "${MAIN_PC_SNAP_PACKAGES[@]}"
+  do
+    apt-get install -y "$package"
+  done
 }
 
 install_nerd_font() {
