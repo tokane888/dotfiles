@@ -46,6 +46,7 @@ MAIN_PC_APT_PACKAGES=(
   libreoffice-calc
   libreoffice-impress
   libx11-dev
+  openssh-server
   pinta
   solaar
   translate-shell # 右記のようなコマンドで翻訳 trans :ja "hello"
