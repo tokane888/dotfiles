@@ -5,6 +5,7 @@ APT_PACKAGES=(
   apt-rdepends
   bash-completion
   cloc            # cloc . --vcs=gitでソース行数等カウント
+  ethtool         # Wake on LAN用
   exuberant-ctags # tags自動生成
   ffmpeg
   gcc
