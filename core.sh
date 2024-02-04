@@ -316,6 +316,7 @@ setup_autokey() {
   cp /usr/share/X11/xkb/symbols/inet bk/
   sed -i 's/Henkan/Hyper_L/' /usr/share/X11/xkb/symbols/inet
   sed -i 's/Muhenkan/Meta_L/' /usr/share/X11/xkb/symbols/inet
+  sed -i 's/Hiragana_Katakana/Shift_L/' /usr/share/X11/xkb/symbols/inet
 }
 
 prepare_vscode_install() {
