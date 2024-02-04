@@ -135,6 +135,9 @@ function peco-branch () {
 zle -N peco-branch
 bindkey '^xb' peco-branch # C-x b でブランチ選択
 
+# ctrl+u => カーソル現在位置から行頭まで削除
+bindkey \^u backward-kill-line
+
 # go installしたバイナリへパスを通す
 export PATH=$PATH:~/go/bin
 # gnome shell extensionインストール先
