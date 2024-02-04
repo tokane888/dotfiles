@@ -4,6 +4,8 @@
 
 set -eux
 
+script_dir="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
+DOT_FILES_DIR="$script_dir/.local/dotfiles/"
 MAIN_MACHINE=0
 
 is_root() {

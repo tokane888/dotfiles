@@ -1,6 +1,5 @@
 #!/bin/bash
 
-DOT_FILES_DIR=".local/dotfiles/"
 APT_PACKAGES=(
   apt-rdepends
   bash-completion
