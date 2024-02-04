@@ -229,7 +229,7 @@ set_timezone() {
 }
 
 setup_real_ubuntu() {
-  apt-get install -y openssh-server sshpass
+  apt-get install -y sshpass
   update-alternatives --set editor /usr/bin/vim.basic
   cp tmux-pane-border /usr/local/bin
 
