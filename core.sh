@@ -254,7 +254,6 @@ setup_real_ubuntu() {
   cd -
 
   apt-get install -y taskwarrior timewarrior
-  # TODO: taskwarrior-tuiのインストール処理が簡略化されたら追記
   yes | task
   yes | timew
 
