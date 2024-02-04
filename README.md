@@ -10,9 +10,9 @@
       - 下記実行前にjpでないrepositoryのパッケージ一覧取得してしまうと、jpとの差異が生じることがある
 
   ```shell
-  sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
-  apt update -y;
-  apt install -y curl sudo;
+  sudo sed -i -e 's/\(deb\|deb-src\) http:\/\/archive.ubuntu.com/\1 http:\/\/jp.archive.ubuntu.com/g' /etc/apt/sources.list
+  sudo apt update -y;
+  sudo apt install -y curl sudo;
   ```
 
 ## CentOS事前設定
@@ -20,7 +20,7 @@
 - curlがない場合
 
   ```shell
-  yum install -y curl
+  sudo yum install -y curl
   ```
 
 ## ラズパイ事前設定
