@@ -256,7 +256,7 @@ setup_real_ubuntu() {
   apt-get install -y taskwarrior timewarrior
 
   # taskwarrior - timewarrior連携
-  install -D -o "$SUDO_USER" -g "$SUDO_USER" /usr/share/doc/timewarrior/ext/on-modify.timewarrior "${HOME%/}"/.task/hooks/
+  install -D -o "$SUDO_USER" -g "$SUDO_USER" /usr/share/doc/timewarrior/ext/on-modify.timewarrior "${HOME%/}"/.task/hooks/on-modify.timewarrior
   chmod +x "${HOME%/}"/.task/hooks/on-modify.timewarrior
 
   for package in "${REAL_PIP3_PACKAGES[@]}"
