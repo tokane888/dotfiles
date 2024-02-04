@@ -33,18 +33,19 @@
 
 ## 共通インストールコマンド
 
-下記で`-r`オプション付与で開発用実機向けになる
+- 一般ユーザーのhomeディレクトリで下記実行
+  - 下記で`-r`オプション付与で開発用実機向けになる
 
-```shell
-curl -LO https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh
-sudo bash -x install.sh
-```
+    ```shell
+    curl -LO https://raw.githubusercontent.com/tokane888/dotfiles/master/install.sh
+    sudo bash -x install.sh
+    ```
 
-インストール後に、copilot vim pluginについては下記で手動セットアップが必要
+- インストール後に、copilot vim pluginについては下記で手動セットアップが必要
 
-```shell
-:Copilot setup
-```
+  ```shell
+  :Copilot setup
+  ```
 
 ## Ubuntu実機での追加設定
 
