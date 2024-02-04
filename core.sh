@@ -254,11 +254,9 @@ setup_real_ubuntu() {
   cd -
 
   apt-get install -y taskwarrior timewarrior
-  yes | task
-  yes | timew
 
   # taskwarrior - timewarrior連携
-  cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior "${HOME%/}"/.task/hooks/
+  install -D -o "$SUDO_USER" -g "$SUDO_USER" /usr/share/doc/timewarrior/ext/on-modify.timewarrior "${HOME%/}"/.task/hooks/
   chmod +x "${HOME%/}"/.task/hooks/on-modify.timewarrior
 
   for package in "${REAL_PIP3_PACKAGES[@]}"
@@ -266,7 +264,7 @@ setup_real_ubuntu() {
     pip3 install "$package"
   done
   # timewarrior集計script
-  cp timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
+  install -D -o "$SUDO_USER" -g "$SUDO_USER" timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
 
   # taskwarrior-tui install
   curl -L https://github.com/kdheepak/taskwarrior-tui/releases/download/v0.25.4/taskwarrior-tui-x86_64-unknown-linux-gnu.tar.gz | tar zxv --directory=/usr/local/bin
