@@ -330,7 +330,7 @@ install_main_snap_packages() {
   snap refresh
   for package in "${MAIN_PC_SNAP_PACKAGES[@]}"
   do
-    snap install -y "$package"
+    snap install "$package"
   done
 }
 
