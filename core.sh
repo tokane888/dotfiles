@@ -303,6 +303,7 @@ install_main_deb_packages() {
   done
 
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  install_oh-my-zsh_plugin
   ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
   chsh -s /usr/bin/zsh "$NORMAL_USER"
 
