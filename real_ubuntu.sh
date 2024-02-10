@@ -15,3 +15,5 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "[]"
 gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"
 # win + d => desktop表示 無効化
 gsettings set org.gnome.desktop.wm.keybindings show-desktop "[]"
+# 変換 + f => window最大化(変換+jは何かと競合したのか設定出来ず)
+gsettings set org.gnome.desktop.wm.keybindings maximize "['<Hyper>f']"
