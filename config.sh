@@ -54,7 +54,6 @@ MAIN_PC_APT_PACKAGES=(
 )
 
 MAIN_PC_APT_REPOS=(
-  ppa:appimagelauncher-team/stable
   ppa:hluk/copyq
 )
 
