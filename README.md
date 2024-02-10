@@ -81,7 +81,11 @@
       - エラーになるので必ず絶対パス指定
   - TODO: 設定backup可能か検討
     - <https://askubuntu.com/questions/682513/how-to-backup-restore-system-custom-keyboard-shortcuts>
-
+- OS再起動後にchromeを開いた際に"chrome didn't shutdown correctly"と表示されないようにする方法
+  - chromeで設定画面開く
+  - "hard"で検索
+  - "Use hardware acceleration when available"無効化
+  - 設定有効化のためchrome再起動
 - 他注意点
   - 少なくとも下記の変更は再起動するまで反映されない
     - ダウンロードディレクトリ等の名前の英語への変更されない
