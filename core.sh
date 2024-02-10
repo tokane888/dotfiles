@@ -343,7 +343,7 @@ install_nerd_font() {
   mkdir -p ghq/github.com/ryanoasis/nerd-fonts
   chown -R "$NORMAL_USER":"$NORMAL_USER" ghq
   cd "${HOME%/}"/ghq/github.com/ryanoasis/nerd-fonts
-  su "$NORMAL_USER" -c "git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
+  su "$NORMAL_USER" -c "git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
   su "$NORMAL_USER" -c "$HOME/ghq/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
   popd
 }
