@@ -116,7 +116,7 @@ set updatetime=100
 " ビープ音無効化
 set visualbell t_vb=
 " /tmp/vim.logに詳細なログ出力
-set verbosefile=/tmp/vim.log
+set verbosefile=/tmp/vim_${USER}.log
 " normal mode遷移時に英語入力に変更
 autocmd InsertLeave * set iminsert=0 imsearch=0
 " normal mode遷移時にpaste解除
