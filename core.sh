@@ -338,7 +338,7 @@ install_main_snap_packages() {
 }
 
 install_nerd_font() {
-  if [ -f "${HOME%/}/ghq/github.com/ryanoasis/nerd-fonts" ]; then
+  if [ -d "${HOME%/}/ghq/github.com/ryanoasis/nerd-fonts" ]; then
     return
   fi
 
