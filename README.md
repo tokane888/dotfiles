@@ -1,5 +1,9 @@
 # dotfiles
 
+## 開発方針
+
+- docker上のubuntu初期化処理はすべて削除
+
 ## Ubuntu事前設定
 
 - 前提
