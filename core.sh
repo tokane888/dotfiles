@@ -233,19 +233,7 @@ setup_real_ubuntu() {
   update-alternatives --set editor /usr/bin/vim.basic
   cp tmux-pane-border /usr/local/bin
 
-  apt-get install -y ca-certificates gnupg
-  install -m 0755 -d /etc/apt/keyrings
-  if [ ! -f "/etc/apt/keyrings/docker.gpg" ]; then
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-  fi
-  chmod a+r /etc/apt/keyrings/docker.gpg
-  echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
-    tee /etc/apt/sources.list.d/docker.list >/dev/null
-  apt-get update -y
-  apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-  usermod -a -G docker "$SUDO_USER"
+  install_docker
 
   # plantuml向け
   apt-get install -y default-jre graphviz fonts-ipafont
@@ -336,6 +324,22 @@ install_main_snap_packages() {
   do
     snap install "$package"
   done
+}
+
+install_docker() {
+  apt-get install -y ca-certificates gnupg
+  install -m 0755 -d /etc/apt/keyrings
+  if [ ! -f "/etc/apt/keyrings/docker.gpg" ]; then
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  fi
+  chmod a+r /etc/apt/keyrings/docker.gpg
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
+    tee /etc/apt/sources.list.d/docker.list >/dev/null
+  apt-get update -y
+  apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  usermod -a -G docker "$SUDO_USER"
 }
 
 install_nerd_font() {
