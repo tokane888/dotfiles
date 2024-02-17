@@ -362,7 +362,7 @@ install_pc_record_service() {
   if [ -f "/dev/video0" ]; then
     mkdir -p "${HOME%/}"/Videos/pc_usage_record
     chown -R $NORMAL_USER:$NORMAL_USER "${HOME%/}"/Videos/pc_usage_record
-    cp pc_usage_record.service /lib/systemd/system/
+    cp pc_usage_record.service /etc/systemd/system/
     systemctl daemon-reload
     systemctl enable --now pc_usage_record.service
   fi
