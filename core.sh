@@ -274,7 +274,6 @@ install_main_deb_packages() {
 
   echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
   prepare_vscode_install
-
   curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
   apt-get update -y
@@ -310,7 +309,6 @@ prepare_vscode_install() {
   sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
   rm -f packages.microsoft.gpg
   apt-get install -y apt-transport-https
-  apt-get update -y
 }
 
 install_main_snap_packages() {
