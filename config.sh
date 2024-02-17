@@ -11,7 +11,7 @@ APT_PACKAGES=(
   gpg
   g++
   jq
-  locales      # docker上で日本語使うため
+  locales # docker上で日本語使うため
   make
   nmap
   npm
@@ -46,12 +46,16 @@ UBUNTU_APT_PACKAGES=(
 )
 
 MAIN_PC_APT_PACKAGES=(
+  autoconf
   autokey-gtk
+  autotools-dev
+  build-essential
   cheese
   code
   copyq
   google-chrome-stable
   ibus-mozc
+  kbd
   libreoffice-calc
   libreoffice-impress
   libx11-dev
@@ -74,7 +78,7 @@ MAIN_PC_SNAP_PACKAGES=(
 RPM_PACKAGES=(
   bash-completion
   cmake
-  gcc     # vimビルド時に使用
+  gcc # vimビルド時に使用
   golang
   make
   man-pages

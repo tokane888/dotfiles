@@ -1,0 +1,13 @@
+# OS起動時にlogkeys起動
+[Unit]
+Description=start logkeys on OS boot
+After=multi-user.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/logkeys --start
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

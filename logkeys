@@ -1,0 +1,6 @@
+/var/log/logkeys.log {
+  rotate 12
+  monthly
+  missingok
+  notifempty
+}

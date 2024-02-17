@@ -354,6 +354,26 @@ install_pc_record_service() {
   fi
 }
 
+install_logkeys() {
+  pushd .
+
+  curl -L https://github.com/kernc/logkeys/archive/master.zip -o /tmp/master.zip
+  unzip /tmp/master.zip
+  cd logkeys-master/
+  ./autogen.sh
+  cd build
+  ../configure
+  make
+  make install
+
+  popd
+
+  cp logkeys.service /etc/systemd/system/
+  systemctl daemon-reload
+  systemctl enable --now logkeys.service
+  cp logkeys /etc/logrotate.d/logkeys
+}
+
 setup_main_ubuntu() {
   install_main_deb_packages
 
@@ -366,6 +386,7 @@ setup_main_ubuntu() {
   install_main_pip3_packages
   install_main_snap_packages
   install_pc_record_service
+  install_logkeys
 }
 
 setup_real_machine() {
