@@ -228,7 +228,7 @@ set_timezone() {
   fi
 }
 
-setup_real_ubuntu() {
+setup_ubuntu() {
   apt-get install -y sshpass
   update-alternatives --set editor /usr/bin/vim.basic
   cp tmux-pane-border /usr/local/bin
@@ -386,7 +386,7 @@ setup_real_machine() {
   # WSL上のubuntu及び実機ubuntu向けの処理。
   # 実機ubuntuのみに対する処理はdotfiles_ubuntu.gitで実行
   if [ "$(get_os)" == "ubuntu" ]; then
-    setup_real_ubuntu
+    setup_ubuntu
     if (( MAIN_MACHINE == 1 )); then
       setup_main_ubuntu
     fi
