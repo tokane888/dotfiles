@@ -36,6 +36,15 @@ APT_REPOS=(
   ppa:jonathonf/vim
 )
 
+UBUNTU_APT_PACKAGES=(
+  default-jre   # plantuml対応
+  fonts-ipafont # plantuml対応
+  graphviz      # plantuml対応
+  sshpass
+  taskwarrior
+  timewarrior
+)
+
 MAIN_PC_APT_PACKAGES=(
   autokey-gtk
   cheese

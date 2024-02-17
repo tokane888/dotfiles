@@ -229,22 +229,21 @@ set_timezone() {
 }
 
 setup_ubuntu() {
-  apt-get install -y sshpass
+  for package in "${UBUNTU_APT_PACKAGES[@]}"
+  do
+    apt-get install -y "$package"
+  done
+
   update-alternatives --set editor /usr/bin/vim.basic
   cp tmux-pane-border /usr/local/bin
 
   install_docker
-
-  # plantuml向け
-  apt-get install -y default-jre graphviz fonts-ipafont
 
   mkdir -p /opt/ourboard
   cp ./ourboard/docker-compose.yml /opt/ourboard/docker-compose.yml
   cd /opt/ourboard
   docker compose up -d
   cd -
-
-  apt-get install -y taskwarrior timewarrior
 
   # taskwarrior - timewarrior連携
   install -D -o "$SUDO_USER" -g "$SUDO_USER" /usr/share/doc/timewarrior/ext/on-modify.timewarrior "${HOME%/}"/.task/hooks/on-modify.timewarrior
