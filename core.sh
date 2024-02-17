@@ -64,8 +64,7 @@ add_rpm_repository() {
 }
 
 install_apt_packages() {
-  for package in "${APT_PACKAGES[@]}"
-  do
+  for package in "${APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
   done
 
@@ -76,8 +75,7 @@ install_apt_packages() {
 }
 
 install_rpm_packages() {
-  for package in "${RPM_PACKAGES[@]}"
-  do
+  for package in "${RPM_PACKAGES[@]}"; do
     yum install -y "$packages"
   done
 }
@@ -125,8 +123,7 @@ setup_yum() {
 }
 
 pip3_install() {
-  for package in "${PIP3_PACKAGES[@]}"
-  do
+  for package in "${PIP3_PACKAGES[@]}"; do
     pip3 install "$package"
   done
 }
@@ -229,8 +226,7 @@ set_timezone() {
 }
 
 setup_ubuntu() {
-  for package in "${UBUNTU_APT_PACKAGES[@]}"
-  do
+  for package in "${UBUNTU_APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
   done
 
@@ -249,8 +245,7 @@ setup_ubuntu() {
   install -D -o "$SUDO_USER" -g "$SUDO_USER" /usr/share/doc/timewarrior/ext/on-modify.timewarrior "${HOME%/}"/.task/hooks/on-modify.timewarrior
   chmod +x "${HOME%/}"/.task/hooks/on-modify.timewarrior
 
-  for package in "${REAL_PIP3_PACKAGES[@]}"
-  do
+  for package in "${REAL_PIP3_PACKAGES[@]}"; do
     pip3 install "$package"
   done
   # timewarrior集計script
@@ -267,8 +262,7 @@ install_main_deb_packages() {
   curl -LO https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-linux-x86_64.deb
   dpkg -i activitywatch-v0.12.2-linux-x86_64.deb
 
-  for repo in "${MAIN_PC_APT_REPOS[@]}"
-  do
+  for repo in "${MAIN_PC_APT_REPOS[@]}"; do
     add-apt-repository -y "$repo"
   done
 
@@ -277,8 +271,7 @@ install_main_deb_packages() {
   curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
   apt-get update -y
-  for package in "${MAIN_PC_APT_PACKAGES[@]}"
-  do
+  for package in "${MAIN_PC_APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
   done
 
@@ -298,7 +291,7 @@ setup_autokey() {
 }
 
 prepare_vscode_install() {
-  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
   install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
   sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
   rm -f packages.microsoft.gpg
@@ -307,16 +300,14 @@ prepare_vscode_install() {
 }
 
 install_main_pip3_packages() {
-  for packages in "${MAIN_PIP3_PACKAGES[@]}"
-  do
+  for packages in "${MAIN_PIP3_PACKAGES[@]}"; do
     pip3 install "$packages"
   done
 }
 
 install_main_snap_packages() {
   snap refresh
-  for package in "${MAIN_PC_SNAP_PACKAGES[@]}"
-  do
+  for package in "${MAIN_PC_SNAP_PACKAGES[@]}"; do
     snap install "$package"
   done
 }
@@ -385,7 +376,7 @@ setup_real_machine() {
   # 実機ubuntuのみに対する処理はdotfiles_ubuntu.gitで実行
   if [ "$(get_os)" == "ubuntu" ]; then
     setup_ubuntu
-    if (( MAIN_MACHINE == 1 )); then
+    if ((MAIN_MACHINE == 1)); then
       setup_main_ubuntu
     fi
     # WSL上のubuntuのみの処理
