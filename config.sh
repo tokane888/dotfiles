@@ -50,6 +50,7 @@ MAIN_PC_APT_PACKAGES=(
   cheese
   code
   copyq
+  google-chrome-stable
   ibus-mozc
   libreoffice-calc
   libreoffice-impress

@@ -276,16 +276,13 @@ install_main_deb_packages() {
   DEBIAN_FRONTEND=noninteractive apt-get -y install wireshark
   prepare_vscode_install
 
+  curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
   apt-get update -y
   for package in "${MAIN_PC_APT_PACKAGES[@]}"
   do
     apt-get install -y "$package"
   done
-
-  curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
-  apt-get update -y
-  apt-get install -y google-chrome-stable
 
   for packages in "${MAIN_PIP3_PACKAGES[@]}"
   do
