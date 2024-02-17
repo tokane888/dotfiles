@@ -274,12 +274,6 @@ install_main_deb_packages() {
   for package in "${MAIN_PC_APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
   done
-
-  install_oh-my-zsh
-  ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
-  chsh -s /usr/bin/zsh "$NORMAL_USER"
-
-  setup_autokey
 }
 
 setup_autokey() {
@@ -362,6 +356,13 @@ install_pc_record_service() {
 
 setup_main_ubuntu() {
   install_main_deb_packages
+
+  install_oh-my-zsh
+  ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
+  chsh -s /usr/bin/zsh "$NORMAL_USER"
+
+  setup_autokey
+
   install_main_pip3_packages
   install_main_snap_packages
   install_pc_record_service
