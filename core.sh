@@ -273,7 +273,6 @@ install_main_deb_packages() {
   done
 
   echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
-  DEBIAN_FRONTEND=noninteractive apt-get -y install wireshark
   prepare_vscode_install
 
   curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
