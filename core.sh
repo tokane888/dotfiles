@@ -282,8 +282,7 @@ install_main_deb_packages() {
     apt-get install -y "$package"
   done
 
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  install_oh-my-zsh_plugin
+  install_oh-my-zsh
   ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
   chsh -s /usr/bin/zsh "$NORMAL_USER"
 
@@ -353,7 +352,9 @@ install_nerd_font() {
   popd
 }
 
-install_oh-my-zsh_plugin() {
+install_oh-my-zsh() {
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME%/}"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 }
