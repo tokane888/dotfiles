@@ -282,11 +282,6 @@ install_main_deb_packages() {
     apt-get install -y "$package"
   done
 
-  for packages in "${MAIN_PIP3_PACKAGES[@]}"
-  do
-    pip3 install "$packages"
-  done
-
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   install_oh-my-zsh_plugin
   ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
@@ -310,6 +305,13 @@ prepare_vscode_install() {
   rm -f packages.microsoft.gpg
   # vscode install処理時にapt repositoryへのアクセスにhttpsが使用されるため、apt-transport-httpsの事前installが必要
   apt-get install -y apt-transport-https
+}
+
+install_main_pip3_packages() {
+  for packages in "${MAIN_PIP3_PACKAGES[@]}"
+  do
+    pip3 install "$packages"
+  done
 }
 
 install_main_snap_packages() {
@@ -368,6 +370,7 @@ install_pc_record_service() {
 
 setup_main_ubuntu() {
   install_main_deb_packages
+  install_main_pip3_packages
   install_main_snap_packages
   install_pc_record_service
 }
