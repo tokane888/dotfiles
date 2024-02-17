@@ -387,6 +387,9 @@ setup_main_ubuntu() {
   install_main_snap_packages
   install_pc_record_service
   install_logkeys
+
+  # ubuntu pro向けのsecurityパッケージのインストールを促す広告無効化
+  pro config set apt_news=False
 }
 
 setup_real_machine() {
