@@ -138,6 +138,21 @@ bindkey '^xb' peco-branch # C-x b でブランチ選択
 # ctrl+u => カーソル現在位置から行頭まで削除
 bindkey \^u backward-kill-line
 
+# history設定
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+# 実行時刻も保存(history -Eで時刻表示)
+setopt extended_history
+# shell終了時ではなく、即時history書き込み
+setopt inc_append_history
+# historyを他のshellと共有しない
+setopt no_share_history
+# historyに保存するときに余分なスペースを削除する
+setopt hist_ignore_space
+# historyに保存するときに余分なスペースを削除する
+setopt hist_reduce_blanks
+
 # go installしたバイナリへパスを通す
 export PATH=$PATH:~/go/bin
 # gnome shell extensionインストール先
