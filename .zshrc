@@ -25,7 +25,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 setopt RM_STAR_SILENT
 
 # ctrl-]で指定gitのディレクトリへ移動
-function peco-src () {
+function peco-src() {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -120,17 +120,17 @@ zle -N peco-src
 bindkey '^]' peco-src
 
 # git: ctrl-x bでブランチ選択
-function peco-branch () {
-    local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
-    if [ -n "$branch" ]; then
-      if [ -n "$LBUFFER" ]; then
-        local new_left="${LBUFFER%\ } $branch"
-      else
-        local new_left="$branch"
-      fi
-      BUFFER=${new_left}${RBUFFER}
-      CURSOR=${#new_left}
+function peco-branch() {
+  local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
+  if [ -n "$branch" ]; then
+    if [ -n "$LBUFFER" ]; then
+      local new_left="${LBUFFER%\ } $branch"
+    else
+      local new_left="$branch"
     fi
+    BUFFER=${new_left}${RBUFFER}
+    CURSOR=${#new_left}
+  fi
 }
 zle -N peco-branch
 bindkey '^xb' peco-branch # C-x b でブランチ選択
@@ -149,11 +149,11 @@ export LS_COLORS=$LS_COLORS:'di=01;36:'
 . ~/.zshrc_cmd/todoist_toggl.sh
 
 if [ -f ~/.zsh_aliases ]; then
-    source ~/.zsh_aliases
+  source ~/.zsh_aliases
 fi
 if [ -f ~/.zsh_aliases_wsl ]; then
-    source ~/.zsh_aliases_wsl
+  source ~/.zsh_aliases_wsl
 fi
 if [ -f ~/.zsh_aliases_local ]; then
-    source ~/.zsh_aliases_local
+  source ~/.zsh_aliases_local
 fi
