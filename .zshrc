@@ -120,22 +120,6 @@ function peco-src() {
 zle -N peco-src
 bindkey '^]' peco-src
 
-# git: ctrl-x bでブランチ選択
-function peco-branch() {
-  local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
-  if [ -n "$branch" ]; then
-    if [ -n "$LBUFFER" ]; then
-      local new_left="${LBUFFER%\ } $branch"
-    else
-      local new_left="$branch"
-    fi
-    BUFFER=${new_left}${RBUFFER}
-    CURSOR=${#new_left}
-  fi
-}
-zle -N peco-branch
-bindkey '^xb' peco-branch # C-x b でブランチ選択
-
 # ctrl+u => カーソル現在位置から行頭まで削除
 bindkey \^u backward-kill-line
 
