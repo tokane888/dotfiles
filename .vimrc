@@ -163,6 +163,9 @@ augroup myYank
 augroup END
 endif
 
+" 行末の空白を自動的に削除
+autocmd BufWritePre * :%s/\s\+$//e
+
 " ===========================プラグイン設定===========================
 
 " ctrlpvim/ctrlp.vim
