@@ -49,6 +49,7 @@ MAIN_PC_APT_PACKAGES=(
   autoconf
   autokey-gtk
   autotools-dev
+  awscli
   brightness-controller
   build-essential
   cheese
