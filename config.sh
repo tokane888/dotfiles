@@ -63,6 +63,7 @@ MAIN_PC_APT_PACKAGES=(
   pinta
   solaar
   translate-shell # 右記のようなコマンドで翻訳 trans :ja "hello"
+  vlc
   wireshark
   xclip
   zsh
