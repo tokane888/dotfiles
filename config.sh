@@ -49,6 +49,7 @@ MAIN_PC_APT_PACKAGES=(
   autoconf
   autokey-gtk
   autotools-dev
+  brightness-controller
   build-essential
   cheese
   code
@@ -69,6 +70,7 @@ MAIN_PC_APT_PACKAGES=(
 
 MAIN_PC_APT_REPOS=(
   ppa:hluk/copyq
+  ppa:apandada1/brightness-controller
 )
 
 MAIN_PC_SNAP_PACKAGES=(
