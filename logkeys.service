@@ -6,6 +6,7 @@ After=multi-user.target
 [Service]
 Type=forking
 ExecStart=/usr/local/bin/logkeys --start
+ExecStop=/usr/local/bin/logkeys --kill
 Restart=always
 User=root
 
