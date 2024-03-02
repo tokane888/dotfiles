@@ -157,3 +157,6 @@ fi
 if [ -f ~/.zsh_aliases_local ]; then
   source ~/.zsh_aliases_local
 fi
+
+PROMPT=' %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
+
