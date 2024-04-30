@@ -42,3 +42,6 @@ data.location=/root/.task
 # task出力時のカラム指定
 report.next.columns=id,depends,priority,project,tags,scheduled.countdown,due.relative,until.remaining,description.count,star
 report.next.labels=ID,Deps,P,Project,Tag,S,Due,Until,Description,Active,Urg
+
+# color scheme。画面に光があたっている場合等に見にくいため
+include /usr/share/task/light-256.theme
