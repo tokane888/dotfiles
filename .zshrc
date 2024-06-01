@@ -137,6 +137,8 @@ setopt no_share_history
 setopt hist_ignore_space
 # historyに保存するときに余分なスペースを削除する
 setopt hist_reduce_blanks
+# コマンド実行日時も出力
+HIST_STAMPS="yyyy-mm-dd"
 
 # go installしたバイナリへパスを通す
 export PATH=$PATH:~/go/bin
