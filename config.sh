@@ -100,6 +100,7 @@ RPM_REPOS=(
 )
 
 PIP3_PACKAGES=(
+  boto3
   icdiff
   msgpack
   pynvim
