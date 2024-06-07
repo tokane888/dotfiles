@@ -124,7 +124,7 @@ setup_yum() {
 
 pip3_install() {
   for package in "${PIP3_PACKAGES[@]}"; do
-    pip3 install "$package"
+    sudo -u "$SUDO_USER" pip3 install "$package"
   done
 }
 
@@ -246,7 +246,7 @@ setup_ubuntu() {
   chmod +x "${HOME%/}"/.task/hooks/on-modify.timewarrior
 
   for package in "${REAL_PIP3_PACKAGES[@]}"; do
-    pip3 install "$package"
+    sudo -u "$SUDO_USER" pip3 install "$package"
   done
   # timewarrior集計script
   install -D -o "$SUDO_USER" -g "$SUDO_USER" timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
@@ -295,7 +295,7 @@ prepare_vscode_install() {
 
 install_main_pip3_packages() {
   for packages in "${MAIN_PIP3_PACKAGES[@]}"; do
-    pip3 install "$packages"
+    sudo -u "$SUDO_USER" pip3 install "$packages"
   done
 }
 
