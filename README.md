@@ -90,6 +90,8 @@
   - "hard"で検索
   - "Use hardware acceleration when available"無効化
   - 設定有効化のためchrome再起動
+- terminalから下記実行し、rescuetime setup
+  - rescuetime
 - 他注意点
   - 少なくとも下記の変更は再起動するまで反映されない
     - ダウンロードディレクトリ等の名前の英語への変更されない
