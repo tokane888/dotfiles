@@ -28,7 +28,6 @@ APT_PACKAGES=(
   unzip
   vagrant
   vim
-  wget
   zip
   zsh
 )

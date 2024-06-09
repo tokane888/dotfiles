@@ -64,6 +64,15 @@ add_rpm_repository() {
 }
 
 install_apt_packages() {
+  # wgetはgithub cli(gh)のインストールにも必要なので先にインストール
+  apt-get update -y
+  apt-get install -y wget
+
+  wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg >/dev/null
+  chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list >/dev/null
+
+  apt-get update -y
   for package in "${APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
   done
@@ -458,7 +467,6 @@ main() {
   if can_use_command "apt"; then
     export DEBIAN_FRONTEND=noninteractive
     add_apt_repository
-    apt-get update -y
     install_apt_packages
     install_go_from_src
   elif can_use_command "yum"; then
