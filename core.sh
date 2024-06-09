@@ -275,6 +275,9 @@ install_main_deb_packages() {
     add-apt-repository -y "$repo"
   done
 
+  curl -LO https://www.rescuetime.com/installers/rescuetime_current_amd64.deb
+  apt-get install -y ./rescuetime_current_amd64.deb
+
   echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
   prepare_vscode_install
   curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
