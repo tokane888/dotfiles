@@ -8,6 +8,7 @@ APT_PACKAGES=(
   exuberant-ctags # tags自動生成
   ffmpeg
   gcc
+  gh
   gpg
   g++
   jq
