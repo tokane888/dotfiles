@@ -72,6 +72,7 @@
 - copyQ起動し、下記設定
   - file => preferences
   - "Autostart"有効化
+  - History => maximum number of items in history => 10000 に変更
   - Shortcuts => Global => Show/hide main windowにmeta+ctrl+i辺りを割当
   - Shortcuts => Application => Save itemにctrl+s割当
   - Shortcuts => Application => exportへのctrl+s割当解除
