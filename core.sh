@@ -105,7 +105,7 @@ install_go_from_src() {
 install_npm_packages() {
   # npmでnodejsを管理
   for package in "${NPM_PACKAGES[@]}"; do
-    npm install "$package"
+    npm install "$package" -g
   done
   npm install n -g
 
