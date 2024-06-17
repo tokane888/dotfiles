@@ -76,11 +76,6 @@ install_apt_packages() {
   for package in "${APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
   done
-
-  # npmでnodejsを管理
-  npm install n -g
-  n stable
-  # TODO: nでnpm, nodejsをinstallしたので、aptでinstallしたnpm, nodejsは削除検討
 }
 
 install_rpm_packages() {
@@ -105,6 +100,17 @@ install_go_from_src() {
   elif [ "$(get_os)" == "ubuntu" ]; then
     snap install --classic go
   fi
+}
+
+install_npm_packages() {
+  # npmでnodejsを管理
+  for package in "${NPM_PACKAGES[@]}"; do
+    npm install "$package"
+  done
+  npm install n -g
+
+  n stable
+  # TODO: nでnpm, nodejsをinstallしたので、aptでinstallしたnpm, nodejsは削除検討
 }
 
 # 最新のvimがおいてあるリポジトリが見つからないのでソースからビルド
@@ -478,6 +484,8 @@ main() {
     install_rpm_packages
     install_latest_vim_on_cent
   fi
+  install_npm_packages
+
   pip3_install
   go_install_packages
 

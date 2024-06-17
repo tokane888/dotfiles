@@ -115,3 +115,7 @@ REAL_PIP3_PACKAGES=(
 MAIN_PIP3_PACKAGES=(
   gnome-extensions-cli
 )
+
+NPM_PACKAGES=(
+  markuplint
+)
