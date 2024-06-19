@@ -117,5 +117,6 @@ MAIN_PIP3_PACKAGES=(
 )
 
 NPM_PACKAGES=(
+  depcheck # package.json内の不要なパッケージ検知
   markuplint
 )
