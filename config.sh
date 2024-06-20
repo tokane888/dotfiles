@@ -76,6 +76,7 @@ MAIN_PC_APT_REPOS=(
 )
 
 MAIN_PC_SNAP_PACKAGES=(
+  teams-for-linux
   xmind
   yq
 )
