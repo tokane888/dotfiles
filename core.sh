@@ -456,6 +456,17 @@ setup_trivial() {
   sed -i -r -e 's/#\s?set bell-style none/set bell-style none/' /etc/inputrc
   # visudoのエディタをvimに
   update-alternatives --set editor /usr/bin/vim.basic
+
+  # airpodsのペアリングがデフォルト設定では失敗するのでbluetooth controller mode調整
+  CONFIG_FILE="/etc/bluetooth/main.conf"
+  ADD_STRING="ControllerMode = bredr"
+  if [ -f "$CONFIG_FILE" ]; then
+    # /etc/bluetooth/main.conf に ControllerMode = bredr が含まれているか確認
+    if ! grep -q "$ADD_STRING" "$CONFIG_FILE"; then
+      # 含まれていない場合、末尾に ControllerMode = bredr を追加
+      echo "$ADD_STRING" | sudo tee -a "$CONFIG_FILE"
+    fi
+  fi
 }
 
 cleanup() {
