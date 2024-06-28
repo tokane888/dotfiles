@@ -467,6 +467,9 @@ setup_trivial() {
       echo "$ADD_STRING" | sudo tee -a "$CONFIG_FILE"
     fi
   fi
+
+  # Ubuntu proの広告popup無効化
+  pro config set apt_news=false
 }
 
 cleanup() {
