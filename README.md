@@ -80,7 +80,7 @@
   - CopyQを再度起動し、Tabs => New tabから適宜tab追加
 
 - 無変換+ctrl+dでDownloadディレクトリ開くショートカット追加
-  - win => settings => Keyboard => Custom Shortcuts
+  - win => settings => Keyboard => View and Customize Shortcuts => Custom Shortcuts
   - "nautilus /home/tom/Downloads"
     - ユーザー名は適宜調整
       - エラーになるので必ず絶対パス指定
