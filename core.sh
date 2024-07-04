@@ -270,6 +270,8 @@ setup_ubuntu() {
   curl -L https://github.com/kdheepak/taskwarrior-tui/releases/download/v0.25.4/taskwarrior-tui-x86_64-unknown-linux-gnu.tar.gz | tar zxv --directory=/usr/local/bin
 
   install_nerd_font
+
+  install_oh-my-zsh
 }
 
 install_real_deb_packages() {
@@ -395,7 +397,6 @@ install_logkeys() {
 setup_real_ubuntu() {
   install_real_deb_packages
 
-  install_oh-my-zsh
   ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
   chsh -s /usr/bin/zsh "$NORMAL_USER"
 
