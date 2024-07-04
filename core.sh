@@ -5,7 +5,7 @@
 set -eux
 
 DOT_FILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-MAIN_MACHINE=0
+REAL_MACHINE=0
 
 is_root() {
   [ ${EUID:-${UID}} = 0 ]
@@ -272,7 +272,7 @@ setup_ubuntu() {
   install_nerd_font
 }
 
-install_main_deb_packages() {
+install_real_deb_packages() {
   # localhost:5600でdashboardが見られるが、OS再起動するまでは見えない
   curl -LO https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-linux-x86_64.deb
   dpkg -i activitywatch-v0.12.2-linux-x86_64.deb
@@ -311,13 +311,13 @@ prepare_vscode_install() {
   apt-get install -y apt-transport-https
 }
 
-install_main_pip3_packages() {
+install_real_pip3_packages() {
   for packages in "${MAIN_PIP3_PACKAGES[@]}"; do
     sudo -u "$SUDO_USER" pip3 install "$packages"
   done
 }
 
-install_main_snap_packages() {
+install_real_snap_packages() {
   snap refresh
   for package in "${MAIN_PC_SNAP_PACKAGES[@]}"; do
     snap install "$package"
@@ -392,8 +392,8 @@ install_logkeys() {
   cp logkeys /etc/logrotate.d/logkeys
 }
 
-setup_main_ubuntu() {
-  install_main_deb_packages
+setup_real_ubuntu() {
+  install_real_deb_packages
 
   install_oh-my-zsh
   ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
@@ -401,8 +401,8 @@ setup_main_ubuntu() {
 
   setup_autokey
 
-  install_main_pip3_packages
-  install_main_snap_packages
+  install_real_pip3_packages
+  install_real_snap_packages
   install_pc_record_service
   install_logkeys
 
@@ -419,8 +419,8 @@ setup_real_machine() {
   # 実機ubuntuのみに対する処理はdotfiles_ubuntu.gitで実行
   if [ "$(get_os)" == "ubuntu" ]; then
     setup_ubuntu
-    if ((MAIN_MACHINE == 1)); then
-      setup_main_ubuntu
+    if ((REAL_MACHINE == 1)); then
+      setup_real_ubuntu
     fi
     # WSL上のubuntuのみの処理
     if grep -q "WSL" /proc/version; then
@@ -523,7 +523,7 @@ main() {
 
 if (($# >= 2)); then
   if [[ "$2" == "-r" ]]; then
-    MAIN_MACHINE=1
+    REAL_MACHINE=1
   fi
 fi
 
