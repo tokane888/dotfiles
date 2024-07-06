@@ -4,6 +4,9 @@ alias ej="trans :ja"
 alias ffmpeg="ffmpeg -hide_banner"
 alias ffplay="ffplay -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
+# gitで新しいbranchを作成する前に、分岐元branchを自動でpull
+alias gcb="git rev-parse --symbolic-full-name --abbrev-ref @{u} 2>/dev/null && git pull && git checkout -b "
+
 alias history="fc -fl 1"
 alias je="trans :en"
 alias lal="ls -Al"
