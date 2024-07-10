@@ -103,6 +103,7 @@
 - .wslconfigを下記へコピー
   - /mnt/c/Users/(user名)/.wslconfig
     - TODO: user名部分特定する方法調査の上script化
+- .gitconfigのuser.name, user.email設定を作業環境に合わせて調整
 
 ## 注意
 
