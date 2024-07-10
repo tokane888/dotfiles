@@ -73,6 +73,7 @@ zstyle ':omz:update' mode auto # update automatically without asking
 plugins=(
   aliases # alsコマンドで有効なalias見やすく分類して一覧表示
   git
+  poetry
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
