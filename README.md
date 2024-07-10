@@ -98,6 +98,12 @@
     - ダウンロードディレクトリ等の名前の英語への変更されない
     - defaultのshellのzshへの変更
 
+## WSL2での追加設定
+
+- .wslconfigを下記へコピー
+  - /mnt/c/Users/(user名)/.wslconfig
+    - TODO: user名部分特定する方法調査の上script化
+
 ## 注意
 
 install_vim_plugins以降のログは標準出力に正常に出力されない。
