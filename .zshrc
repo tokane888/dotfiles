@@ -128,7 +128,7 @@ bindkey \^u backward-kill-line
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
-# 実行時刻も保存(history -Eで時刻表示)
+# 実行時刻も保存
 setopt extended_history
 # shell終了時ではなく、即時history書き込み
 setopt inc_append_history
