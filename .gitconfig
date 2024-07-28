@@ -16,6 +16,8 @@
   prune = true       # pull時にremoteで削除済みのブランチはlocalでも削除
 [pager]
   branch = false     # git branch時にterminal専有しない
+[pull]
+  rebase = true
 [push]
   default = current  # 同じ名前のブランチへしpushする。なければ作る
 [alias]
