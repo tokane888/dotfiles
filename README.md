@@ -104,6 +104,8 @@
   - /mnt/c/Users/(user名)/.wslconfig
     - TODO: user名部分特定する方法調査の上script化
 - .gitconfigのuser.name, user.email設定を作業環境に合わせて調整
+- chrome urlバーのサジェスト無効化
+  - chrome右上の縦3点リーダー => 設定 => Googleの設定 => 同期とGoogleサービス => "他のGoogleサービス"から"Googleドライブの検索候補を表示する"無効化
 
 ## 注意
 
