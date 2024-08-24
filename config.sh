@@ -34,6 +34,7 @@ APT_PACKAGES=(
 
 APT_REPOS=(
   ppa:jonathonf/vim
+  ppa:dotnet/backports
 )
 
 UBUNTU_APT_PACKAGES=(
@@ -55,6 +56,7 @@ MAIN_PC_APT_PACKAGES=(
   cheese
   code
   copyq
+  dotnet-sdk-8.0
   google-chrome-stable
   ibus-mozc
   kbd
