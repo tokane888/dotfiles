@@ -64,6 +64,7 @@ MAIN_PC_APT_PACKAGES=(
   libreoffice-impress
   libx11-dev
   pinta
+  p7zip
   solaar
   translate-shell # 右記のようなコマンドで翻訳 trans :ja "hello"
   vlc
