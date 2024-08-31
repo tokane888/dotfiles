@@ -21,6 +21,7 @@ APT_PACKAGES=(
   python3
   python3-pip
   python3-venv # vimのblack pluginが依存
+  rename
   silversearcher-ag
   tmux
   tree
