@@ -347,18 +347,15 @@ install_docker() {
 }
 
 install_nerd_font() {
-  if [ -d "${HOME%/}/ghq/github.com/ryanoasis/nerd-fonts" ]; then
+  # 既にNerd Fontsが存在する場合は終了
+  if [ -d "$(su - $NORMAL_USER -c 'ghq root')/github.com/ryanoasis/nerd-fonts" ]; then
     return
   fi
 
-  pushd .
-  cd "$HOME"
-  mkdir -p ghq/github.com/ryanoasis/nerd-fonts
-  chown -R "$NORMAL_USER":"$NORMAL_USER" ghq
-  cd "${HOME%/}"/ghq/github.com/ryanoasis/nerd-fonts
-  su "$NORMAL_USER" -c "git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git $HOME/ghq/github.com/ryanoasis/nerd-fonts/"
-  su "$NORMAL_USER" -c "$HOME/ghq/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
-  popd
+  su "$NORMAL_USER" -c "/home/$NORMAL_USER/go/bin/ghq get --shallow https://github.com/ryanoasis/nerd-fonts"
+  local ghq_root
+  ghq_root=$(su - $NORMAL_USER -c "/home/$NORMAL_USER/go/bin/ghq root")
+  su "$NORMAL_USER" -c "$ghq_root/github.com/ryanoasis/nerd-fonts/install.sh FiraCode"
 }
 
 install_oh-my-zsh() {
