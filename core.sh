@@ -298,6 +298,8 @@ install_real_deb_packages() {
   for package in "${MAIN_PC_APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
   done
+
+  usermod -aG wireshark "$SUDO_USER"
 }
 
 setup_autokey() {
