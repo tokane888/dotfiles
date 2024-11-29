@@ -23,3 +23,5 @@
   default = current  # 同じ名前のブランチへpushする。なければ作る
 [alias]
   lod = log --pretty=format:'%C(auto)%h%d [%ad] %s <%cn>' --date=format:'%Y/%m/%d %H:%M:%S'
+[branch]
+  autoSetupMerge = always # 他の人が自分と同じブランチを編集し、pullした際にbranchの紐付けが解消される問題の対応
