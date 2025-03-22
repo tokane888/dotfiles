@@ -300,6 +300,9 @@ install_real_deb_packages() {
   done
 
   usermod -aG wireshark "$SUDO_USER"
+
+  curl -LO https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb
+  dpkg -i obsidian_1.8.9_amd64.deb
 }
 
 setup_autokey() {
