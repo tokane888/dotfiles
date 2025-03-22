@@ -58,6 +58,7 @@ MAIN_PC_APT_PACKAGES=(
   code
   copyq
   dotnet-sdk-8.0
+  gcc-12
   google-chrome-stable
   ibus-mozc
   kbd
