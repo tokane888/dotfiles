@@ -275,8 +275,8 @@ setup_ubuntu() {
   install_oh-my-zsh
 
   # poetryのzsh補完設定追加
-  mkdir $ZSH_CUSTOM/plugins/poetry
-  poetry completions zsh >$ZSH_CUSTOM/plugins/poetry/_poetry
+  mkdir "${HOME%/}"/.oh-my-zsh/custom/plugins/poetry
+  poetry completions zsh >"${HOME%/}"/.oh-my-zsh/custom/plugins/poetry/_poetry
 }
 
 install_real_deb_packages() {
