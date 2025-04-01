@@ -36,7 +36,7 @@ add_apt_repository() {
     # TODO: ubuntu実機でたまにリポジトリ追加がタイムアウトするケースに対応
 
     # 実機でminimal installした場合に、universeリポジトリが入らず、
-    # apt install時に失敗する場合があるので当該リポジトリ追加
+    # apt-get install時に失敗する場合があるので当該リポジトリ追加
     if ! grep -q universe /etc/apt/sources.list; then
       cat <<EOS >>/etc/apt/sources.list
 deb http://jp.archive.ubuntu.com/ubuntu/ $(get_ubuntu_code) universe
@@ -229,7 +229,7 @@ set_locale() {
 set_timezone() {
   if [ "$(date +%Z)" = "UTC" ]; then
     if [ "$(command -v apt)" ]; then
-      apt install -y tzdata
+      apt-get install -y tzdata
     elif [ "$(command -v yum)" ]; then
       yum install -y tzdata
     fi
