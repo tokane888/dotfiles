@@ -275,7 +275,7 @@ setup_ubuntu() {
   install_oh-my-zsh
 
   # poetryのzsh補完設定追加
-  mkdir "${HOME%/}"/.oh-my-zsh/custom/plugins/poetry
+  mkdir -p "${HOME%/}"/.oh-my-zsh/custom/plugins/poetry
   poetry completions zsh >"${HOME%/}"/.oh-my-zsh/custom/plugins/poetry/_poetry
 }
 
@@ -307,7 +307,7 @@ install_real_deb_packages() {
 }
 
 setup_autokey() {
-  mkdir bk
+  mkdir -p bk
   cp /usr/share/X11/xkb/symbols/inet bk/
   sed -i 's/Henkan/Hyper_L/' /usr/share/X11/xkb/symbols/inet
   sed -i 's/Muhenkan/Meta_L/' /usr/share/X11/xkb/symbols/inet
