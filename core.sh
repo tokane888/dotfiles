@@ -274,9 +274,10 @@ setup_ubuntu() {
 
   install_oh-my-zsh
 
+  curl -sSL https://install.python-poetry.org | sudo -u "$SUDO_USER" python3 -
   # poetryのzsh補完設定追加
   mkdir -p "${HOME%/}"/.oh-my-zsh/custom/plugins/poetry
-  poetry completions zsh >"${HOME%/}"/.oh-my-zsh/custom/plugins/poetry/_poetry
+  "${HOME%/}"/.local/bin/poetry completions zsh >"${HOME%/}"/.oh-my-zsh/custom/plugins/poetry/_poetry
 }
 
 install_real_deb_packages() {
