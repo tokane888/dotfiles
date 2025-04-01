@@ -223,6 +223,7 @@ set_locale() {
   elif [ "$(command -v yum)" ]; then
     localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
   fi
+  locale-gen en_US.UTF-8
   update-locale LANG=en_US.UTF-8 UTF-8
 }
 
