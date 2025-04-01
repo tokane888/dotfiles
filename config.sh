@@ -27,7 +27,6 @@ APT_PACKAGES=(
   tree
   # universal-ctags # tags自動生成。見つからないため一旦削除
   unzip
-  vagrant
   vim
   zip
   zsh
