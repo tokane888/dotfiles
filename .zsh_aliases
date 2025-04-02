@@ -1,4 +1,4 @@
-alias cdd="cd ~/Downloads"
+alias cdd="cd /mnt/c/Users/$(ls /mnt/c/Users | grep -v 'All Users\|Default\|Default User\|desktop.ini\|Public')/Downloads"
 alias crontab="crontab -i"
 alias ej="trans :ja"
 alias ffmpeg="ffmpeg -hide_banner"
