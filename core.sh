@@ -271,13 +271,15 @@ setup_ubuntu() {
   curl -L https://github.com/kdheepak/taskwarrior-tui/releases/download/v0.25.4/taskwarrior-tui-x86_64-unknown-linux-gnu.tar.gz | tar zxv --directory=/usr/local/bin
 
   install_nerd_font
-
   install_oh-my-zsh
 
   curl -sSL https://install.python-poetry.org | sudo -u "$SUDO_USER" python3 -
   # poetryのzsh補完設定追加
   mkdir -p "${HOME%/}"/.oh-my-zsh/custom/plugins/poetry
   "${HOME%/}"/.local/bin/poetry completions zsh >"${HOME%/}"/.oh-my-zsh/custom/plugins/poetry/_poetry
+
+  # デフォルトのshellをzshに変更
+  su "$NORMAL_USER" -c chsh -s "$(which zsh)"
 }
 
 install_real_deb_packages() {
