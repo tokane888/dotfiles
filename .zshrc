@@ -145,6 +145,8 @@ HIST_STAMPS="yyyy-mm-dd"
 export PATH=$PATH:~/go/bin
 # gnome shell extensionインストール先
 export PATH=$PATH:~/.local/bin
+# snapにパスを通す
+export PATH="$PATH:/snap/bin"
 
 # ls出力のディレクトリが深い青で見にくいので調整
 export LS_COLORS=$LS_COLORS:'di=01;36:'
