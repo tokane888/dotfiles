@@ -486,7 +486,7 @@ setup_trivial() {
   pro config set apt_news=false
 
   # 1日に1回memory、HDD等の使用量が表示されるので非表示に
-  touch /home/tom/.hushlogin
+  touch /home/"$NORMAL_USER"/.hushlogin
 }
 
 cleanup() {
