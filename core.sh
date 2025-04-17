@@ -337,6 +337,9 @@ install_real_snap_packages() {
   for package in "${MAIN_PC_SNAP_PACKAGES[@]}"; do
     snap install "$package"
   done
+  for package in "${MAIN_PC_SNAP_PACKAGES_CLASSIC[@]}"; do
+    snap install "$package" --classic
+  done
 }
 
 install_docker() {

@@ -79,10 +79,13 @@ MAIN_PC_APT_REPOS=(
 )
 
 MAIN_PC_SNAP_PACKAGES=(
-  aws-cli
   teams-for-linux
   xmind
   yq
+)
+
+MAIN_PC_SNAP_PACKAGES_CLASSIC=(
+  aws-cli
 )
 
 RPM_PACKAGES=(
