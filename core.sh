@@ -487,6 +487,9 @@ setup_trivial() {
 
   # 1日に1回memory、HDD等の使用量が表示されるので非表示に
   touch /home/"$NORMAL_USER"/.hushlogin
+
+  # awscli実行時に実行結果が自動でlessにパイプされるのを防ぐ設定追加
+  aws configure set cli_pager ""
 }
 
 cleanup() {
