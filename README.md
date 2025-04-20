@@ -93,6 +93,7 @@
   - 設定有効化のためchrome再起動
 - terminalから下記実行し、rescuetime setup
   - rescuetime
+- setting => Displays => 上タブの"Night Light" => Night Light 有効化
 - 他注意点
   - 少なくとも下記の変更は再起動するまで反映されない
     - ダウンロードディレクトリ等の名前の英語への変更されない
