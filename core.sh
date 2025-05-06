@@ -145,6 +145,7 @@ pip3_install() {
 
 go_install_packages() {
   go install -v github.com/x-motemen/ghq@latest
+  go install -v github.com/air-verse/air@latest
 }
 
 deploy_dotfiles() {
