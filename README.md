@@ -2,7 +2,8 @@
 
 ## 開発方針
 
-- docker上のubuntu初期化処理はすべて削除
+- ubuntu実機, raspberry pi以外の環境向けの処理は今後削除
+  - 使用頻度が非常に低くメンテ出来ないため
 
 ## Ubuntu事前設定
 
