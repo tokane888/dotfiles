@@ -95,6 +95,14 @@
 - terminalから下記実行し、rescuetime setup
   - rescuetime
 - setting => Displays => 上タブの"Night Light" => Night Light 有効化
+- vscode setup
+  - ※インストール自体はcore.sh内で行われる
+  - ログイン
+    - 設定は基本的に自動で同期される
+  - copilot chatログイン
+    - ctrl + k ctrl + k でchat画面を開けること確認
+      - 開けない場合はkeyboardショートカットの設定を確認の上割当
+        - デフォルトでは別のコマンドが割り当てられているが、when指定があるため競合せずに設定可能
 - 他注意点
   - 少なくとも下記の変更は再起動するまで反映されない
     - ダウンロードディレクトリ等の名前の英語への変更されない
