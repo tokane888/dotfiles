@@ -113,6 +113,12 @@ install_npm_packages() {
   # TODO: nでnpm, nodejsをinstallしたので、aptでinstallしたnpm, nodejsは削除検討
 }
 
+download_binaries() {
+  # aws copilot install
+  curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux
+  chmod +x /usr/local/bin/copilot
+}
+
 # 最新のvimがおいてあるリポジトリが見つからないのでソースからビルド
 install_latest_vim_on_cent() {
   yum erase -y vim
@@ -520,6 +526,7 @@ main() {
     install_latest_vim_on_cent
   fi
   install_npm_packages
+  download_binaries
 
   pip3_install
   go_install_packages
