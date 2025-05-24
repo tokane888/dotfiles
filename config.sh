@@ -55,6 +55,7 @@ MAIN_PC_APT_PACKAGES=(
   cheese
   code
   copyq
+  default-jdk
   dotnet-sdk-8.0
   gcc-12
   google-chrome-stable
