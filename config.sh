@@ -12,7 +12,8 @@ APT_PACKAGES=(
   gpg
   g++
   jq
-  locales # docker上で日本語使うため
+  libfuse2 # Cursorでfuse使うため
+  locales  # docker上で日本語使うため
   make
   nmap
   npm
