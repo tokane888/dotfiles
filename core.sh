@@ -119,6 +119,12 @@ download_binaries() {
   chmod +x /usr/local/bin/copilot
 }
 
+install_appimages() {
+  sudo -u "$SUDO_USER" mkdir -p ~/.local/appimages/cursor
+
+  # TODO: appimageのダウンロード処理追加。Cursor等追加想定
+}
+
 # 最新のvimがおいてあるリポジトリが見つからないのでソースからビルド
 install_latest_vim_on_cent() {
   yum erase -y vim
@@ -527,6 +533,7 @@ main() {
   fi
   install_npm_packages
   download_binaries
+  install_appimages
 
   pip3_install
   go_install_packages
