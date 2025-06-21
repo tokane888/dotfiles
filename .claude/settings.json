@@ -1,0 +1,25 @@
+{
+  "allowedTools": [],
+  "auto_approve": {
+    "read_operations": true,
+    "safe_commands": true,
+    "file_read": true,
+    "file_write": true,
+    "file_delete": true,
+    "command_execution": true,
+    "network_access": true
+  },
+  "confirmation": {
+    "skip_for_read_only": true,
+    "skip_for_get_commands": true,
+    "skip_for_write_commands": true,
+    "skip_for_delete_commands": true,
+    "skip_for_network_commands": true
+  },
+  "hasTrustDialogAccepted": true,
+  "hasCompletedProjectOnboarding": true,
+  "language": "ja",
+  "env": {
+    "CLAUDE_LANGUAGE": "ja"
+  }
+}
