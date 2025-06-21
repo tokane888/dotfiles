@@ -176,6 +176,9 @@ deploy_dotfiles() {
     fi
   done
 
+  # devcontainerにマウントされることを考慮し、シンボリックリンクは使用しない
+  cp .claude/settings.json "${HOME%/}"/.claude/settings.json
+
   if [ ! -f "${HOME%/}"/.ssh/config ]; then
     cp -r .ssh "${HOME%/}"/.ssh
   fi
@@ -519,7 +522,6 @@ main() {
   HOME=$1
   NORMAL_USER=$(basename $HOME)
 
-  deploy_dotfiles
   if can_use_command "apt"; then
     export DEBIAN_FRONTEND=noninteractive
     add_apt_repository
@@ -534,6 +536,8 @@ main() {
   install_npm_packages
   download_binaries
   install_appimages
+
+  deploy_dotfiles
 
   pip3_install
   go_install_packages
