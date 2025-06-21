@@ -129,4 +129,5 @@ NPM_PACKAGES=(
   depcheck # package.json内の不要なパッケージ検知
   markuplint
   typescript
+  @anthropic-ai/claude-code
 )
