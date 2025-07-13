@@ -147,6 +147,8 @@ export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/.local/bin
 # snapにパスを通す
 export PATH="$PATH:/snap/bin"
+# claude codeにパスを通す
+export PATH=$PATH:~/.claude/local
 
 # ls出力のディレクトリが深い青で見にくいので調整
 export LS_COLORS=$LS_COLORS:'di=01;36:'

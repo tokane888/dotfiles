@@ -14,5 +14,3 @@ alias ll="ls -l"
 alias rm="rm -f" # 別の場所でのalias設定で、ファイル削除時毎回確認されることを抑止
 alias tt="taskwarrior-tui"
 alias xc="xclip -selection clipboard"
-
-alias claude="/home/tom/.claude/local/claude"
