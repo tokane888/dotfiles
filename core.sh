@@ -107,6 +107,7 @@ install_npm_packages() {
   for package in "${NPM_PACKAGES[@]}"; do
     npm install "$package" -g
   done
+  claude migrate-installer
   npm install n -g
 
   n stable
