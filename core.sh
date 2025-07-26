@@ -118,6 +118,11 @@ download_binaries() {
   # aws copilot install
   curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux
   chmod +x /usr/local/bin/copilot
+
+  # install git-delta
+  # TODO: ubuntu 24.04移行時にapt install git-deltaでapt repositoryからinstallする形に変更
+  curl -LO https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb
+  apt-get install -y ./git-delta_0.18.2_amd64.deb
 }
 
 install_appimages() {
