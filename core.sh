@@ -170,6 +170,7 @@ deploy_dotfiles() {
   if [ -v "${HOME%/}"/.bashrc ]; then
     mv "${HOME%/}"/.bashrc "${HOME%/}"/.bashrc.bk
   fi
+  cp .gitignore "${HOME%/}"/.config/git/ignore
 
   local dot_files=(.*)
   for path in "${dot_files[@]}"; do

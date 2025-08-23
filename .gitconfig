@@ -2,7 +2,6 @@
   autocrlf = false
   editor = vim
   ignorecase = true
-  excludesfile = ~/.gitignore_global
   pager = cat
   quotepath = false  # 日本語文字化け対策
 [user]
