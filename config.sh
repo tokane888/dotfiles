@@ -128,6 +128,8 @@ MAIN_PIP3_PACKAGES=(
 NPM_PACKAGES=(
   depcheck # package.json内の不要なパッケージ検知
   markuplint
+  mcp-chrome-bridge
   typescript
   @anthropic-ai/claude-code
+  @byterover/cipher
 )
