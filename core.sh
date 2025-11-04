@@ -171,6 +171,7 @@ deploy_dotfiles() {
     mv "${HOME%/}"/.bashrc "${HOME%/}"/.bashrc.bk
   fi
   cp .gitignore "${HOME%/}"/.config/git/ignore
+  cp "${DOT_FILES_DIR%/}"/.config/autostart/load-xmodmap.desktop "${HOME%/}"/.config/autostart
 
   local dot_files=(.*)
   for path in "${dot_files[@]}"; do
@@ -333,11 +334,8 @@ install_real_deb_packages() {
 }
 
 setup_autokey() {
-  mkdir -p bk
-  cp /usr/share/X11/xkb/symbols/inet bk/
-  sed -i 's/Henkan/Hyper_L/' /usr/share/X11/xkb/symbols/inet
-  sed -i 's/Muhenkan/Meta_L/' /usr/share/X11/xkb/symbols/inet
-  sed -i 's/Hiragana_Katakana/Shift_L/' /usr/share/X11/xkb/symbols/inet
+  echo "keycode 100 = Hyper_L" > "${HOME%/}"/.Xmodmap
+  echo "keycode 102 = Meta_L" > "${HOME%/}"/.Xmodmap
 }
 
 prepare_vscode_install() {

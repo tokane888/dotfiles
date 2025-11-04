@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=xmodmap /home/tom/.Xmodmap
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Load Xmodmap
+Comment=Apply custom key mappings
