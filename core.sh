@@ -171,7 +171,6 @@ deploy_dotfiles() {
     mv "${HOME%/}"/.bashrc "${HOME%/}"/.bashrc.bk
   fi
   cp .gitignore "${HOME%/}"/.config/git/ignore
-  cp "${DOT_FILES_DIR%/}"/.config/autostart/load-xmodmap.desktop "${HOME%/}"/.config/autostart
 
   local dot_files=(.*)
   for path in "${dot_files[@]}"; do
@@ -336,6 +335,9 @@ install_real_deb_packages() {
 setup_autokey() {
   echo "keycode 100 = Hyper_L" > "${HOME%/}"/.Xmodmap
   echo "keycode 102 = Meta_L" > "${HOME%/}"/.Xmodmap
+
+  cp "${DOT_FILES_DIR%/}"/.config/autostart/xmodmap.desktop "${HOME%/}"/.config/autostart/
+  cp "${DOT_FILES_DIR%/}"/lib/systemd/system-sleep/xmodmap.sh /lib/systemd/system-sleep/
 }
 
 prepare_vscode_install() {
