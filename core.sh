@@ -332,15 +332,20 @@ install_real_deb_packages() {
   dpkg -i obsidian_1.8.9_amd64.deb
 }
 
-setup_autokey() {
+setup_xmodmap() {
   echo "keycode 100 = Hyper_L" > "${HOME%/}"/.Xmodmap
   echo "keycode 102 = Meta_L" > "${HOME%/}"/.Xmodmap
 
+  # OS起動時にxmodmap実行
   cp "${DOT_FILES_DIR%/}"/.config/autostart/xmodmap.desktop "${HOME%/}"/.config/autostart/
 
+  # Happy Hacking Keyboard接続時にxmodmap実行
   cp "${DOT_FILES_DIR%/}"/.local/bin/udev-xmodmap.sh "${HOME%/}"/.local/bin/
   chmod 755 "${HOME%/}"/.local/bin/udev-xmodmap.sh
   cp "${DOT_FILES_DIR%/}"/etc/udev/rules.d/99-xmodmap.rules /etc/udev/rules.d/
+
+  # sleepからの復帰時にxmodmap実行
+  cp "${DOT_FILES_DIR%/}"/lib/systemd/system-sleep/reapply-xmodmap /lib/systemd/system-sleep/
 }
 
 prepare_vscode_install() {
@@ -439,7 +444,7 @@ setup_real_ubuntu() {
   ln -fs "${DOT_FILES_DIR%/}"/.zshrc "${HOME%/}"/.zshrc
   chsh -s /usr/bin/zsh "$NORMAL_USER"
 
-  setup_autokey
+  setup_xmodmap
 
   install_real_pip3_packages
   install_real_snap_packages

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+case $1 in
+  post)
+    export DISPLAY=:0
+    export XAUTHORITY=/run/user/1000/gdm/Xauthority
+    /usr/bin/xmodmap /home/tom/.Xmodmap
+    ;;
+esac
