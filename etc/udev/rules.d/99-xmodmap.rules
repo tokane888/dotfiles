@@ -1,0 +1,1 @@
+ACTION=="add", ATTR{idVendor}=="04fe", ATTR{idProduct}=="0022", RUN+="/home/tom/.local/bin/udev-xmodmap.sh"

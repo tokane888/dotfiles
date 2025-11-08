@@ -337,7 +337,10 @@ setup_autokey() {
   echo "keycode 102 = Meta_L" > "${HOME%/}"/.Xmodmap
 
   cp "${DOT_FILES_DIR%/}"/.config/autostart/xmodmap.desktop "${HOME%/}"/.config/autostart/
-  cp "${DOT_FILES_DIR%/}"/lib/systemd/system-sleep/xmodmap.sh /lib/systemd/system-sleep/
+
+  cp "${DOT_FILES_DIR%/}"/.local/bin/udev-xmodmap.sh "${HOME%/}"/.local/bin/
+  chmod 755 "${HOME%/}"/.local/bin/udev-xmodmap.sh
+  cp "${DOT_FILES_DIR%/}"/etc/udev/rules.d/99-xmodmap.rules /etc/udev/rules.d/
 }
 
 prepare_vscode_install() {
