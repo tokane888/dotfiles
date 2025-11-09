@@ -148,10 +148,18 @@ export PATH=$PATH:~/.local/bin
 # snapにパスを通す
 export PATH="$PATH:/snap/bin"
 # claude codeにパスを通す
-export PATH=$PATH:~/.claude/local
+export PATH=$PATH:$HOME/.claude/local/node_modules/.bin
 
 # ls出力のディレクトリが深い青で見にくいので調整
 export LS_COLORS=$LS_COLORS:'di=01;36:'
+
+# ターミナル全体の濃い青（ANSI color 4）を明るい青/シアンに変更
+# iostatなどのコマンド出力も見やすくなる
+if [ "$TERM" = "screen-256color" ] || [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "tmux-256color" ]; then
+  # 青色(color 4)を明るいシアン系に変更
+  echo -ne '\e]4;4;#5fafff\a'  # 明るい青
+  echo -ne '\e]4;12;#87d7ff\a' # 明るい青（強調）
+fi
 
 . ~/.zshrc_cmd/todoist_toggl.sh
 
