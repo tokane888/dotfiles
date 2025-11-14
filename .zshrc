@@ -106,6 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# vscodeのterminal上での警告抑止
+RPROMPT=""
+
 # rm *で確認を求める機能を無効化
 setopt RM_STAR_SILENT
 
