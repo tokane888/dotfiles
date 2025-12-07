@@ -57,12 +57,6 @@ EOS
   fi
 }
 
-add_rpm_repository() {
-  for repo in "${RPM_REPOS[@]}"; do
-    yum install -y "$repo"
-  done
-}
-
 install_apt_packages() {
   # wgetはgithub cli(gh)のインストールにも必要なので先にインストール
   apt-get update -y
@@ -75,12 +69,6 @@ install_apt_packages() {
   apt-get update -y
   for package in "${APT_PACKAGES[@]}"; do
     apt-get install -y "$package"
-  done
-}
-
-install_rpm_packages() {
-  for package in "${RPM_PACKAGES[@]}"; do
-    yum install -y "$packages"
   done
 }
 
@@ -129,30 +117,6 @@ install_appimages() {
   sudo -u "$SUDO_USER" mkdir -p ~/.local/appimages/cursor
 
   # TODO: appimageのダウンロード処理追加。Cursor等追加想定
-}
-
-# 最新のvimがおいてあるリポジトリが見つからないのでソースからビルド
-install_latest_vim_on_cent() {
-  yum erase -y vim
-
-  pushd .
-  mkdir -p vim
-  cd vim
-  wget https://github.com/vim/vim/archive/master.zip
-  unzip master.zip
-  cd vim-master/src
-  ./configure --enable-gui=no --enable-python3interp
-  make
-  make install
-  [ ! -e /usr/bin/vim ] && ln -fs /root/.local/dotfiles/vim/vim-master/src/vim /usr/bin/vim
-  popd
-}
-
-setup_yum() {
-  if can_use_command "yum"; then
-    # dockerのyum設定から、manpageを取得しない設定削除
-    sed -i s/tsflags=nodocs//g /etc/yum.conf
-  fi
 }
 
 pip3_install() {
@@ -243,8 +207,6 @@ set_locale() {
     # docker上で日本語入力を可能に
     sed -i "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g" /etc/locale.gen
     locale-gen ja_JP.utf8
-  elif [ "$(command -v yum)" ]; then
-    localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
   fi
   locale-gen en_US.UTF-8
   update-locale LANG=en_US.UTF-8 UTF-8
@@ -254,8 +216,6 @@ set_timezone() {
   if [ "$(date +%Z)" = "UTC" ]; then
     if [ "$(command -v apt)" ]; then
       apt-get install -y tzdata
-    elif [ "$(command -v yum)" ]; then
-      yum install -y tzdata
     fi
 
     if is_valid_exit_code "timedatectl"; then
@@ -542,11 +502,6 @@ main() {
     add_apt_repository
     install_apt_packages
     install_go_from_src
-  elif can_use_command "yum"; then
-    setup_yum
-    add_rpm_repository
-    install_rpm_packages
-    install_latest_vim_on_cent
   fi
   install_npm_packages
   download_binaries

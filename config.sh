@@ -90,25 +90,6 @@ MAIN_PC_SNAP_PACKAGES_CLASSIC=(
   aws-cli
 )
 
-RPM_PACKAGES=(
-  bash-completion
-  cmake
-  gcc # vimビルド時に使用
-  golang
-  make
-  man-pages
-  ncurses-devel # vimビルド時に使用
-  tree
-  unzip
-  wget
-  yum-utils
-  zip
-)
-
-RPM_REPOS=(
-  epel-release
-)
-
 PIP3_PACKAGES=(
   icdiff
   msgpack

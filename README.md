@@ -20,14 +20,6 @@
   sudo apt install -y curl sudo;
   ```
 
-## CentOS事前設定
-
-- curlがない場合
-
-  ```shell
-  sudo yum install -y curl
-  ```
-
 ## ラズパイ事前設定
 
 - /etc/apt/sources.list に下記追記

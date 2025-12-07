@@ -20,8 +20,5 @@ generate_bashrc() {
 
   if [ -f /etc/bash_completion ]; then
     echo "source /etc/bash_completion" >>$home/.bashrc
-  else
-    # CentOSではmakeの補完が機能しなかったため追加
-    complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
   fi
 }
