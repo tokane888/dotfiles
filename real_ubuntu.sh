@@ -13,8 +13,13 @@ setup_gsettings() {
     gsettings set org.gnome.desktop.wm.keybindings maximize "['<Hyper>f']"
 }
 
+install_packages() {
+    apt-get install -y anki goldendict-webengine dict-freedict-eng-jpn dict-freedict-jpn-eng
+}
+
 main() {
     setup_gsettings
+    install_packages
 }
 
 main
