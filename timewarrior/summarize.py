@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/home/tom/.timewarrior/.venv/bin/python
 import sys
 
 from timewreport.parser import TimeWarriorParser
