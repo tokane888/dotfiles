@@ -248,7 +248,7 @@ setup_ubuntu() {
     sudo -u "$SUDO_USER" pip3 install "$package"
   done
   # timewarrior集計script
-  install -D -o "$SUDO_USER" -g "$SUDO_USER" timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions
+  install -D -o "$SUDO_USER" -g "$SUDO_USER" timewarrior/summarize.py "${HOME%/}"/.timewarrior/extensions/
 
   # taskwarrior-tui install
   curl -L https://github.com/kdheepak/taskwarrior-tui/releases/download/v0.25.4/taskwarrior-tui-x86_64-unknown-linux-gnu.tar.gz | tar zxv --directory=/usr/local/bin
