@@ -100,6 +100,31 @@
   - 少なくとも下記の変更は再起動するまで反映されない
     - ダウンロードディレクトリ等の名前の英語への変更されない
     - defaultのshellのzshへの変更
+- claude codeと各種mcpを連携
+  - chrome MCP
+    - 公式手順にしたがって拡張をdownloadしてinstall
+      - <https://github.com/hangwin/mcp-chrome?tab=readme-ov-file#-quick-start>
+    - 拡張を起動し、"Connect"押下
+    - terminalからコマンド実行して接続
+      - `claude mcp add --transport http chrome-mcp http://127.0.0.1:12306/mcp`
+    - `claude mcp list`でmcp-chromeが正常に接続されている事を確認
+    - TODO: なぜか接続エラーが解消出来ないので調査
+
+      ```sh
+      ~ claude mcp list
+      Checking MCP server health...
+
+      chrome-mcp: http://127.0.0.1:12306/mcp (HTTP) - ✗ Failed to connect
+      ```
+
+  - context7
+    - `claude mcp add --transport http context7 https://mcp.context7.com/mcp`
+  - cipher
+    - `claude mcp add --transport stdio cipher -- cipher --mode mcp`
+      - stdioモードで問題ないか確認
+- コピペ用コマンドを必要に応じてcliborに登録
+  - timewarrior summary表示を分単位に修正
+    - `timew summary | sed -E 's/([0-9]{1,2}:[0-9]{1,2}):[0-9]{1,2}/\1   /g'`
 
 ## WSL2での追加設定
 
