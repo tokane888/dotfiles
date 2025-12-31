@@ -26,7 +26,7 @@ echo "$(date): Timestamp written" >> /tmp/udev-xmodmap-debug.log 2>&1
 
 do_xmodmap() {
     # Wait for keyboard to be fully initialized
-    sleep 2
+    sleep 1
 
     echo "$(date): Starting xmodmap with DISPLAY=$DISPLAY, XAUTHORITY=$XAUTHORITY" >> /tmp/udev-xmodmap-debug.log 2>&1
 
