@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Debug: Write immediately (before set -e)
+echo "$(date): Script executed by $(whoami)" >> /tmp/udev-xmodmap-debug.log 2>&1
+
 set -euo pipefail
 
 export DISPLAY=":0"
@@ -25,16 +28,17 @@ echo "$now" > "$date_file" 2>> /tmp/udev-xmodmap-debug.log
 echo "$(date): Timestamp written" >> /tmp/udev-xmodmap-debug.log 2>&1
 
 do_xmodmap() {
-    # Wait for keyboard to be fully initialized
-    sleep 1
-
     echo "$(date): Starting xmodmap with DISPLAY=$DISPLAY, XAUTHORITY=$XAUTHORITY" >> /tmp/udev-xmodmap-debug.log 2>&1
 
-    if xmodmap $HOME/.Xmodmap 2>&1 | tee -a /tmp/udev-xmodmap-debug.log; then
-        echo "$(date): xmodmap succeeded" >> /tmp/udev-xmodmap-debug.log 2>&1
-    else
-        echo "$(date): xmodmap failed with exit code $?" >> /tmp/udev-xmodmap-debug.log 2>&1
-    fi
+    for i in {1..5}; do
+        if su - tom -c "DISPLAY=:0 XAUTHORITY=/run/user/1000/gdm/Xauthority xmodmap /home/tom/.Xmodmap" 2>&1 | tee -a /tmp/udev-xmodmap-debug.log; then
+            echo "$(date): xmodmap succeeded" >> /tmp/udev-xmodmap-debug.log 2>&1
+        else
+            echo "$(date): xmodmap failed with exit code $?" >> /tmp/udev-xmodmap-debug.log 2>&1
+        fi
+        # コマンド成功してもkeymapが置き換わらない事があるため複数回実行
+        sleep 1
+    done
 }
 
 do_xmodmap &> "${date_file}.log" &
