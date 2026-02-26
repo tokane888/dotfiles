@@ -110,6 +110,7 @@ NPM_PACKAGES=(
   depcheck # package.json内の不要なパッケージ検知
   markuplint
   mcp-chrome-bridge
+  openclaw@latest
   typescript
   @anthropic-ai/claude-code
   @byterover/cipher
