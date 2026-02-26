@@ -81,6 +81,7 @@ MAIN_PC_APT_REPOS=(
 )
 
 MAIN_PC_SNAP_PACKAGES=(
+  telegram-desktop  # OpenClawへの指示用
   teams-for-linux
   xmind
   yq

@@ -96,11 +96,14 @@ install_npm_packages() {
     npm install "$package" -g
   done
   claude migrate-installer
-  openclaw onboard --install-daemon
   npm install n -g
 
   n stable
   # TODO: nでnpm, nodejsをinstallしたので、aptでinstallしたnpm, nodejsは削除検討
+
+  openclaw onboard --install-daemon
+  openclaw doctor --repair
+  openclaw config set gateway.mode local
 }
 
 download_binaries() {
