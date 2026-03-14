@@ -115,5 +115,6 @@ NPM_PACKAGES=(
   typescript
   @anthropic-ai/claude-code
   @byterover/cipher
+  @doist/todoist-cli
   @mermaid-js/mermaid-cli
 )
