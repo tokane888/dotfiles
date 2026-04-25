@@ -154,6 +154,8 @@ export PATH="$PATH:/snap/bin"
 export PATH=$PATH:$HOME/.claude/local/node_modules/.bin
 # sysstatのsa1, sa2
 export PATH=$PATH:/usr/lib/sysstat
+# awsコマンド実行時に既存の出力を一時的に非表示にして全画面で表示される機能を無効化
+export AWS_PAGER=""
 
 # ls出力のディレクトリが深い青で見にくいので調整
 export LS_COLORS=$LS_COLORS:'di=01;36:'
