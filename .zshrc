@@ -152,6 +152,8 @@ export PATH=$PATH:~/.local/bin
 export PATH="$PATH:/snap/bin"
 # claude codeにパスを通す
 export PATH=$PATH:$HOME/.claude/local/node_modules/.bin
+# sysstatのsa1, sa2
+export PATH=$PATH:/usr/lib/sysstat
 
 # ls出力のディレクトリが深い青で見にくいので調整
 export LS_COLORS=$LS_COLORS:'di=01;36:'
