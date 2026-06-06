@@ -30,7 +30,7 @@
   default = current  # 同じ名前のブランチへpushする。なければ作る
   autoSetupRemote = true
 [alias]
-  lod = log --pretty=format:'%C(auto)%h%d [%ad] %s <%cn>' --date=format:'%Y/%m/%d %H:%M:%S'
+  lod = log --pretty=format:'%C(auto)%h%d [%ad] %s <%an>' --date=format:'%Y/%m/%d %H:%M:%S'
 
 # mainブランチからtmpブランチを作成した祭にlocalのtmpブランチがremoteのmainブランチを追跡する事象が生じたので無効化
 #[branch]
