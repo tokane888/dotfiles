@@ -2,7 +2,7 @@
   autocrlf = false
   editor = vim
   ignorecase = true
-  pager = cat
+  pager = "less -F -X"
   quotepath = false  # 日本語文字化け対策
 [user]
   name = tokane888
