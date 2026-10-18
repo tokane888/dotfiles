@@ -182,3 +182,13 @@ fi
 
 PROMPT=' %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
 
+# OpenClaw Completion
+source "/home/tom/.openclaw/completions/openclaw.zsh"
+
+# bun completions
+[ -s "/home/tom/.bun/_bun" ] && source "/home/tom/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
